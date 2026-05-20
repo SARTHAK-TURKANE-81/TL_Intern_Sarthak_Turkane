@@ -1,403 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Project Documentation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --primary-dark:#09637E;
-    --primary:#088395;
-    --secondary:#7AB2B2;
-    --bg:#EBF4F6;
-    --text:#2d3748;
-    --muted:#6b7a85;
-    --card:#ffffff;
-    --shadow:0 4px 14px rgba(9,99,126,.08);
-    --radius:14px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{
-    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    padding:40px 20px 120px;
-  }
-  header{
-    max-width:840px;margin:0 auto 32px;text-align:center;
-  }
-  header h1{
-    color:var(--primary-dark);
-    font-size:32px;margin:0 0 8px;font-weight:700;
-    outline:none;
-  }
-  header p{color:var(--muted);margin:0;font-size:15px;outline:none}
-  main{max-width:840px;margin:0 auto}
-  .step{
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:24px 26px;
-    box-shadow:var(--shadow);
-    position:relative;
-  }
-  .step-header{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:12px;
-  }
-  .step-num{
-    color:var(--primary-dark);
-    font-weight:700;font-size:14px;letter-spacing:.12em;
-    text-transform:uppercase;
-    background:var(--bg);
-    padding:6px 12px;border-radius:8px;
-  }
-  .step-text{
-    font-size:16px;color:var(--text);
-    outline:none;min-height:24px;
-    margin:8px 0 16px;
-  }
-  .step-img-wrap{
-    border-radius:12px;overflow:hidden;background:#f1f6f8;
-    display:flex;align-items:center;justify-content:center;
-    min-height:160px;cursor:default;
-  }
-  .step-img-wrap img{max-width:100%;display:block;height:auto}
-  .placeholder{
-    color:var(--secondary);font-size:14px;padding:48px 16px;text-align:center;
-  }
-  .caption{
-    color:var(--muted);font-size:13px;font-style:italic;
-    margin-top:10px;text-align:center;outline:none;
-  }
-  .caption strong{color:var(--primary);font-style:normal}
-  .arrow{
-    text-align:center;color:var(--primary);
-    font-size:24px;line-height:1;
-    padding:14px 0;user-select:none;
-  }
-  .step-actions{
-    display:none;
-    gap:8px;flex-wrap:wrap;
-    margin-top:16px;padding-top:16px;
-    border-top:1px dashed #d6e4e8;
-  }
-  body.edit-mode .step-actions{display:flex}
-  body.edit-mode .step-text,
-  body.edit-mode .caption,
-  body.edit-mode header h1,
-  body.edit-mode header p{
-    background:#f6fbfc;border-radius:6px;
-    padding:4px 8px;
-    outline:1px dashed var(--secondary);
-  }
-  body.edit-mode .step-img-wrap{cursor:pointer;outline:1px dashed var(--secondary)}
-  .btn{
-    font-family:inherit;font-size:13px;font-weight:500;
-    border:none;cursor:pointer;
-    padding:8px 14px;border-radius:8px;
-    background:var(--bg);color:var(--primary-dark);
-    transition:background .15s;
-  }
-  .btn:hover{background:#dbeaee}
-  .btn-primary{background:var(--primary);color:#fff}
-  .btn-primary:hover{background:var(--primary-dark)}
-  .btn-danger{background:#fdecec;color:#c0392b}
-  .btn-danger:hover{background:#f8d7d7}
-  .floating{
-    position:fixed;bottom:24px;z-index:50;
-    box-shadow:0 6px 18px rgba(9,99,126,.18);
-  }
-  .floating.right{right:24px}
-  .floating.left{left:24px}
-  .add-bottom-wrap{
-    display:none;text-align:center;margin-top:24px;
-  }
-  body.edit-mode .add-bottom-wrap{display:block}
-  .add-bottom-wrap .btn{padding:12px 22px;font-size:14px}
-
-  /* Modal */
-  .modal-backdrop{
-    display:none;position:fixed;inset:0;
-    background:rgba(9,99,126,.35);
-    align-items:center;justify-content:center;z-index:100;
-    padding:20px;
-  }
-  .modal-backdrop.open{display:flex}
-  .modal{
-    background:#fff;border-radius:var(--radius);
-    padding:24px;max-width:380px;width:100%;
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-  }
-  .modal h3{margin:0 0 8px;color:var(--primary-dark);font-size:18px}
-  .modal p{margin:0 0 16px;color:var(--muted);font-size:14px}
-  .modal input{
-    width:100%;padding:10px 12px;border:1px solid #d6e4e8;
-    border-radius:8px;font-family:inherit;font-size:14px;
-    margin-bottom:16px;outline:none;
-  }
-  .modal input:focus{border-color:var(--primary)}
-  .modal-actions{display:flex;justify-content:flex-end;gap:8px}
-  .err{color:#c0392b;font-size:13px;margin-bottom:10px;min-height:18px}
-
-  @media print{
-    body{background:#fff;padding:0}
-    .floating,.step-actions,.add-bottom-wrap{display:none !important}
-    .step{box-shadow:none;border:1px solid #e2e8f0;page-break-inside:avoid}
-    .arrow{page-break-inside:avoid}
-  }
-  @media (max-width:520px){
-    body{padding:24px 14px 120px}
-    .step{padding:18px}
-    header h1{font-size:24px}
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weekly Internship Progress Tracker</title>
+  
 </head>
 <body>
 
-<header>
-  <h1 data-field="title">Project Documentation</h1>
-  <p data-field="subtitle">Step-by-step process documentation</p>
-</header>
+  <header>
+    <h1>Weekly Internship Progress Tracker</h1>
+    <p>Step-by-step documentation of learning, software setup, workflows, and project progress</p>
+  </header>
 
-<main id="steps"></main>
+  
 
-<div class="add-bottom-wrap">
-  <button class="btn btn-primary" id="addBottom">+ Add New Step at Bottom</button>
-</div>
+  <div>
 
-<button class="btn floating left" id="exportPdf">Export to PDF</button>
-<button class="btn btn-primary floating right" id="toggleEdit">Edit Mode</button>
+    <!-- DAY 1 -->
+    <section>
+      <div>
+        <h2>Day 1 - GitHub & VS Code Setup</h2>
+        <p>Simple step-by-step documentation with videos</p>
+        <p>The first day of the project marked an important starting point in transforming an idea into a structured and trackable workflow.
 
-<!-- Password modal -->
-<div class="modal-backdrop" id="pwModal">
-  <div class="modal">
-    <h3>Enter password</h3>
-    <p>Editing is protected. Enter the password to continue.</p>
-    <input type="password" id="pwInput" placeholder="Password" autocomplete="current-password" />
-    <div class="err" id="pwErr"></div>
-    <div class="modal-actions">
-      <button class="btn" id="pwCancel">Cancel</button>
-      <button class="btn btn-primary" id="pwOk">Unlock</button>
-    </div>
+The day began with creating a new repository on GitHub, establishing a dedicated space for managing the project and maintaining version control throughout development. Once the repository was created, it was cloned to the local system using Git commands through the terminal, allowing the project environment to be set up locally.
+
+After configuring the repository, the project was opened in Visual Studio Code for development. An HTML-based progress tracker was then designed and added to the repository folder. The files were organized systematically to maintain a clean and manageable project structure from the very beginning.
+
+A significant learning experience from the day was understanding the capabilities of GitHub Pages. It was interesting to discover that HTML files stored within a GitHub repository can be hosted directly as live webpages, enabling projects to be presented and shared online efficiently.
+
+The day also included attending an insightful session conducted by Dr. Kiran Wakchaure and Dr. Tanay Ghosh. The session focused on GitHub integration with IDEs, understanding workflow fundamentals, and learning practical GitHub productivity techniques. The discussion provided valuable insights into maintaining efficient development practices and managing repositories effectively.
+
+Finally, the completed files were uploaded to GitHub using the standard Git workflow:
+
+git add .
+git commit -m "Added internship tracker files"
+git push
+
+Successfully pushing the first commit to the repository marked the official beginning of the project development journey.</p>
+      </div>
+
+      <div>
+
+        <h3>Step 1 - Install VS Code</h3>
+        <p>
+          Downloaded VS Code from official website and completed installation.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/vscode-install.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 2 - Install Git</h3>
+        <p>
+          Installed Git and verified installation using terminal.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/git-install.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 3 - Create GitHub Repository</h3>
+        <p>
+          Created a new repository and cloned it into VS Code.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/github-repo.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 4 - Upload Files to GitHub</h3>
+        <p>
+          Uploaded project files using Git commands.
+        </p>
+
+        <div>
+          <code>git add .</code><br><br>
+          <code>git commit -m "first commit"</code><br><br>
+          <code>git push</code>
+        </div>
+
+        <video controls width="100%">
+          <source src="videos/git-push.mp4" type="video/mp4">
+        </video>
+
+      </div>
+    </section>
+
+
+    <!-- DAY 2 -->
+    <section>
+      <div>
+        <h2>Day 2 - Research & Software Exploration</h2>
+        <p>Simple documentation with videos of software exploration</p>
+        <p>The second day of the internship was focused on research, planning, and understanding the software ecosystem that would support the development process throughout the project journey.
+
+Rather than directly building features, the day was dedicated to exploring the tools that play an essential role in design, modeling, documentation, content creation, and workflow management. This phase was important in creating a clearer understanding of how different technologies connect together during real-world project development.
+
+The exploration began with learning the fundamentals and applications of Autodesk Fusion and SolidWorks, two widely used CAD and product design platforms. Their capabilities in 3D modeling, mechanical design, prototyping, and simulation highlighted how digital concepts can be transformed into manufacturable designs.
+
+The day also included learning about creative and documentation tools such as GIMP, Canva, and Inkscape. These tools demonstrated how visual communication, vector graphics, presentations, and design assets can contribute to professional project documentation and presentation quality.
+
+In addition, media and workflow-related tools were explored, including OBS Studio for screen recording and content capture, along with FFmpeg for media processing, compression, and file conversion. Understanding these tools provided insight into managing recordings, demonstrations, and digital assets efficiently during development.
+
+An important realization from the day was understanding that successful projects are not built using a single software platform alone. Instead, they rely on an interconnected workflow where multiple tools contribute to different stages such as ideation, design, prototyping, documentation, collaboration, and presentation.</p>
+      </div>
+
+      <div>
+
+        <h3>Step 1 - Autodesk Fusion Introduction</h3>
+        <p>
+          Explored the interface and basic workflow of Fusion 360.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/fusion-intro.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 2 - GIMP Basics</h3>
+        <p>
+          Learned basic image editing and exporting.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/gimp-basics.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 3 - OBS Studio Recording</h3>
+        <p>
+          Learned how to record screen and save videos.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/obs-recording.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 4 - Inkscape & FFmpeg</h3>
+        <p>
+          Explored vector graphics and video compression workflows.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/inkscape-ffmpeg.mp4" type="video/mp4">
+        </video>
+
+      </div>
+    </section>
+
+
+    <!-- DAY 3 -->
+    <section>
+      <div>
+        <h2>Day 3 - Autodesk Fusion Basics</h2>
+        <p>Step-by-step CAD learning documentation with videos</p>
+        <p>The third day of the internship marked the beginning of hands-on work with Computer-Aided Design (CAD) tools through Autodesk Fusion. The session focused on understanding the fundamentals of digital product design and how ideas can gradually be transformed into manufacturable 3D models.
+
+The learning journey started with an introduction to the Autodesk Fusion interface, where different design environments, tools, and workflows were explored. Understanding the workspace layout and navigation controls provided a strong foundation for working efficiently within the software.
+
+The session then moved into sketch creation, which forms the core of most CAD modeling workflows. Basic 2D sketches were created while learning how dimensions, constraints, and scaling are used to define accurate geometries. This helped in understanding how precision plays an important role in engineering and product design.
+
+As the session progressed, the workflow of converting 2D sketches into 3D models was introduced. Learning how flat sketches can evolve into solid objects provided valuable insight into the process of digital prototyping and model development.
+
+Another important aspect covered during the session was understanding how CAD models can be prepared for 3D printing. This introduced the concept of rapid prototyping, where digital designs can be transformed into physical objects using additive manufacturing technologies.
+
+One of the most memorable moments of the day was creating the very first sketch successfully. Although simple, it represented the first practical step into the field of CAD design and digital fabrication — a small achievement that made the learning experience even more exciting.</p>
+      </div>
+
+      <div>
+
+        <h3>Step 1 - Open Autodesk Fusion</h3>
+        <p>
+          Explored the Fusion 360 interface and workspace.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/fusion-interface.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 2 - Create Sketch</h3>
+        <p>
+          Created basic 2D sketches using drawing tools.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/fusion-sketch.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 3 - Add Dimensions</h3>
+        <p>
+          Learned scaling and proper dimensions in sketches.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/fusion-dimensions.mp4" type="video/mp4">
+        </video>
+
+        <h3>Step 4 - Convert into 3D Model</h3>
+        <p>
+          Converted sketch into 3D object and prepared for printing.
+        </p>
+
+        <video controls width="100%">
+          <source src="videos/fusion-3d-model.mp4" type="video/mp4">
+        </video>
+
+      </div>
+    </section>
+
   </div>
-</div>
 
-<!-- Image URL modal -->
-<div class="modal-backdrop" id="imgModal">
-  <div class="modal">
-    <h3>Set image URL</h3>
-    <p>Paste a direct image URL (Imgur, Drive direct link, etc.). Leave blank to clear.</p>
-    <input type="url" id="imgInput" placeholder="https://..." />
-    <div class="modal-actions">
-      <button class="btn" id="imgCancel">Cancel</button>
-      <button class="btn btn-primary" id="imgOk">Save</button>
-    </div>
-  </div>
-</div>
+  <footer>
+    <p>Internship Weekly Documentation Website</p>
+    <p>Built using HTML</p>
+  </footer>
 
-<script>
-(() => {
-  const STORAGE_KEY = 'projectDocsV1';
-  const PASSWORD = 'saru';
-  const PLACEHOLDER = '<div class="placeholder">Click to add image URL</div>';
-
-  const defaultData = {
-    title: 'Project Documentation',
-    subtitle: 'Step-by-step process documentation',
-    steps: [
-      { text: 'Setting up development environment - installed Python, VS Code, created virtual environment.', img: '', caption: 'Development environment setup' },
-      { text: 'Database design - created ER diagram, set up PostgreSQL schema.', img: '', caption: 'Database schema diagram' },
-      { text: 'API development - built REST endpoints using FastAPI.', img: '', caption: 'API endpoints overview' },
-    ],
-  };
-
-  // Load
-  let data;
-  try { data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || defaultData; }
-  catch { data = defaultData; }
-  if (!data.steps || !Array.isArray(data.steps)) data = defaultData;
-
-  const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-
-  // ------ Render
-  const $steps = document.getElementById('steps');
-  function render() {
-    document.querySelector('[data-field="title"]').textContent = data.title;
-    document.querySelector('[data-field="subtitle"]').textContent = data.subtitle;
-    $steps.innerHTML = '';
-    data.steps.forEach((s, i) => {
-      if (i > 0) {
-        const a = document.createElement('div');
-        a.className = 'arrow';
-        a.textContent = '▼';
-        $steps.appendChild(a);
-      }
-      const card = document.createElement('section');
-      card.className = 'step';
-      card.dataset.index = i;
-      card.innerHTML = `
-        <div class="step-header">
-          <span class="step-num">Step ${i+1}</span>
-        </div>
-        <div class="step-text" data-edit="text"></div>
-        <div class="step-img-wrap" data-edit="img">
-          ${s.img ? `<img src="${escapeAttr(s.img)}" alt="Figure ${i+1}">` : PLACEHOLDER}
-        </div>
-        <div class="caption"><strong>Figure ${i+1}:</strong> <span data-edit="caption"></span></div>
-        <div class="step-actions">
-          <button class="btn" data-act="before">+ Add Step Before</button>
-          <button class="btn" data-act="after">+ Add Step After</button>
-          <button class="btn btn-danger" data-act="delete">🗑 Delete</button>
-        </div>
-      `;
-      card.querySelector('[data-edit="text"]').textContent = s.text;
-      card.querySelector('[data-edit="caption"]').textContent = s.caption;
-      $steps.appendChild(card);
-    });
-  }
-  function escapeAttr(s){return String(s).replace(/"/g,'&quot;')}
-
-  render();
-
-  // ------ Edit mode + password gate
-  const $body = document.body;
-  const $toggle = document.getElementById('toggleEdit');
-
-  function enterEditMode() {
-    askPassword({
-      title: 'Enter password',
-      desc: 'Editing is protected. Enter the password to continue.',
-      okLabel: 'Unlock',
-      onOk: (val) => {
-        if (val !== PASSWORD) return 'Incorrect password.';
-        activateEdit();
-        return null;
-      }
-    });
-  }
-  function activateEdit() {
-    $body.classList.add('edit-mode');
-    $toggle.textContent = 'Done Editing';
-    setEditable(true);
-  }
-  function exitEditMode() {
-    $body.classList.remove('edit-mode');
-    $toggle.textContent = 'Edit Mode';
-    setEditable(false);
-  }
-  function setEditable(on) {
-    document.querySelectorAll('[data-field],[data-edit="text"],[data-edit="caption"]').forEach(el => {
-      el.contentEditable = on ? 'true' : 'false';
-    });
-  }
-  $toggle.addEventListener('click', () => {
-    if ($body.classList.contains('edit-mode')) exitEditMode();
-    else enterEditMode();
-  });
-
-  // ------ Capture edits
-  document.addEventListener('input', (e) => {
-    if (!$body.classList.contains('edit-mode')) return;
-    const t = e.target;
-    if (t.dataset.field === 'title') data.title = t.textContent;
-    else if (t.dataset.field === 'subtitle') data.subtitle = t.textContent;
-    else {
-      const card = t.closest('.step');
-      if (!card) return;
-      const idx = +card.dataset.index;
-      if (t.dataset.edit === 'text') data.steps[idx].text = t.textContent;
-      else if (t.dataset.edit === 'caption') data.steps[idx].caption = t.textContent;
-    }
-    save();
-  });
-
-  // ------ Click actions
-  document.addEventListener('click', (e) => {
-    const actBtn = e.target.closest('[data-act]');
-    if (actBtn) {
-      const card = actBtn.closest('.step');
-      const idx = +card.dataset.index;
-      const act = actBtn.dataset.act;
-      if (act === 'delete') {
-        if (data.steps.length === 1) { alert('At least one step is required.'); return; }
-        if (!confirm('Delete this step?')) return;
-        data.steps.splice(idx,1);
-      } else {
-        const newStep = { text: 'New step description.', img: '', caption: 'New figure caption' };
-        data.steps.splice(act === 'before' ? idx : idx+1, 0, newStep);
-      }
-      save(); render(); setEditable(true);
-      return;
-    }
-    const imgWrap = e.target.closest('.step-img-wrap');
-    if (imgWrap && $body.classList.contains('edit-mode')) {
-      const card = imgWrap.closest('.step');
-      const idx = +card.dataset.index;
-      openImgModal(data.steps[idx].img || '', (val) => {
-        data.steps[idx].img = val.trim();
-        save(); render(); setEditable(true);
-      });
-    }
-  });
-
-  document.getElementById('addBottom').addEventListener('click', () => {
-    data.steps.push({ text: 'New step description.', img: '', caption: 'New figure caption' });
-    save(); render(); setEditable(true);
-  });
-
-  document.getElementById('exportPdf').addEventListener('click', () => window.print());
-
-  // ------ Modals
-  const $pwModal = document.getElementById('pwModal');
-  const $pwInput = document.getElementById('pwInput');
-  const $pwErr = document.getElementById('pwErr');
-  const $pwOk = document.getElementById('pwOk');
-  const $pwCancel = document.getElementById('pwCancel');
-  const $pwTitle = $pwModal.querySelector('h3');
-  const $pwDesc = $pwModal.querySelector('p');
-  let pwHandler = null;
-
-  function askPassword({title, desc, okLabel, onOk}) {
-    $pwTitle.textContent = title;
-    $pwDesc.textContent = desc;
-    $pwOk.textContent = okLabel;
-    $pwInput.value = '';
-    $pwErr.textContent = '';
-    pwHandler = onOk;
-    $pwModal.classList.add('open');
-    setTimeout(() => $pwInput.focus(), 50);
-  }
-  function closePw(){ $pwModal.classList.remove('open'); pwHandler = null; }
-  $pwCancel.addEventListener('click', closePw);
-  $pwOk.addEventListener('click', () => {
-    if (!pwHandler) return closePw();
-    const err = pwHandler($pwInput.value);
-    if (err) $pwErr.textContent = err; else closePw();
-  });
-  $pwInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') $pwOk.click(); });
-
-  const $imgModal = document.getElementById('imgModal');
-  const $imgInput = document.getElementById('imgInput');
-  let imgHandler = null;
-  function openImgModal(current, onOk) {
-    $imgInput.value = current;
-    imgHandler = onOk;
-    $imgModal.classList.add('open');
-    setTimeout(() => $imgInput.focus(), 50);
-  }
-  function closeImg(){ $imgModal.classList.remove('open'); imgHandler = null; }
-  document.getElementById('imgCancel').addEventListener('click', closeImg);
-  document.getElementById('imgOk').addEventListener('click', () => {
-    if (imgHandler) imgHandler($imgInput.value);
-    closeImg();
-  });
-  $imgInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('imgOk').click(); });
-})();
-</script>
 </body>
 </html>
