@@ -1,0 +1,69 @@
+Day 1
+
+Created a new GitHub repository for the internship project and built an HTML file to track daily progress. Attended an informative session on GitHub integration with IDEs, workflow basics, and useful GitHub productivity tips & tricks conducted by Dr. Kiran Wakchaure Sir and Dr. Tanay Ghosh Sir.
+
+Process followed:
+
+1. Created a new repository on GitHub
+
+   * Opened GitHub
+   * Clicked on “New Repository”
+   * Added repository name and created the repository
+
+2. Cloned the repository to the local system using PowerShell.
+
+3. Opened the repository folder in VS Code.
+
+4. Added the HTML project file and built a simple HTML-based progress tracker.
+
+5. Organized the project files properly inside the repository folder.
+
+One interesting thing learned today was that GitHub supports GitHub Pages, which allows HTML files stored inside the repository to be hosted and viewed as a live website directly from GitHub.
+
+6. Uploaded files to GitHub using Git commands:
+
+   * git add .
+   * git commit -m "message"
+   * git push
+
+This successfully uploaded all project files to GitHub.
+
+Things learned today:
+
+* GitHub repository creation
+* Cloning repositories
+* Connecting GitHub with VS Code
+* Basic Git workflow using terminal commands
+* GitHub Pages for hosting HTML web pages
+* GitHub productivity tips and tricks
+
+Day 2
+
+Focused on planning, research, and software exploration related to the internship project.
+
+Learned the basic introduction and applications of:
+
+* Autodesk Fusion
+* GIMP
+* OBS Studio
+* SolidWorks
+* Canva
+* Inkscape
+* FFmpeg
+
+Explored how these tools can be used in design, documentation, media creation, CAD modeling, and project development workflows.
+
+Day 3
+
+Started working with Autodesk Fusion and learned the basics of CAD software.
+
+Topics covered:
+
+* Introduction to Autodesk Fusion interface
+* Sketch creation
+* Understanding scale and dimensions
+* Creating 2D sketches
+* Basics of converting sketches into 3D models
+* Understanding how designs can be prepared for 3D printing
+
+This session helped in understanding the workflow of digital product design and rapid prototyping.
