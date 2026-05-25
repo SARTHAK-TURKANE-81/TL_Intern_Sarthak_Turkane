@@ -99,6 +99,366 @@ Key concepts covered include repositories, commits, version history, project org
   <li><a href="https://github.com" target="_blank">GitHub Official Website</a></li>
   <li><a href="https://gitlab.com" target="_blank">GitLab Official Website</a></li>
 </ul>
+  <section class="quick-reference">
+
+  <!-- Section Header -->
+  <div class="section-heading">
+    <p class="mini-title">SARTHAK TURKANE • DAILY GIT WORKFLOW</p>
+    <h2>Quick Reference — Git Commands You’ll Use Every Day</h2>
+    <p class="section-description">
+      These are the most important Git commands beginners use regularly.
+      You do not need to memorize everything immediately. Just understand
+      what each command does and practice slowly.
+    </p>
+  </div>
+
+  <!-- Command Cards -->
+  <div class="command-list">
+
+    <!-- Clone -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">1</span>
+        <h3>Clone a Repository</h3>
+      </div>
+
+      <p class="command-info">
+        Downloads a GitHub repository from the internet to your computer.
+        Usually done only once when starting a project.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Download project to your computer</span>
+
+        <pre><code><span class="cmd">git clone</span> <span class="string">https://github.com/user/repo.git</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        💡 After cloning, a new project folder will appear on your computer.
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">2</span>
+        <h3>Check File Status</h3>
+      </div>
+
+      <p class="command-info">
+        Shows which files were changed, added, or are ready to commit.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># See what changed</span>
+
+        <pre><code><span class="cmd">git status</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        ✅ This is one of the safest and most useful Git commands.
+      </div>
+    </div>
+
+    <!-- Add -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">3</span>
+        <h3>Stage Your Files</h3>
+      </div>
+
+      <p class="command-info">
+        Tells Git which changed files should be included in the next commit.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Stage all changed files</span>
+
+        <pre><code><span class="cmd">git add .</span></code></pre>
+      </div>
+
+      <div class="warning-box">
+        ⚠️ Beginners often forget this step before committing.
+      </div>
+    </div>
+
+    <!-- Commit -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">4</span>
+        <h3>Create a Commit</h3>
+      </div>
+
+      <p class="command-info">
+        Saves a snapshot of your changes with a short message explaining
+        what you changed.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Save changes with a message</span>
+
+        <pre><code><span class="cmd">git commit</span> <span class="flag">-m</span> <span class="string">"Added homepage design"</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        ✍️ Good commit messages make projects easier to understand later.
+      </div>
+    </div>
+
+    <!-- Push -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">5</span>
+        <h3>Push to GitHub</h3>
+      </div>
+
+      <p class="command-info">
+        Uploads your commits from your computer to GitHub.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Upload your changes to GitHub</span>
+
+        <pre><code><span class="cmd">git push</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        🚀 After pushing, your updated code appears on GitHub online.
+      </div>
+    </div>
+
+    <!-- Pull -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">6</span>
+        <h3>Pull Latest Changes</h3>
+      </div>
+
+      <p class="command-info">
+        Downloads the newest changes from GitHub to your computer.
+        Helpful when working with teammates.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Get latest updates from GitHub</span>
+
+        <pre><code><span class="cmd">git pull</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        🔄 Pull before starting work to avoid conflicts.
+      </div>
+    </div>
+
+    <!-- Log -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">7</span>
+        <h3>View Commit History</h3>
+      </div>
+
+      <p class="command-info">
+        Shows previous commits and helps you track project history.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Show previous commits</span>
+
+        <pre><code><span class="cmd">git log</span> <span class="flag">--oneline</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+        📚 Every commit acts like a saved checkpoint in your project.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+/* =========================
+   QUICK REFERENCE SECTION
+========================= */
+
+.quick-reference{
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 40px 24px;
+    font-family: Arial, sans-serif;
+}
+
+.section-heading{
+    margin-bottom: 50px;
+}
+
+.mini-title{
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.section-heading h2{
+    font-size: 42px;
+    line-height: 1.2;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.section-description{
+    font-size: 17px;
+    color: #4b5563;
+    max-width: 750px;
+    line-height: 1.8;
+}
+
+/* =========================
+   COMMAND GRID
+========================= */
+
+.command-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    gap: 28px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.command-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: 0.2s ease;
+}
+
+.command-card:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   TOP AREA
+========================= */
+
+.command-top{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.step-badge{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #111827;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.command-top h3{
+    font-size: 22px;
+    color: #111827;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.command-info{
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    font-size: 15px;
+}
+
+/* =========================
+   CODE BLOCK
+========================= */
+
+.code-block{
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 18px;
+}
+
+.code-block pre{
+    margin: 0;
+}
+
+.code-block code{
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: Consolas, monospace;
+}
+
+.comment{
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.cmd{
+    color: #f8fafc;
+}
+
+.flag{
+    color: #38bdf8;
+}
+
+.string{
+    color: #86efac;
+}
+
+/* =========================
+   TIP & WARNING BOXES
+========================= */
+
+.tip-box,
+.warning-box{
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tip-box{
+    background: #ecfeff;
+    color: #155e75;
+}
+
+.warning-box{
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .section-heading h2{
+        font-size: 32px;
+    }
+
+    .command-card{
+        padding: 22px;
+    }
+
+}
+
+</style>
 
 <p><b>Learning References:</b></p>
 <ul>
