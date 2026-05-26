@@ -21,12 +21,12 @@ html{
 
 body{
     font-family:Arial,sans-serif;
-    color:white;
+    color:#ffffff;
     overflow-x:hidden;
-    background:#000;
+    background:#f8f9fc;
 }
 
-/* VIDEO BACKGROUND */
+/* VIDEO */
 
 .video-bg{
     position:fixed;
@@ -35,62 +35,47 @@ body{
     height:100%;
     object-fit:cover;
     z-index:-3;
-    filter:brightness(0.75) contrast(1.05);
+
+    /* BRIGHTER VIDEO */
+    filter:
+        brightness(1.35)
+        contrast(0.9)
+        saturate(0.85);
 }
 
-/* GRADIENT OVERLAY */
+/* LIGHT OVERLAY */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-    background:
-    linear-gradient(
-        180deg,
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.55)
-    );
+
+    /* soft white overlay */
+    background:rgba(255,255,255,0.58);
+
     z-index:-2;
 }
 
-/* SUBTLE GLASS OVERLAY */
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    backdrop-filter:blur(2px);
-    z-index:-1;
-    pointer-events:none;
-}
-
 /* CONTENT */
-
-.container{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
-}
 
 .content{
     max-width:900px;
 }
 
+/* DARK TEXT FOR LIGHT BG */
+
 .content h1{
-    font-size:clamp(2.5rem,6vw,5rem);
-    margin-bottom:18px;
-    letter-spacing:1px;
-    text-shadow:0 4px 25px rgba(0,0,0,0.55);
+    font-size:clamp(2.7rem,6vw,5rem);
+    color:#0b1736;
+    font-weight:800;
+    line-height:1.15;
+    margin-bottom:22px;
 }
 
 .content p{
-    font-size:1.15rem;
-    line-height:1.7;
-    color:rgba(255,255,255,0.9);
-    margin-bottom:30px;
+    color:#43506b;
+    font-size:1.2rem;
+    line-height:1.8;
 }
 
 .btn{
