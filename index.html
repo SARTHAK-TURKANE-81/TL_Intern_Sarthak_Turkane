@@ -26,7 +26,7 @@ body{
     background:#f8f9fc;
 }
 
-/* VIDEO */
+/* VIDEO BACKGROUND */
 
 .video-bg{
     position:fixed;
@@ -36,26 +36,25 @@ body{
     object-fit:cover;
     z-index:-3;
 
-    /* BRIGHTER VIDEO */
+    /* visible but clean */
     filter:
-        brightness(1.35)
-        contrast(0.9)
-        saturate(0.85);
+        brightness(1.15)
+        contrast(1.05)
+        saturate(0.9);
 }
 
-/* LIGHT OVERLAY */
+/* LIGHT OVERLAY — MUCH LIGHTER */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
 
-    /* soft white overlay */
-    background:rgba(255,255,255,0.58);
+    background:rgba(255,255,255,0.18);
 
     z-index:-2;
 }
-
+    
 /* CONTENT */
 
 .content{
