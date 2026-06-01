@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Week 1 Technical Documentation Report - Sanjivani University Summer Internship 2026</title>
+<title>Week 1 Technical Documentation Report</title>
 
 <style>
 
@@ -20,10 +19,9 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
-    color:#ffffff;
-    overflow-x:hidden;
+    font-family:'Segoe UI',sans-serif;
     background:#f8f9fc;
+    overflow-x:hidden;
 }
 
 /* VIDEO BACKGROUND */
@@ -36,62 +34,120 @@ body{
     object-fit:cover;
     z-index:-3;
 
-    /* visible but clean */
     filter:
         brightness(1.15)
         contrast(1.05)
         saturate(0.9);
 }
 
-/* LIGHT OVERLAY — MUCH LIGHTER */
+/* LIGHT OVERLAY */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
-
     background:rgba(255,255,255,0.18);
-
     z-index:-2;
 }
-    
-/* CONTENT */
 
-.content{
+/* HERO CONTENT */
+
+.container{
     max-width:900px;
+    margin:auto;
+    padding:70px 25px;
 }
 
-/* DARK TEXT FOR LIGHT BG */
+.byline{
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#5f6780;
+    margin-bottom:18px;
+}
 
-.content h1{
-    font-size:clamp(2.7rem,6vw,5rem);
+h1{
+    font-size:clamp(2.3rem,5vw,4.5rem);
     color:#0b1736;
+    line-height:1.1;
+    margin-bottom:20px;
     font-weight:800;
-    line-height:1.15;
-    margin-bottom:22px;
 }
 
-.content p{
+.tagline{
     color:#43506b;
-    font-size:1.2rem;
+    font-size:1.1rem;
     line-height:1.8;
+
+    border-left:4px solid rgba(11,23,54,.18);
+    padding-left:18px;
+
+    margin-bottom:55px;
 }
 
-.btn{
-    display:inline-block;
-    padding:14px 34px;
-    border-radius:999px;
+/* WHITE BLOCK */
+
+.white-block{
+    background:#ffffff;
+    padding:42px;
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.12);
+
+    margin-top:30px;
+}
+
+/* TOC */
+
+hr{
+    border:none;
+    border-top:1px solid #ececec;
+    margin-bottom:26px;
+}
+
+.toc-label{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#999;
+    margin-bottom:18px;
+}
+
+ol.toc{
+    list-style:none;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:0 30px;
+}
+
+ol.toc li{
+    display:flex;
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #f1f1f1;
+}
+
+.num{
+    color:#b7b7b7;
+    font-size:.75rem;
+    min-width:20px;
+}
+
+ol.toc a{
     text-decoration:none;
-    color:#000;
-    background:#fff;
-    font-weight:700;
-    transition:all .35s ease;
-    box-shadow:0 8px 30px rgba(255,255,255,0.18);
+    color:#333;
+    font-size:.92rem;
+    transition:.25s;
 }
 
-.btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 40px rgba(255,255,255,0.3);
+ol.toc a:hover{
+    color:#000;
+    transform:translateX(4px);
 }
 
 </style>
@@ -99,125 +155,69 @@ body::before{
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
+<!-- VIDEO -->
 
 <video class="video-bg" autoplay muted loop playsinline>
     <source src="12681526_3840_2160_30fps.mp4" type="video/mp4">
 </video>
-  <br>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Week 1 Technical Documentation Report - Sanjivani University Summer Internship 2026</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
- 
-    .byline {
-      font-size: 0.8rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #888;
-      margin: 0 0 0.4rem;
-    }
- 
-    h1 {
-      font-size: 1.75rem;
-      font-weight: 600;
-      margin: 0 0 1rem;
-    }
- 
-    .tagline {
-      font-size: 0.95rem;
-      color: #555;
-      border-left: 3px solid #ccc;
-      padding-left: 1rem;
-      margin: 0 0 2rem;
-    }
- 
-    hr {
-      border: none;
-      border-top: 1px solid #e0e0e0;
-      margin: 0 0 1.75rem;
-    }
- 
-    .toc-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #999;
-      margin: 0 0 0.75rem;
-    }
- 
-    ol.toc {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 0 2rem;
-    }
- 
-    ol.toc li {
-      display: flex;
-      align-items: baseline;
-      gap: 0.6rem;
-      padding: 0.35rem 0;
-      border-bottom: 1px solid #f0f0f0;
-    }
- 
-    ol.toc .num {
-      font-size: 0.7rem;
-      color: #bbb;
-      min-width: 1.2rem;
-    }
- 
-    ol.toc a {
-      font-size: 0.88rem;
-      color: #444;
-      text-decoration: none;
-    }
- 
-    ol.toc a:hover {
-      color: #000;
-    }
-  </style>
-</head>
-<body>
- 
-  <p class="byline">Sanjivani University &nbsp; &nbsp; Summer Internship 2026  &nbsp; &nbsp; Tinkerers’ Lab &nbsp; &nbsp; SARTHAK TURKANE</p>
-  <h1>Week 1 Technical Documentation Report</h1>
-  <p class="tagline">
-    A structured documentation of the concepts,
-workflows, tools and hands-on learning experiences
-covered throughout the internship journey.
-  </p>
- 
-  <hr>
- 
-  <p class="toc-label">Table of Contents</p>
-  <ol class="toc">
-    <li><span class="num">01</span><a href="#intro">Introduction</a></li>
-    <li><span class="num">02</span><a href="#docs">Professional Documentation &amp; Technical Workflow</a></li>
-    <li><span class="num">03</span><a href="#collab">GitHub &amp; GitLab - Collaborative Development</a></li>
-    <li><span class="num">04</span><a href="#vscode">Development Environment - Visual Studio Code</a></li>
-    <li><span class="num">05</span><a href="#content">Digital Content Creation &amp; Visual Communication</a></li>
-    <li><span class="num">06</span><a href="#cad">Computer-Aided Design (CAD) Fundamentals</a></li>
-    <li><span class="num">07</span><a href="#graphics">2D Design : Raster &amp; Vector Graphics</a></li>
-    <li><span class="num">08</span><a href="#modeling">3D Modeling - Fusion 360</a></li>
-    <li><span class="num">09</span><a href="#printing">3D Printing Workflow - Bambu Lab Studio</a></li>
-    <li><span class="num">10</span><a href="#skills">Key Skills &amp; Competencies Developed</a></li>
-    <li><span class="num">11</span><a href="#tools">Tool Reference Table</a></li>
-    <li><span class="num">12</span><a href="#reflection">Personal Reflection</a></li>
-    <li><span class="num">13</span><a href="#resources">Useful Learning Resources</a></li>
-  </ol>
- 
-</body>
+
+<div class="container">
+
+    <p class="byline">
+        Sanjivani University • Summer Internship 2026 • Tinkerers’ Lab • SARTHAK TURKANE
+    </p>
+
+    <h1>
+        Week 1 Technical Documentation Report
+    </h1>
+
+    <p class="tagline">
+        A structured documentation of the concepts,
+        workflows, tools and hands-on learning experiences
+        covered throughout the internship journey.
+    </p>
+
+    <!-- WHITE BLOCK BELOW -->
+
+    <div class="white-block">
+
+        <hr>
+
+        <p class="toc-label">Table of Contents</p>
+
+        <ol class="toc">
+
+            <li><span class="num">01</span><a href="#intro">Introduction</a></li>
+
+            <li><span class="num">02</span><a href="#docs">Professional Documentation & Technical Workflow</a></li>
+
+            <li><span class="num">03</span><a href="#collab">GitHub & GitLab — Collaborative Development</a></li>
+
+            <li><span class="num">04</span><a href="#vscode">Development Environment — Visual Studio Code</a></li>
+
+            <li><span class="num">05</span><a href="#content">Digital Content Creation & Visual Communication</a></li>
+
+            <li><span class="num">06</span><a href="#cad">Computer-Aided Design (CAD) Fundamentals</a></li>
+
+            <li><span class="num">07</span><a href="#graphics">2D Design : Raster & Vector Graphics</a></li>
+
+            <li><span class="num">08</span><a href="#modeling">3D Modeling — Fusion 360</a></li>
+
+            <li><span class="num">09</span><a href="#printing">3D Printing Workflow — Bambu Lab Studio</a></li>
+
+            <li><span class="num">10</span><a href="#skills">Key Skills & Competencies Developed</a></li>
+
+            <li><span class="num">11</span><a href="#tools">Tool Reference Table</a></li>
+
+            <li><span class="num">12</span><a href="#reflection">Personal Reflection</a></li>
+
+            <li><span class="num">13</span><a href="#resources">Useful Learning Resources</a></li>
+
+        </ol>
+
+    </div>
+
+</div>
 <br>
 
 <section class="internship-section">
