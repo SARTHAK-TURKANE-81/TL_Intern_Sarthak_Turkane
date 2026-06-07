@@ -1,0 +1,4401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Week 1 Technical Documentation Report</title>
+
+<style>
+
+:root {
+    --bg-page: #f0ede8;
+    --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10);
+    --border-strong: rgba(26,20,16,0.18);
+    --accent: #1a1410;
+    --accent-warm: #b87333;
+    --accent-dim: rgba(26,20,16,0.45);
+    --text-primary: #0f0c09;
+    --text-secondary: #8a7f74;
+    --text-tertiary: #b5a99c;
+    --shadow-card: 0 16px 50px rgba(26,20,16,0.12);
+    --radius-card: 24px;
+    --radius-pill: 999px;
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family: var(--font-body);
+    background: var(--bg-page);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(184,115,51,0.08) 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    overflow-x:hidden;
+}
+
+/* VIDEO BACKGROUND */
+
+.video-bg{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-3;
+
+    filter:
+        brightness(1.15)
+        contrast(1.05)
+        saturate(0.9);
+}
+
+/* LIGHT OVERLAY */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background: rgba(250, 249, 247, 0.62);
+    z-index:-2;
+}
+
+/* HERO CONTENT */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:70px 25px;
+}
+
+.byline{
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#5f6780;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family: var(--font-heading);
+    font-size:clamp(2.3rem,5vw,4.5rem);
+    color: var(--accent);
+    line-height:1.1;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.tagline{
+    color: var(--text-secondary);
+    font-size:1.1rem;
+    line-height:1.8;
+
+    border-left:4px solid rgba(184,115,51,0.18);
+    padding-left:18px;
+
+    margin-bottom:55px;
+}
+
+/* WHITE BLOCK */
+
+.white-block{
+    background: var(--bg-card);
+    padding:42px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    margin-top:30px;
+}
+
+/* TOC */
+
+hr{
+    border:none;
+    border-top:1px solid #ececec;
+    margin-bottom:26px;
+}
+
+.toc-label{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#999;
+    margin-bottom:18px;
+}
+
+ol.toc{
+    list-style:none;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:0 30px;
+}
+
+ol.toc li{
+    display:flex;
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #f1f1f1;
+}
+
+.num{
+    color:#b7b7b7;
+    font-size:.75rem;
+    min-width:20px;
+}
+
+ol.toc a{
+    text-decoration:none;
+    color:#333;
+    font-size:.92rem;
+    transition:.25s;
+}
+
+ol.toc a:hover{
+    color:#000;
+    transform:translateX(4px);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO -->
+
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="12681526_3840_2160_30fps.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+    <p class="byline">
+        Sanjivani University • Summer Internship 2026 • Tinkerers’ Lab • SARTHAK TURKANE
+    </p>
+
+    <h2>
+        Week 1 Technical Documentation Report
+    </h2>
+<br>
+    <p class="tagline">
+        A structured documentation of the concepts,
+        workflows, tools and hands-on learning experiences
+        covered throughout the internship journey.
+    </p>
+
+    <!-- WHITE BLOCK BELOW -->
+
+    <div class="white-block">
+
+        <hr>
+
+        <p class="toc-label">Table of Contents</p>
+
+        <ol class="toc">
+
+            <li><span class="num">01</span><a href="#intro">Introduction</a></li>
+
+            <li><span class="num">02</span><a href="#docs">Professional Documentation & Technical Workflow</a></li>
+
+            <li><span class="num">03</span><a href="#collab">GitHub & GitLab — Collaborative Development</a></li>
+
+            <li><span class="num">04</span><a href="#vscode">Development Environment — Visual Studio Code</a></li>
+
+            <li><span class="num">05</span><a href="#content">Digital Content Creation & Visual Communication</a></li>
+
+            <li><span class="num">06</span><a href="#cad">Computer-Aided Design (CAD) Fundamentals</a></li>
+
+            <li><span class="num">07</span><a href="#graphics">2D Design : Raster & Vector Graphics</a></li>
+
+            <li><span class="num">08</span><a href="#modeling">3D Modeling — Fusion 360</a></li>
+
+            <li><span class="num">09</span><a href="#printing">3D Printing Workflow — Bambu Lab Studio</a></li>
+
+            <li><span class="num">10</span><a href="#skills">Key Skills & Competencies Developed</a></li>
+
+            <li><span class="num">11</span><a href="#tools">Tool Reference Table</a></li>
+
+            <li><span class="num">12</span><a href="#reflection">Personal Reflection</a></li>
+
+            <li><span class="num">13</span><a href="#resources">Useful Learning Resources</a></li>
+
+        </ol>
+
+    </div>
+
+</div>
+<br>
+
+<section class="internship-section">
+
+  <!-- INTRO HEADER -->
+  <div class="section-header">
+  
+
+    <h1 id="intro">
+      Introduction
+    </h1>
+
+    <p class="intro-highlight">
+     A hands-on journey through the tools, workflows, and collaborative practices that define real-world engineering development.
+    </p>
+  </div>
+
+  <!-- MAIN CONTENT CARD -->
+  <div class="content-card">
+
+    <p>
+      The Summer Internship Program began with an introductory session by<br>
+      <span class="highlight-name">Dr. Kiran Wakchaure Sir</span> and
+      <span class="highlight-name">Dr. Tanay Ghosh Sir</span>,
+      who introduced us to
+      <b>
+        <a href="https://sanjivani.edu.in/tinkerers-lab#225" target="_blank">
+          Tinkerers’ Lab
+        </a> 
+      </b>
+      Its vision and the technical learning approach followed throughout
+      the internship.
+    </p>
+
+    <p>
+      The session provided an overview of the technologies, workflows,
+      collaborative practices and engineering tools that would be explored
+      during the program. It established a clear understanding of how modern
+      technical environments combine software development, documentation,
+      design systems and fabrication workflows into one integrated process.
+    </p>
+
+    <p>
+      During the first week, I was introduced to multiple technical domains
+      including professional documentation, development environments,
+      collaborative platforms, visual communication, CAD systems
+      and digital fabrication tools.
+    </p>
+
+    <p>
+      Rather than focusing on only one technology stack, the internship
+      introduced a broader interdisciplinary workflow. This helped in
+      understanding how technical planning, engineering design,
+      software workflows, and manufacturing preparation connect together
+      in real-world project development.
+    </p>
+
+  
+
+  </div>
+
+  <!-- SECTION DIVIDER -->
+  <div class="divider"></div>
+
+  <!-- NEXT SECTION -->
+  <div class="sub-section">
+
+    <div class="sub-heading">
+      <span class="section-number">01</span>
+
+      <div>
+        <p class="small-heading">
+          PROFESSIONAL DOCUMENTATION & WORKFLOW
+        </p>
+
+        <h2 id="docs">
+          Professional Documentation & Technical Workflow
+        </h2>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content-card">
+
+      <p>
+        One of the first topics introduced during the internship was
+        professional documentation and technical workflow management.
+        I learned that documentation is not only about recording information,
+        but also about organizing technical work, maintaining project clarity,
+        and communicating ideas effectively.
+      </p>
+
+      <p>
+        The sessions highlighted the importance of documentation in software
+        development, engineering workflows, collaborative environments,
+        troubleshooting, and long-term project management.
+      </p>
+
+      <p>
+        Proper documentation supports:
+      </p>
+
+      <!-- LIST -->
+      <ul class="styled-list">
+        <li>Tracking project progress systematically</li>
+        <li>Maintaining organized technical records</li>
+        <li>Improving collaboration between team members</li>
+        <li>Understanding workflow decisions clearly</li>
+        <li>Revisiting previous implementations efficiently</li>
+      </ul>
+
+      <p>
+        We also explored how structured workflows improve task management,
+        coordination, and consistency across technical projects.
+      </p>
+
+      <p>
+        The organization style of this documentation was inspired by
+        the structured documentation practices followed in
+        <b>Fab Academy</b>, especially the work of
+        <span class="highlight-name">Dr. Kiran Wakchaure</span>.
+      </p>
+
+      <!-- REFERENCE BOX -->
+      <div class="reference-box">
+
+        <span class="reference-label">Reference</span>
+
+        <a href="https://fabacademy.org/2022/labs/vigyanashram/students/kiran-wakchaure/"
+           target="_blank">
+          Fab Academy 2022 | Dr. Kiran Wakchaure Documentation Archive
+        </a>
+
+      </div>
+
+      <!-- IMAGE -->
+      <div class="image-card">
+
+        <a href="git-img/workflow.png" target="_blank">
+          <img src="git-img/workflow.png"
+               alt="Documentation Workflow"
+               border="0">
+        </a>
+
+        <p class="image-caption">
+          <strong>Fig. 1.0:</strong>
+          Internship Learning, Task Management,
+          and Technical Documentation Workflow
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* =========================
+   GLOBAL SECTION
+========================= */
+
+.internship-section{
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #1f2937;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.section-header{
+    margin-bottom: 50px;
+}
+
+.mini-label{
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 15px;
+}
+
+.section-header h1{
+    font-size: 52px;
+    line-height: 1.2;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+.intro-highlight{
+    font-size: 18px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 800px;
+}
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.content-card p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.content-card a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-card a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   NAME HIGHLIGHT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top: 30px;
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #1e3a8a;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.section-number{
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.small-heading{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.sub-heading h2{
+    font-size: 38px;
+    line-height: 1.3;
+    color: #111827;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.image-card{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 850px;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* single centered responsive video */
+.image-card{
+  margin-top: 40px;
+  text-align: center;
+}
+
+.image-card .video-container{
+  max-width:850px;
+  margin:0 auto;
+}
+
+.image-caption{
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .section-header h1{
+        font-size: 38px;
+    }
+
+    .sub-heading{
+        flex-direction: column;
+    }
+
+    .sub-heading h2{
+        font-size: 30px;
+    }
+
+    .content-card{
+        padding: 28px;
+    }
+
+}
+
+</style> <br>
+
+  
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<!-- NEXT SECTION -->
+<div class="sub-section">
+
+  <div class="sub-heading">
+
+    <span class="section-number">02</span>
+
+    <div>
+
+      <p class="small-heading">
+        COLLABORATIVE DEVELOPMENT & VERSION CONTROL
+      </p>
+
+      <h2 id="collab">
+        GitHub & GitLab - Collaborative Development
+      </h2>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-card">
+
+    <p>
+      To understand how modern development teams organize and manage
+      technical projects, I explored
+      <span class="highlight-name">GitHub</span>
+      and
+      <span class="highlight-name">GitLab</span>.
+    </p>
+
+    <p>
+      These platforms introduced me to version control systems,
+      collaborative development practices, repository management,
+      and structured project workflows commonly used in
+      software development environments.
+    </p>
+
+    <p>
+      Key concepts covered during the learning process included:
+    </p>
+
+    <!-- LIST -->
+    <ul class="styled-list">
+
+      <li>Repositories and project structure</li>
+
+      <li>Commits and version history tracking</li>
+
+      <li>Managing project files systematically</li>
+
+      <li>Collaborative contribution workflows</li>
+
+      <li>Tracking modifications and updates efficiently</li>
+
+      <li>Supporting parallel development in teams</li>
+
+    </ul>
+
+    <p>
+      The sessions helped in understanding how collaborative platforms
+      simplify project management, maintain development history,
+      and improve coordination between contributors working on
+      shared technical projects.
+    </p>
+
+  
+    <!-- REFERENCE BOX -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Official Resources
+      </span>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="https://github.com" target="_blank">
+            GitHub Official Website
+          </a>
+        </li>
+
+        <li>
+          <a href="https://gitlab.com" target="_blank">
+            GitLab Official Website
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+</div>
+
+<style>
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.section-number{
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.small-heading{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.sub-heading h2{
+    font-size: 38px;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.content-card p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top: 30px;
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #1e3a8a;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.content-card a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-card a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.image-card{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 850px;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.image-caption{
+    margin-top: 18px;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sub-heading{
+        flex-direction: column;
+    }
+
+    .sub-heading h2{
+        font-size: 30px;
+    }
+
+    .content-card{
+        padding: 28px;
+    }
+
+}
+
+</style>
+  <section class="quick-reference">
+
+  <!-- Section Header -->
+  <div class="section-heading">
+    <p class="mini-title">  DAILY GIT WORKFLOW</p>
+    <h2>Quick Reference - Git Commands You’ll Use Every Day</h2>
+    <p class="section-description">
+      These are the most important Git commands beginners use regularly.
+      You do not need to memorize everything immediately. Just understand
+      what each command does and practice slowly.
+    </p>
+  </div>
+
+  <!-- Command Cards -->
+  <div class="command-list">
+
+    <!-- Clone -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">1</span>
+        <h3>Clone a Repository</h3>
+      </div>
+
+      <p class="command-info">
+        Downloads a GitHub repository from the internet to your computer.
+        Usually done only once when starting a project.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Download project to your computer</span>
+
+        <pre><code><span class="cmd">git clone</span> <span class="string">https://github.com/user/repo.git</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          After cloning, a new project folder will appear on your computer.
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">2</span>
+        <h3>Check File Status</h3>
+      </div>
+
+      <p class="command-info">
+        Shows which files were changed, added, or are ready to commit.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># See what changed</span>
+
+        <pre><code><span class="cmd">git status</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          This is one of the safest and most useful Git commands.
+      </div>
+    </div>
+
+    <!-- Add -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">3</span>
+        <h3>Stage Your Files</h3>
+      </div>
+
+      <p class="command-info">
+        Tells Git which changed files should be included in the next commit.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Stage all changed files</span>
+
+        <pre><code><span class="cmd">git add .</span></code></pre>
+      </div>
+
+      <div class="warning-box">
+          Beginners often forget this step before committing.
+      </div>
+    </div>
+
+    <!-- Commit -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">4</span>
+        <h3>Create a Commit</h3>
+      </div>
+
+      <p class="command-info">
+        Saves a snapshot of your changes with a short message explaining
+        what you changed.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Save changes with a message</span>
+
+        <pre><code><span class="cmd">git commit</span> <span class="flag">-m</span> <span class="string">"Added homepage design"</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          Good commit messages make projects easier to understand later.
+      </div>
+    </div>
+
+    <!-- Push -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">5</span>
+        <h3>Push to GitHub</h3>
+      </div>
+
+      <p class="command-info">
+        Uploads your commits from your computer to GitHub.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Upload your changes to GitHub</span>
+
+        <pre><code><span class="cmd">git push</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          After pushing, your updated code appears on GitHub online.
+      </div>
+    </div>
+
+    <!-- Pull -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">6</span>
+        <h3>Pull Latest Changes</h3>
+      </div>
+
+      <p class="command-info">
+        Downloads the newest changes from GitHub to your computer.
+        Helpful when working with teammates.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Get latest updates from GitHub</span>
+
+        <pre><code><span class="cmd">git pull</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          Pull before starting work to avoid conflicts.
+      </div>
+    </div>
+
+    <!-- Log -->
+    <div class="command-card">
+      <div class="command-top">
+        <span class="step-badge">7</span>
+        <h3>View Commit History</h3>
+      </div>
+
+      <p class="command-info">
+        Shows previous commits and helps you track project history.
+      </p>
+
+      <div class="code-block">
+        <span class="comment"># Show previous commits</span>
+
+        <pre><code><span class="cmd">git log</span> <span class="flag">--oneline</span></code></pre>
+      </div>
+
+      <div class="tip-box">
+          Every commit acts like a saved checkpoint in your project.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+
+/* =========================
+   QUICK REFERENCE SECTION
+========================= */
+
+.quick-reference{
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 40px 24px;
+    font-family: Arial, sans-serif;
+}
+
+.section-heading{
+    margin-bottom: 50px;
+}
+
+.mini-title{
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.section-heading h2{
+    font-size: 42px;
+    line-height: 1.2;
+    color: #111827;
+    margin-bottom: 16px;
+}
+
+.section-description{
+    font-size: 17px;
+    color: #4b5563;
+    max-width: 750px;
+    line-height: 1.8;
+}
+
+/* =========================
+   COMMAND GRID
+========================= */
+
+.command-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    gap: 28px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.command-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    transition: 0.2s ease;
+}
+
+.command-card:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   TOP AREA
+========================= */
+
+.command-top{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.step-badge{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #111827;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.command-top h3{
+    font-size: 22px;
+    color: #111827;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.command-info{
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    font-size: 15px;
+}
+
+/* =========================
+   CODE BLOCK
+========================= */
+
+.code-block{
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 18px;
+}
+
+.code-block pre{
+    margin: 0;
+}
+
+.code-block code{
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: Consolas, monospace;
+}
+
+.comment{
+    color: #94a3b8;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.cmd{
+    color: #f8fafc;
+}
+
+.flag{
+    color: #38bdf8;
+}
+
+.string{
+    color: #86efac;
+}
+
+/* =========================
+   TIP & WARNING BOXES
+========================= */
+
+.tip-box,
+.warning-box{
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tip-box{
+    background: #ecfeff;
+    color: #155e75;
+}
+
+.warning-box{
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .section-heading h2{
+        font-size: 32px;
+    }
+
+    .command-card{
+        padding: 22px;
+    }
+
+}
+
+</style>
+
+<!-- LEARNING REFERENCES -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    Learning References
+  </span>
+
+  <ul class="resource-list">
+
+    <li>
+      <a href="https://docs.github.com/en/get-started" target="_blank">
+        GitHub Documentation - Getting Started
+      </a>
+    </li>
+
+    <li>
+      <a href="https://skills.github.com/" target="_blank">
+        GitHub Skills
+      </a>
+    </li>
+
+    <li>
+      <a href="https://docs.gitlab.com" target="_blank">
+        GitLab Documentation
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- IMAGE SECTION -->
+<div class="image-gallery">
+
+  <!-- IMAGE 1 -->
+  <div class="image-card">
+
+    <img src="git-img/g0.jpeg"
+         alt="GitHub Dashboard">
+
+    <p class="image-caption">
+      <strong>Fig. 2.0:</strong>
+      Creation of a new repository for the
+      <b>“Summer Internship Program 2026 - Tinkerers’ Lab, Sanjivani University”</b>
+      project documentation.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="image-card">
+
+    <img src="git-img/g1.png"
+         alt="GitLab Workspace">
+
+    <p class="image-caption">
+      <strong>Fig. 2.1:</strong>
+      Repository initialization and organization
+      of required project resources, folders,
+      and technical documentation files.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="image-card">
+
+    <img src="git-img/g2.png"
+         alt="GitHub HTML Editing">
+
+    <p class="image-caption">
+      <strong>Fig. 2.2:</strong>
+      Editing and updating HTML documentation files
+      directly through the GitHub web interface.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 4 -->
+  <div class="image-card">
+
+    <img src="git-img/g3.jpeg"
+         alt="GitHub Pages Deployment">
+
+    <p class="image-caption">
+      <strong>Fig. 2.3:</strong>
+      Deployment and visualization of documentation files
+      using GitHub Pages hosting service.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<style>
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    border-radius: 18px;
+    margin: 40px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 20px;
+}
+
+.resource-list li{
+    margin-bottom: 14px;
+    line-height: 1.9;
+}
+
+.resource-list a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.resource-list a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-gallery{
+    margin-top: 50px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   IMAGE CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d5db,
+        transparent
+    );
+    margin: 70px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+    .reference-box{
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+
+
+
+
+  <div class="sub-heading">
+
+    <span class="section-number">03</span>
+
+    <div>
+
+      <p class="small-heading">
+        DEVELOPMENT ENVIRONMENT & AI-ASSISTED WORKFLOW
+      </p>
+
+      <h2 id="vscode">
+        Development Environment - Visual Studio Code
+      </h2>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-card">
+
+    <p>
+      Although I was already familiar with
+      <span class="highlight-name">Visual Studio Code (VS Code)</span>,
+      I selected it as the primary development environment for preparing
+      this internship documentation project.
+    </p>
+
+    <p>
+      Since the documentation was developed as an HTML-based project,
+      VS Code provided an efficient workspace for editing source files,
+      organizing project directories, managing image assets,
+      and maintaining a structured workflow within a single environment.
+    </p>
+
+    <p>
+      One of the most useful features during development was the
+      live HTML preview workflow, which made it easier to verify:
+    </p>
+
+    <!-- LIST -->
+    <ul class="styled-list">
+
+      <li>Layout consistency and responsive structure</li>
+
+      <li>Hyperlinks and navigation behavior</li>
+
+      <li>HTML and CSS integration</li>
+
+      <li>Overall user interface presentation</li>
+
+    </ul>
+
+    <p>
+      The integrated Git and GitHub support inside VS Code also simplified
+      version control operations such as staging changes,
+      reviewing file modifications, committing updates,
+      and synchronizing repositories directly from the editor.
+    </p>
+
+    <p>
+      As a Computer Science student, I additionally explored
+      AI-assisted development workflows integrated into the VS Code ecosystem.
+      Multiple AI tools were tested during documentation and interface development,
+      including
+      <span class="highlight-name">ChatGPT</span>,
+      <span class="highlight-name">Claude Sonnet</span>,
+      <span class="highlight-name">Claude Opus</span>,
+      and
+      <span class="highlight-name">Blackbox AI</span>.
+    </p>
+
+    <p>
+      These tools were primarily used for HTML refactoring,
+      improving documentation clarity, optimizing layout structure,
+      and accelerating rapid prototyping of web components.
+    </p>
+
+    <!-- INFO BOX -->
+    <div class="info-box">
+
+      <strong>Learning Outcome:</strong><br>
+
+      The combined workflow of VS Code, Git integration,
+      and AI-assisted development tools significantly improved
+      productivity, debugging efficiency, documentation quality,
+      and overall development speed throughout the project.
+
+    </div>
+
+    <!-- OFFICIAL LINK -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Official Resource
+      </span>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="https://code.visualstudio.com" target="_blank">
+            Visual Studio Code Official Website
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- LEARNING REFERENCES -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Learning Resources
+      </span>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="https://code.visualstudio.com/docs/getstarted/getting-started"
+             target="_blank">
+            Getting Started with VS Code
+          </a>
+        </li>
+
+        <li>
+          <a href="https://code.visualstudio.com/docs"
+             target="_blank">
+            VS Code Documentation
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- GIT WORKFLOW -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Git Workflow Used Inside IDE
+      </span>
+
+      <div class="code-block">
+
+<pre>
+git add .
+git commit -m "changes made"
+git push origin main
+</pre>
+
+      </div>
+
+      <p class="workflow-note">
+        The above Git commands were used from VS Code to stage, commit,
+        and upload modified project files to GitHub for
+        version control and deployment tracking.
+      </p>
+
+    </div>
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+
+      <!-- IMAGE 1 -->
+      <div class="image-card">
+
+        <img src="git-img/v1.jpeg"
+             alt="VS Code HTML Development">
+
+        <p class="image-caption">
+          <strong>Fig. 3.0:</strong>
+          HTML document development in Visual Studio Code
+          with embedded CSS for enhanced user interface design.
+        </p>
+
+      </div>
+
+      <!-- IMAGE 2 -->
+      <div class="image-card">
+
+        <img src="git-img/v2.jpeg"
+             alt="Git Workflow in VS Code">
+
+        <p class="image-caption">
+          <strong>Fig. 3.1:</strong>
+          Version control workflow for saving and uploading
+          modified VS Code project files to GitHub repository.
+        </p>
+
+      </div>
+
+      <!-- IMAGE 3 -->
+      <div class="image-card">
+
+        <img src="git-img/v3.jpeg"
+             alt="AI Assisted Development Workflow">
+
+        <p class="image-caption">
+          <strong>Fig. 3.2:</strong>
+          Utilization of AI-assisted development tools
+          for HTML refactoring, documentation optimization,
+          and rapid web component prototyping.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.section-number{
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.small-heading{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.sub-heading h2{
+    font-size: 38px;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.content-card p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top: 30px;
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #1e3a8a;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.content-card a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-card a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   CODE BLOCK
+========================= */
+
+.code-block{
+    background: #0f172a;
+    border-radius: 16px;
+    padding: 24px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.code-block pre{
+    margin: 0;
+    color: #f8fafc;
+    font-size: 15px;
+    line-height: 2;
+    font-family: Consolas, monospace;
+}
+
+/* =========================
+   WORKFLOW NOTE
+========================= */
+
+.workflow-note{
+    margin-top: 18px;
+    font-size: 15px;
+    color: #4b5563;
+    line-height: 1.9;
+}
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-gallery{
+    margin-top: 50px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   IMAGE CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sub-heading{
+        flex-direction: column;
+    }
+
+    .sub-heading h2{
+        font-size: 30px;
+    }
+
+    .content-card{
+        padding: 28px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+}
+
+</style>
+  
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<!-- NEXT SECTION -->
+<div class="sub-section">
+
+  <div class="sub-heading">
+
+    <span class="section-number">04</span>
+
+    <div>
+
+      <p class="small-heading">
+        DIGITAL CONTENT CREATION & VISUAL COMMUNICATION
+      </p>
+
+      <h2 id="content">
+        Digital Content Creation & Visual Communication
+      </h2>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-card">
+
+    <p>
+      A major component of Week 1 focused on understanding
+      the principles, workflows, and technologies involved in
+      digital content creation, visual communication
+      and technical presentation workflows.
+    </p>
+
+    <p>
+      The exploration emphasized how digital information
+      can be captured, structured, designed,
+      and communicated effectively using modern software platforms.
+      Particular attention was given to workflow optimization,
+      visual hierarchy, scalability,
+      and technical documentation practices.
+    </p>
+
+    <p>
+      Multiple platforms were explored across different domains
+      including screen recording, graphic design,
+      vector illustration, and system visualization workflows.
+    </p>
+
+   
+
+    <!-- SUB TOPIC -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        4.1 SCREEN RECORDING & MEDIA PRODUCTION
+      </span>
+
+      <h3 class="topic-heading">
+        OBS Studio
+      </h3>
+
+      <p>
+        <span class="highlight-name">OBS Studio</span>
+        was explored as a professional-grade open-source platform
+        for screen recording, live media capture,
+        and real-time content production workflows.
+      </p>
+
+      <p>
+        The study involved understanding recording pipelines,
+        scene composition, source management,
+        audio-video synchronization,
+        and export workflows commonly used
+        in tutorial creation and technical demonstrations.
+      </p>
+
+      <p>
+        OBS Studio demonstrated how structured recording environments
+        can be used to produce high-quality software walkthroughs,
+        technical presentations, instructional videos,
+        and system demonstrations.
+      </p>
+
+      <p>
+        Features such as multi-source scene integration,
+        display capture, audio mixing,
+        transition management, encoding configuration,
+        and bitrate optimization introduced several
+        important concepts related to professional media production.
+      </p>
+
+      <!-- LIST -->
+      <ul class="styled-list">
+
+        <li>Scene composition and display capture workflows</li>
+
+        <li>Audio-video synchronization techniques</li>
+
+        <li>Recording configuration and export optimization</li>
+
+        <li>Media compression and bitrate management</li>
+
+        <li>Professional tutorial and presentation workflows</li>
+
+      </ul>
+
+    </div>
+
+    <!-- LEARNING REFERENCES -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Learning References
+      </span>
+
+      <ul class="resource-list">
+
+        <li>
+          <a href="https://obsproject.com" target="_blank">
+            OBS Studio Official Website
+          </a>
+        </li>
+
+        <li>
+          <a href="https://obsproject.com/help" target="_blank">
+            OBS Help & Documentation
+          </a>
+        </li>
+
+        <li>
+          <a href="https://obsproject.com/kb/" target="_blank">
+            OBS Knowledge Base
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- IMAGE GALLERY -->
+    <div class="image-gallery">
+
+      <!-- IMAGE 1 -->
+      <div class="image-card">
+
+        <img src="git-img/o1.png"
+             alt="OBS Studio Installation">
+
+        <p class="image-caption">
+          <strong>Fig. 4.1.0:</strong>
+          Installation and initial setup
+          of OBS Studio recording software.
+        </p>
+
+      </div>
+
+      <!-- IMAGE 2 -->
+      <div class="image-card">
+
+        <img src="git-img/o2.png"
+             alt="OBS Studio Configuration">
+
+        <p class="image-caption">
+          <strong>Fig. 4.1.1:</strong>
+          Configuration of OBS Studio recording
+          and display settings according to project requirements.
+        </p>
+
+      </div>
+
+      <!-- IMAGE 3 -->
+      <div class="image-card">
+
+        <img src="git-img/o3.png"
+             alt="OBS Studio Screen Recording">
+
+        <p class="image-caption">
+          <strong>Fig. 4.1.2:</strong>
+          Real-time screen recording demonstration
+          using OBS Studio.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        Demonstration Video
+      </span>
+
+      <div class="video-container">
+
+        <!-- Embed may be blocked by the uploader (Error 153). Fallback: clickable thumbnail opens YouTube in new tab -->
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=GHBqgK9vvE0" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.youtube.com/vi/GHBqgK9vvE0/maxresdefault.jpg" alt="OBS Tutorial" />
+          <div class="play-overlay">►</div>
+        </a>
+
+      </div>
+
+      <p class="image-caption">
+        <strong>Video 4.1:</strong>
+        OBS Studio installation, configuration,
+        and screen recording demonstration workflow.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.section-number{
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.small-heading{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.sub-heading h2{
+    font-size: 38px;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.content-card p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   TOPIC HEADING
+========================= */
+
+.topic-heading{
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top: 30px;
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #1e3a8a;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.content-card a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-card a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-gallery{
+    margin-top: 50px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   IMAGE CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-top: 20px;
+}
+
+.video-container iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: none;
+}
+
+.video-fallback{
+  position:absolute;
+  left:0;top:0;right:0;bottom:0;
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+.video-fallback img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.play-overlay{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:84px;
+  height:84px;
+  border-radius:50%;
+  background:rgba(26,20,16,0.72);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:34px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.35);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sub-heading{
+        flex-direction: column;
+    }
+
+    .sub-heading h2{
+        font-size: 30px;
+    }
+
+    .content-card{
+        padding: 28px;
+    }
+
+    .topic-heading{
+        font-size: 24px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+}
+
+</style>
+
+<!-- SUB TOPIC -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    4.2 VISUAL DESIGN & DIGITAL COMMUNICATION
+  </span>
+
+  <h3 class="topic-heading">
+    Canva
+  </h3>
+
+  <p>
+    <span class="highlight-name">Canva</span>
+    was explored as a cloud-based visual communication,
+    graphic design, and digital publishing platform
+    used for creating presentations, infographics,
+    social media assets, posters,
+    UI mockups, and branded communication content.
+  </p>
+
+  <p>
+    The platform demonstrated how modern web-based
+    design systems simplify professional content creation
+    through template-driven workflows,
+    drag-and-drop interfaces,
+    and integrated cloud collaboration technologies.
+  </p>
+
+  <p>
+    The exploration focused on understanding
+    the fundamental principles of digital visual communication,
+    including:
+  </p>
+
+  <!-- LIST -->
+  <ul class="styled-list">
+
+    <li>Typography management and readability</li>
+
+    <li>Spacing systems and alignment structures</li>
+
+    <li>Color theory and contrast optimization</li>
+
+    <li>Visual hierarchy and composition balancing</li>
+
+    <li>Responsive layouts and grid-based design systems</li>
+
+    <li>Reusable templates and scalable design workflows</li>
+
+  </ul>
+
+  <p>
+    Through practical experimentation,
+    Canva demonstrated how structured design frameworks
+    improve workflow efficiency
+    while maintaining visual consistency
+    throughout large-scale content production processes.
+  </p>
+
+  <p>
+    Additional exploration included Canva’s integrated
+    asset management ecosystem,
+    which provides stock media libraries,
+    icon repositories, font systems,
+    animation tools, branding kits,
+    and collaborative editing environments.
+  </p>
+
+  <p>
+    The platform also introduced rapid prototyping workflows
+    and template-based automation techniques
+    commonly used in digital branding,
+    educational content development,
+    advertising design,
+    and social media communication systems.
+  </p>
+
+  <p>
+    Overall, Canva provided practical exposure
+    to modern visual communication workflows,
+    demonstrating how user-friendly interfaces
+    can be combined with professional design principles
+    to support scalable content development
+    across academic, technical,
+    and commercial environments.
+  </p>
+
+</div>
+
+<!-- LEARNING REFERENCES -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    Learning References
+  </span>
+
+  <ul class="resource-list">
+
+    <li>
+      <a href="https://www.canva.com" target="_blank">
+        Canva Official Website
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.canva.com/designschool/" target="_blank">
+        Canva Design School
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- IMAGE GALLERY -->
+<div class="image-gallery">
+
+  <!-- IMAGE 1 -->
+  <div class="image-card">
+
+    <img src="git-img/c3.png"
+         alt="Canva Logo Enhancement">
+
+    <p class="image-caption">
+      <strong>Fig. 4.2.0:</strong>
+      Logo enhancement using Canva through
+      font styling, color adjustment,
+      background customization,
+      text positioning,
+      and animation effects.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="image-card">
+
+    <img src="git-img/c2.png"
+         alt="Canva Design Workspace">
+
+    <p class="image-caption">
+      <strong>Fig. 4.2.1:</strong>
+      Image editing and application
+      of creative design templates
+      within the Canva workspace.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="image-card">
+
+    <img src="git-img/c1.png"
+         alt="Final Logo Refinement">
+
+    <p class="image-caption">
+      <strong>Fig. 4.2.2:</strong>
+      Final logo refinement,
+      export preparation,
+      and saving of completed design assets.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<style>
+
+/* =========================
+   TOPIC HEADING
+========================= */
+
+.topic-heading{
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+.reference-box p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 24px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.reference-box a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reference-box a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-gallery{
+    margin-top: 50px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   IMAGE CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d5db,
+        transparent
+    );
+    margin: 70px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .topic-heading{
+        font-size: 24px;
+    }
+
+    .reference-box{
+        padding: 20px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+}
+
+</style>
+<br>
+<!-- SUB TOPIC -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    4.3 VECTOR GRAPHICS & SCALABLE ILLUSTRATION
+  </span>
+
+  <h3 class="topic-heading">
+    Inkscape
+  </h3>
+
+  <p>
+    To understand scalable graphic design workflows
+    and vector-based rendering systems,
+    <span class="highlight-name">Inkscape</span>
+    was explored as an open-source vector graphics editor
+    commonly used for technical illustrations,
+    scalable artwork, interface design,
+    and diagram creation.
+  </p>
+
+  <p>
+    The exploration introduced the mathematical foundations
+    of vector graphics,
+    where graphical objects are represented using
+    paths, nodes, curves,
+    and geometric equations
+    instead of traditional pixel-based raster formats.
+  </p>
+
+  <p>
+    This vector-based approach enables
+    resolution-independent rendering,
+    allowing graphics to be scaled
+    without any loss in visual quality
+    across different display sizes and export formats.
+  </p>
+
+  <p>
+    Practical experimentation within Inkscape demonstrated
+    several important concepts related to
+    precision-based illustration workflows,
+    including:
+  </p>
+
+  <!-- LIST -->
+  <ul class="styled-list">
+
+    <li>Bézier curve manipulation and node editing</li>
+
+    <li>Object transformation and alignment systems</li>
+
+    <li>Layer management and structured composition</li>
+
+    <li>Path operations and geometric editing workflows</li>
+
+    <li>SVG (Scalable Vector Graphics) standards</li>
+
+    <li>Precision-oriented vector illustration techniques</li>
+
+  </ul>
+
+  <p>
+    These capabilities demonstrated how vector-based workflows
+    are used in technical documentation,
+    engineering illustrations,
+    UI/UX asset creation,
+    and digital publishing environments
+    where scalability and editability are essential.
+  </p>
+
+  <p>
+    The platform also highlighted the advantages
+    of vector graphics in maintaining
+    design consistency,
+    cross-platform compatibility,
+    reusable assets,
+    and high-quality rendering
+    across multiple output resolutions.
+  </p>
+
+</div>
+
+<!-- LEARNING REFERENCES -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    Learning References
+  </span>
+
+  <ul class="resource-list">
+
+    <li>
+      <a href="https://inkscape.org" target="_blank">
+        Inkscape Official Website
+      </a>
+    </li>
+
+    <li>
+      <a href="https://inkscape-manuals.readthedocs.io/"
+         target="_blank">
+        Inkscape User Manual
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- IMAGE GALLERY -->
+<div class="image-gallery">
+
+  <!-- IMAGE 1 -->
+  <div class="image-card">
+
+    <img src="git-img/i1.png"
+         alt="Inkscape Circular Vector Design">
+
+    <p class="image-caption">
+      <strong>Fig. 4.3.0:</strong>
+      Circular vector object creation
+      using stroke properties in Inkscape.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="image-card">
+
+    <img src="git-img/i2.png"
+         alt="Raster and Vector Integration">
+
+    <p class="image-caption">
+      <strong>Fig. 4.3.1:</strong>
+      Integration of raster profile image
+      within a circular vector boundary.
+    </p>
+
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="image-card">
+
+    <img src="git-img/i3.png"
+         alt="Vector Design Workflow">
+
+    <p class="image-caption">
+      <strong>Fig. 4.3.2:</strong>
+      Vector editing workflow demonstrating
+      scalable illustration and precision-based
+      graphic composition within Inkscape.
+    </p>
+
+  </div>
+
+</div>
+
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<style>
+
+/* =========================
+   TOPIC HEADING
+========================= */
+
+.topic-heading{
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+/* =========================
+   REFERENCE LABEL
+========================= */
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+.reference-box p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 24px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.reference-box a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reference-box a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+.image-gallery{
+    margin-top: 50px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 55px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+/* =========================
+   IMAGE CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d5db,
+        transparent
+    );
+    margin: 70px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .topic-heading{
+        font-size: 24px;
+    }
+
+    .reference-box{
+        padding: 20px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+}
+
+</style>
+<br>
+<!-- SUB TOPIC -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    4.4 SYSTEM VISUALIZATION & PROCESS DIAGRAMMING
+  </span>
+
+  <h3 class="topic-heading">
+    Draw.io
+  </h3>
+
+  <p>
+    <span class="highlight-name">Draw.io</span>
+    was explored as a diagramming
+    and system visualization platform
+    used for creating technical diagrams,
+    workflow structures,
+    architectural layouts,
+    flowcharts,
+    organizational structures,
+    and planning frameworks.
+  </p>
+
+  <p>
+    The platform demonstrated how complex systems,
+    operational processes,
+    and technical architectures
+    can be transformed into structured visual representations
+    for improved understanding,
+    analysis,
+    and communication.
+  </p>
+
+  <p>
+    Particular emphasis was placed on:
+  </p>
+
+  <!-- LIST -->
+  <ul class="styled-list">
+
+    <li>Logical flow representation and process mapping</li>
+
+    <li>Hierarchical organization of system components</li>
+
+    <li>Workflow visualization and relationship structuring</li>
+
+    <li>Diagram standardization and technical clarity</li>
+
+    <li>Planning-oriented graphical communication</li>
+
+    <li>Architecture and systems documentation workflows</li>
+
+  </ul>
+
+  <p>
+    Through practical experimentation,
+    Draw.io introduced concepts related to
+    systems modeling,
+    UML-style structuring,
+    network representation,
+    workflow automation planning
+    and documentation standardization techniques.
+  </p>
+
+  <p>
+    These skills are highly applicable in
+    software engineering documentation,
+    project management,
+    systems analysis,
+    workflow optimization
+    and technical planning environments.
+  </p>
+
+  <p>
+    The exploration also reinforced
+    the importance of diagrammatic communication
+    in simplifying complex information,
+    improving collaboration
+    and supporting structured
+    problem-solving methodologies
+    across technical and organizational workflows.
+  </p>
+
+</div>
+
+<!-- LEARNING REFERENCES -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    Learning References
+  </span>
+
+  <ul class="resource-list">
+
+    <li>
+      <a href="https://app.diagrams.net" target="_blank">
+        Draw.io Official Website
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.drawio.com/doc/" target="_blank">
+        Draw.io Documentation
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- VIDEO SECTION -->
+<div class="reference-box">
+
+  <span class="reference-label">
+    Demonstration Video
+  </span>
+
+  <div class="video-container">
+
+    <!-- Fallback thumbnail link for Draw.io tutorial -->
+    <a class="video-fallback" href="https://www.youtube.com/watch?v=WbZ7xP4_Szg" target="_blank" rel="noopener noreferrer">
+      <img src="https://img.youtube.com/vi/WbZ7xP4_Szg/maxresdefault.jpg" alt="Draw.io Tutorial" />
+      <div class="play-overlay">►</div>
+    </a>
+
+  </div>
+
+  <p class="image-caption">
+    <strong>Video 4.4:</strong>
+    Workflow diagram development
+    and process visualization
+    using Draw.io platform.
+  </p>
+
+</div>
+
+<!-- SECTION DIVIDER -->
+<div class="divider"></div>
+
+<style>
+
+/* =========================
+   TOPIC HEADING
+========================= */
+
+.topic-heading{
+    font-size: 28px;
+    color: #111827;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 16px;
+    margin: 35px 0;
+}
+
+/* =========================
+   REFERENCE LABEL
+========================= */
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   PARAGRAPHS
+========================= */
+
+.reference-box p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 24px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   RESOURCE LIST
+========================= */
+
+.resource-list{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.resource-list li{
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.reference-box a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.reference-box a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-top: 20px;
+}
+
+.video-container iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: none;
+}
+
+/* =========================
+   VIDEO CAPTION
+========================= */
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #d1d5db,
+        transparent
+    );
+    margin: 70px 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .topic-heading{
+        font-size: 24px;
+    }
+
+    .reference-box{
+        padding: 20px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+}
+
+</style>
+<br> 
+
+
+
+  <div class="sub-heading">
+
+    <span class="section-number">05</span>
+
+    <div>
+
+      <p class="small-heading">
+        COMPUTER-AIDED DESIGN & ENGINEERING WORKFLOWS
+      </p>
+
+      <h2 id="cad">
+        Computer-Aided Design (CAD) Fundamentals
+      </h2>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-card">
+
+    <!-- IMAGE -->
+    <div class="image-card">
+
+      <img src="git-img/cd1.png"
+           alt="Computer Aided Design Workflow">
+
+      <p class="image-caption">
+        <strong>Fig. 5.0:</strong>
+        Introduction to CAD-based engineering workflows,
+        digital modeling environments,
+        and computer-aided design systems.
+      </p>
+
+    </div>
+
+    <p>
+      As the internship progressed,
+      the learning focus expanded toward
+      <span class="highlight-name">
+        Computer-Aided Design (CAD)
+      </span>,
+      a fundamental technology widely used across
+      engineering, manufacturing,
+      product development,
+      architecture,
+      digital prototyping,
+      and industrial design environments.
+    </p>
+
+    <p>
+      CAD systems enable users to create,
+      modify,
+      visualize,
+      analyze,
+      and optimize digital designs
+      with high precision and workflow efficiency.
+    </p>
+
+    <p>
+      The exploration of CAD fundamentals introduced
+      how modern engineering workflows are supported
+      through specialized software platforms such as:
+    </p>
+
+    <!-- SOFTWARE LIST -->
+    <ul class="styled-list">
+
+      <li>
+        <a href="https://www.autodesk.com/products/fusion-360"
+           target="_blank">
+           Autodesk Fusion 360
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.autodesk.com/products/autocad"
+           target="_blank">
+           AutoCAD
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.solidworks.com/"
+           target="_blank">
+           SolidWorks
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.3ds.com/products/catia"
+           target="_blank">
+           CATIA
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.blender.org/"
+           target="_blank">
+           Blender
+        </a>
+      </li>
+
+      <li>
+        <a href="https://www.freecad.org/"
+           target="_blank">
+           FreeCAD
+        </a>
+      </li>
+
+    </ul>
+
+    <p>
+      These platforms demonstrated how concepts
+      can be transformed into structured digital models
+      suitable for simulation,
+      prototyping,
+      manufacturing,
+      visualization,
+      and iterative design refinement processes.
+    </p>
+
+    <p>
+      Learning CAD fundamentals also introduced
+      several important concepts including:
+    </p>
+
+    <!-- CAD CONCEPTS -->
+    <ul class="styled-list">
+
+      <li>3D Modeling and geometric construction</li>
+
+      <li>Dimensional accuracy and measurement systems</li>
+
+      <li>Parametric design methodologies</li>
+
+      <li>Design constraints and feature relationships</li>
+
+      <li>Workflow optimization within CAD environments</li>
+
+      <li>Engineering visualization and digital prototyping</li>
+
+    </ul>
+
+    <p>
+      Understanding these principles helped establish
+      a strong connection between conceptual problem-solving
+      and practical engineering implementation workflows.
+    </p>
+
+    <!-- INFO BOX -->
+    <div class="info-box">
+
+      <strong>Learning Outcome:</strong><br>
+
+      This foundational exposure to CAD systems
+      created a pathway toward advanced topics involving
+      3D modeling,
+      digital object development,
+      simulation workflows,
+      and 3D printing preparation processes.
+
+    </div>
+
+    <!-- OVERVIEW SECTION -->
+    <div class="reference-box">
+
+      <span class="reference-label">
+        CAD Learning Overview
+      </span>
+
+      <div class="cad-overview">
+
+        <!-- ITEM -->
+        <div class="cad-item">
+
+          <h4>Design Fundamentals</h4>
+
+          <p>
+            Understanding digital design concepts,
+            engineering geometry,
+            visualization techniques,
+            and structured CAD workflows.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="cad-item">
+
+          <h4>3D Modeling</h4>
+
+          <p>
+            Exploring model creation using sketches,
+            features,
+            constraints,
+            and feature-based construction workflows.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="cad-item">
+
+          <h4>Precision & Constraints</h4>
+
+          <p>
+            Applying dimensions,
+            tolerances,
+            and parametric relationships
+            to maintain design consistency and accuracy.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="cad-item">
+
+          <h4>CAD Software Ecosystem</h4>
+
+          <p>
+            Exposure to Fusion 360,
+            AutoCAD,
+            SolidWorks,
+            CATIA,
+            Blender,
+            and FreeCAD across engineering workflows.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="cad-item">
+
+          <h4>Engineering Applications</h4>
+
+          <p>
+            Understanding CAD usage in manufacturing,
+            product development,
+            simulation,
+            prototyping,
+            and 3D printing preparation systems.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider{
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+/* =========================
+   SUB HEADING
+========================= */
+
+.sub-heading{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.section-number{
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.small-heading{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.sub-heading h2{
+    font-size: 38px;
+    line-height: 1.3;
+    color: #111827;
+    margin: 0;
+}
+
+/* =========================
+   CONTENT CARD
+========================= */
+
+.content-card{
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.content-card p{
+    font-size: 16px;
+    line-height: 2;
+    color: #374151;
+    margin-bottom: 24px;
+}
+
+/* =========================
+   IMAGE CARD
+========================= */
+
+.image-card{
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.image-card img{
+    width: 100%;
+    max-width: 950px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.image-card img:hover{
+    transform: translateY(-4px);
+}
+
+.image-caption{
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================
+   HIGHLIGHT TEXT
+========================= */
+
+.highlight-name{
+    color: #111827;
+    font-weight: 700;
+}
+
+/* =========================
+   LIST
+========================= */
+
+.styled-list{
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+.styled-list li{
+    margin-bottom: 14px;
+    line-height: 1.8;
+    color: #374151;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.content-card a{
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.content-card a:hover{
+    text-decoration: underline;
+}
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info-box{
+    margin-top: 30px;
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 22px;
+    border-radius: 14px;
+    line-height: 1.8;
+    color: #1e3a8a;
+}
+
+/* =========================
+   REFERENCE BOX
+========================= */
+
+.reference-box{
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    border-radius: 18px;
+    margin-top: 40px;
+}
+
+.reference-label{
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+/* =========================
+   CAD OVERVIEW GRID
+========================= */
+
+.cad-overview{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 22px;
+}
+
+/* =========================
+   CAD ITEM
+========================= */
+
+.cad-item{
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 24px;
+    transition: 0.3s ease;
+}
+
+.cad-item:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.cad-item h4{
+    font-size: 18px;
+    color: #111827;
+    margin-bottom: 14px;
+}
+
+.cad-item p{
+    font-size: 15px;
+    line-height: 1.9;
+    color: #4b5563;
+    margin: 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sub-heading{
+        flex-direction: column;
+    }
+
+    .sub-heading h2{
+        font-size: 30px;
+    }
+
+    .content-card{
+        padding: 28px;
+    }
+
+    .image-caption{
+        font-size: 14px;
+    }
+
+    .cad-overview{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+    <br>
+  <div class="sub-heading">
+
+    <span class="section-number">06</span>
+
+    <div>
+
+      <p class="small-heading">
+        2D Design : Raster &amp; Vector Graphics
+      </p>
+
+      <h2 id="graphics">
+        Digital Raster &amp; Vector Graphics
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+    <div class="image-card">
+      <img src="git-img/rgi.png" alt="Raster Graphics Example">
+      <p class="image-caption"><strong>Fig. 6.0:</strong> Raster graphics (pixel/bitmap) — used for photographs and detailed imagery.</p>
+    </div>
+
+    <p>
+      Raster graphics store image information per-pixel. Resolution determines printed and on-screen clarity — scaling up a raster image can cause pixelation. Common raster workflows include photo editing, compositing and bitmap-based image preparation for publications.
+    </p>
+
+    <p><strong>Common file formats:</strong> .BMP, .TIF, .GIF, .JPG, .PNG</p>
+
+    <div class="image-card">
+      <img src="git-img/vgi.png" alt="Vector Graphics Example">
+      <p class="image-caption"><strong>Fig. 6.1:</strong> Vector graphics (resolution-independent) — ideal for diagrams, icons and technical illustrations.</p>
+    </div>
+
+    <p>
+      Vector graphics are constructed using mathematical paths, curves and shapes which makes them fully scalable without quality loss. They are the preferred format for logos, technical diagrams, CAD imports/exports (SVG/DXF), and print-ready artwork.
+    </p>
+
+    <p><strong>Common file formats:</strong> .SVG, .EPS, .PDF, .AI, .DXF</p>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">07</span>
+
+    <div>
+
+      <p class="small-heading">3D Modeling</p>
+
+      <h2 id="modeling">3D Modeling — Fusion 360</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+
+    <p>
+      Building on the 2D foundation, the module covered 3D modeling concepts, parametric design and feature-based workflows. Learners used Autodesk Fusion 360 to create constrained sketches, features, assemblies and exported models for downstream manufacturing.
+    </p>
+
+    <p>
+      Fusion 360 provided practical exposure to sketch-driven features, parametric relationships, assemblies and model preparation for simulation and fabrication.
+    </p>
+
+    <ul class="styled-list">
+      <li><a href="https://www.autodesk.com/products/fusion-360" target="_blank">Fusion 360 Official Website</a></li>
+      <li><a href="https://help.autodesk.com/view/fusion360/ENU/" target="_blank">Fusion 360 Documentation</a></li>
+      <li><a href="https://www.autodesk.com/learn/ondemand/product/fusion-360" target="_blank">Fusion 360 Learning Resources</a></li>
+    </ul>
+
+    <div class="image-card">
+      <div class="video-container">
+        <!-- Use thumbnail fallback to avoid embed restrictions (Error 153) -->
+        <a class="video-fallback" href="https://www.youtube.com/watch?v=ltzLTr-MJKU" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.youtube.com/vi/ltzLTr-MJKU/maxresdefault.jpg" alt="Fusion 360 Workspace" />
+          <div class="play-overlay">►</div>
+        </a>
+      </div>
+
+      <p class="image-caption"><strong>Fig. 7.0:</strong> Fusion 360 workspace overview (opens on YouTube).</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">08</span>
+
+    <div>
+
+      <p class="small-heading">3D Printing Workflow</p>
+
+      <h2 id="printing">3D Printing Workflow — Bambu Lab Studio</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+
+    <p>
+      The module focused on transforming digital 3D models into printable toolpaths using a slicing environment. Bambu Lab Studio was used to configure printer profiles, slice models and generate machine-ready g-code.
+    </p>
+
+    <p>The exercises covered:</p>
+
+    <ul class="styled-list">
+      <li>Printer configuration and profile management</li>
+      <li>Slicing parameters (layer height, infill, supports)</li>
+      <li>Thermal and speed tuning for material/filament</li>
+      <li>Exporting printer-ready files and pre-print checks</li>
+    </ul>
+
+    <div class="image-card">
+      <img src="git-img/bambu_workspace.png" alt="Bambu Studio Interface">
+      <p class="image-caption"><strong>Fig. 8.0:</strong> Slicer configuration and preview stages used to prepare models for printing.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">09</span>
+
+    <div>
+
+      <p class="small-heading">Key Skills &amp; Competencies</p>
+
+      <h2 id="skills">Key Skills &amp; Competencies Developed</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+    <p>
+      Week 1 contributed to a combination of technical and workflow-oriented skills across documentation, version control, development environments and fabrication toolchains.
+    </p>
+
+    <ul class="styled-list">
+      <li>Professional documentation & structured reporting</li>
+      <li>Version control workflows (GitHub / GitLab)</li>
+      <li>Development environment setup (VS Code)</li>
+      <li>Digital content creation & visual communication</li>
+      <li>Technical diagramming & CAD fundamentals</li>
+      <li>3D modeling and print preparation basics</li>
+    </ul>
+
+    <div class="image-card">
+      <img src="git-img/skills_summary.png" alt="Skills Summary">
+      <p class="image-caption"><strong>Fig. 9.0:</strong> Summary of key skills cultivated during Week 1.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">10</span>
+
+    <div>
+
+      <p class="small-heading">Tool Reference</p>
+
+      <h2 id="tools">Tool Reference Table</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+    <p>The following table lists key tools referenced in Week 1 and their primary purpose.</p>
+
+    <div style="overflow:auto;">
+      <table class="tool-table" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:#fafafa;">
+            <th style="text-align:left; padding:10px; border-bottom:1px solid #e5e7eb;">Tool</th>
+            <th style="text-align:left; padding:10px; border-bottom:1px solid #e5e7eb;">Primary Purpose</th>
+            <th style="text-align:left; padding:10px; border-bottom:1px solid #e5e7eb;">Official Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">GitHub</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Version Control &amp; Collaboration</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://github.com" target="_blank">github.com</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">GitLab</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Repository &amp; Workflow Management</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://gitlab.com" target="_blank">gitlab.com</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Visual Studio Code</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Development Environment &amp; Editing</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">OBS Studio</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Screen Recording &amp; Live Capture</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://obsproject.com" target="_blank">obsproject.com</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Canva</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Visual Design &amp; Presentation</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://www.canva.com" target="_blank">canva.com</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Inkscape</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Vector Graphics Editor</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://inkscape.org" target="_blank">inkscape.org</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Draw.io (diagrams.net)</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Diagrams &amp; Workflow Visualization</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://app.diagrams.net" target="_blank">app.diagrams.net</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Autodesk Fusion 360</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">CAD &amp; 3D Modeling</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://www.autodesk.com/products/fusion-360" target="_blank">autodesk.com/fusion-360</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Blender</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">3D Modeling, Rendering &amp; Animation</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://www.blender.org" target="_blank">blender.org</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">FreeCAD</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;">Open-source CAD</td>
+            <td style="padding:10px; border-bottom:1px solid #f1f1f1;"><a href="https://www.freecad.org" target="_blank">freecad.org</a></td>
+          </tr>
+          <tr>
+            <td style="padding:10px;">Bambu Lab Studio</td>
+            <td style="padding:10px;">3D Printing Preparation &amp; Slicing</td>
+            <td style="padding:10px;"><a href="https://bambulab.com/en/download/studio" target="_blank">bambulab.com</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">11</span>
+
+    <div>
+
+      <p class="small-heading">Reflection</p>
+
+      <h2 id="reflection">Personal Reflection</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+    <p>
+      The first week was technically diverse and practically engaging. Exposure to multiple domains provided a strong foundation for interdisciplinary problem solving and experimentation.
+    </p>
+
+    <p>
+      Working across documentation, design, CAD and fabrication workflows emphasized the importance of iterative prototyping, clear documentation and collaborative development practices.
+    </p>
+
+    <div class="image-card">
+      <img src="git-img/reflection_notes.png" alt="Reflection Notes">
+      <p class="image-caption"><strong>Fig. 11.0:</strong> Reflection notes and learning log snapshots.</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="sub-heading">
+
+    <span class="section-number">12</span>
+
+    <div>
+
+      <p class="small-heading">Resources</p>
+
+      <h2 id="resources">Useful Learning Resources &amp; References</h2>
+
+    </div>
+
+  </div>
+
+  <div class="content-card">
+
+    <ul class="styled-list">
+      <li>GitHub Skills — <a href="https://skills.github.com/" target="_blank">https://skills.github.com/</a></li>
+      <li>VS Code Getting Started — <a href="https://code.visualstudio.com/docs/getstarted/getting-started" target="_blank">code.visualstudio.com/docs/getstarted/getting-started</a></li>
+      <li>OBS Knowledge Base — <a href="https://obsproject.com/kb/" target="_blank">obsproject.com/kb/</a></li>
+      <li>Fusion 360 Learning — <a href="https://www.autodesk.com/learn/ondemand/product/fusion-360" target="_blank">autodesk.com/learn/ondemand/product/fusion-360</a></li>
+      <li>Bambu Lab Wiki — <a href="https://wiki.bambulab.com" target="_blank">wiki.bambulab.com</a></li>
+    </ul>
+
+  </div>
+
+<style>
+:root {
+    --bg-page: #f0ede8;
+    --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10);
+    --accent: #1a1410;
+    --accent-warm: #b87333;
+    --text-primary: #0f0c09;
+    --text-secondary: #5a533f;
+}
+
+body {
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    background: var(--bg-page);
+}
+
+h1, h2, .sub-heading h2 {
+    font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    color: var(--accent);
+}
+
+.byline, .intro-highlight, .tagline, .content-card p, .styled-list li, .image-caption, .small-heading, .toc-label, .reference-label {
+    color: var(--text-secondary);
+}
+
+.white-block, .content-card, .reference-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 16px 50px rgba(26,20,16,0.12);
+}
+
+.content-card a, .toc a, .reference-box a {
+    color: var(--accent-warm);
+}
+
+.highlight-name {
+    color: var(--accent);
+}
+
+.section-number {
+    background: var(--accent);
+    color: #f7f3ed;
+}
+
+.divider {
+    background: linear-gradient(to right, transparent, rgba(26,20,16,0.18), transparent);
+}
+
+hr {
+    border-color: rgba(26,20,16,0.12);
+}
+
+.image-card img {
+    box-shadow: 0 10px 30px rgba(26,20,16,0.08);
+    border-color: rgba(26,20,16,0.08);
+}
+</style>
+
+</body>
+</html>
