@@ -597,6 +597,21 @@ ol.toc a:hover{
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
+/* printing gallery */
+.printing-gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+  align-items:start;
+  margin-top:40px;
+  margin-bottom:40px;
+}
+.printing-gallery figure{ margin:0; }
+.printing-gallery .gallery-link{ display:block; cursor:pointer; transition:transform 0.3s ease, box-shadow 0.3s ease; border-radius:12px; overflow:hidden; }
+.printing-gallery .gallery-link:hover{ transform:scale(1.08); box-shadow:0 12px 32px rgba(0,0,0,0.2); }
+.printing-gallery img{ width:100%; height:240px; object-fit:cover; border-radius:12px; border:1px solid #e5e7eb; display:block; }
+.printing-gallery .image-caption{ margin-top:12px; font-size:14px; font-weight:500; text-align:center; }
+
 /* single centered responsive video */
 .image-card{
   margin-top: 40px;
@@ -4158,9 +4173,38 @@ git push origin main
       <li>Exporting printer-ready files and pre-print checks</li>
     </ul>
 
-    <div class="image-card">
-      <img src="git-img/bambu_workspace.png" alt="Bambu Studio Interface">
-      <p class="image-caption"><strong>Fig. 8.0:</strong> Slicer configuration and preview stages used to prepare models for printing.</p>
+    <!-- Bambu Lab Studio image gallery -->
+    <div class="printing-gallery">
+      <figure>
+        <a href="IMG/bamboolab.png" class="gallery-link" target="_blank" rel="noopener">
+          <img src="IMG/bamboolab.png" alt="Bambu Lab - overview">
+        </a>
+        <figcaption class="image-caption"><strong>Fig. 8.1:</strong> Bambu Lab Studio overview</figcaption>
+      </figure>
+      <figure>
+        <a href="IMG/bl1.png" class="gallery-link" target="_blank" rel="noopener">
+          <img src="IMG/bl1.png" alt="Bambu Lab - slice settings 1">
+        </a>
+        <figcaption class="image-caption"><strong>Fig. 8.2:</strong> Slice settings</figcaption>
+      </figure>
+      <figure>
+        <a href="IMG/bl2.png" class="gallery-link" target="_blank" rel="noopener">
+          <img src="IMG/bl2.png" alt="Bambu Lab - slice preview">
+        </a>
+        <figcaption class="image-caption"><strong>Fig. 8.3:</strong> Slice preview</figcaption>
+      </figure>
+      <figure>
+        <a href="IMG/bl3.png" class="gallery-link" target="_blank" rel="noopener">
+          <img src="IMG/bl3.png" alt="Bambu Lab - print simulation">
+        </a>
+        <figcaption class="image-caption"><strong>Fig. 8.4:</strong> Print simulation</figcaption>
+      </figure>
+      <figure>
+        <a href="IMG/bl4.png" class="gallery-link" target="_blank" rel="noopener">
+          <img src="IMG/bl4.png" alt="Bambu Lab - final output">
+        </a>
+        <figcaption class="image-caption"><strong>Fig. 8.5:</strong> Final output files</figcaption>
+      </figure>
     </div>
 
   </div>
@@ -4195,11 +4239,6 @@ git push origin main
       <li>Technical diagramming & CAD fundamentals</li>
       <li>3D modeling and print preparation basics</li>
     </ul>
-
-    <div class="image-card">
-      <img src="git-img/skills_summary.png" alt="Skills Summary">
-      <p class="image-caption"><strong>Fig. 9.0:</strong> Summary of key skills cultivated during Week 1.</p>
-    </div>
 
   </div>
 
@@ -4319,11 +4358,6 @@ git push origin main
     <p>
       Working across documentation, design, CAD and fabrication workflows emphasized the importance of iterative prototyping, clear documentation and collaborative development practices.
     </p>
-
-    <div class="image-card">
-      <img src="git-img/reflection_notes.png" alt="Reflection Notes">
-      <p class="image-caption"><strong>Fig. 11.0:</strong> Reflection notes and learning log snapshots.</p>
-    </div>
 
   </div>
 
