@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2 Technical Documentation Report</title>
+
+<style>
+:root {
+    --bg-page: #f0ede8;
+    --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10);
+    --border-strong: rgba(26,20,16,0.18);
+    --accent: #1a1410;
+    --accent-warm: #b87333;
+    --accent-dim: rgba(26,20,16,0.45);
+    --text-primary: #0f0c09;
+    --text-secondary: #8a7f74;
+    --text-tertiary: #b5a99c;
+    --shadow-card: 0 16px 50px rgba(26,20,16,0.12);
+    --radius-card: 24px;
+    --radius-pill: 999px;
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-page);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(184,115,51,0.08) 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+}
+
+.video-bg {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: -3;
+    filter: brightness(1.15) contrast(1.05) saturate(0.9);
+}
+
+body::before {
+    content: ""; position: fixed; inset: 0;
+    background: rgba(250, 249, 247, 0.62); z-index: -2;
+}
+
+.container { max-width: 900px; margin: auto; padding: 70px 25px; }
+
+.byline {
+    font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+    color: #5f6780; margin-bottom: 18px;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    color: var(--accent); line-height: 1.1; margin-bottom: 20px; font-weight: 500;
+}
+
+.tagline {
+    color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;
+    border-left: 4px solid rgba(184,115,51,0.18); padding-left: 18px;
+    margin-bottom: 55px;
+}
+
+.white-block {
+    background: var(--bg-card); padding: 42px;
+    border-radius: var(--radius-card); border: 1px solid var(--border);
+    box-shadow: var(--shadow-card); margin-top: 30px;
+}
+
+hr { border: none; border-top: 1px solid #ececec; margin-bottom: 26px; }
+
+.toc-label {
+    font-size: .75rem; text-transform: uppercase; letter-spacing: .08em;
+    color: #999; margin-bottom: 18px;
+}
+
+ol.toc {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0 30px;
+}
+
+ol.toc li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f1f1; }
+.num { color: #b7b7b7; font-size: .75rem; min-width: 20px; }
+ol.toc a { text-decoration: none; color: #333; font-size: .92rem; transition: .25s; }
+ol.toc a:hover { color: #000; transform: translateX(4px); }
+</style>
+</head>
+
+<body>
+
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="12681526_3840_2160_30fps.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+    <p class="byline">
+        Sanjivani University • Summer Internship 2026 • Tinkerers' Lab • SARTHAK TURKANE
+    </p>
+
+    <h2>Week 2 Technical Documentation Report</h2>
+    <br>
+
+    <p class="tagline">
+        A structured documentation of digital fabrication workflows,
+        machine-control software, laser cutting operations,
+        and vinyl/iron-on design processes explored during Week 2.
+    </p>
+
+    <div class="white-block">
+        <hr>
+        <p class="toc-label">Table of Contents</p>
+        <ol class="toc">
+            <li><span class="num">01</span><a href="#intro">Introduction</a></li>
+            <li><span class="num">02</span><a href="#lasercad">LaserCAD & Laser Cutting Workflow</a></li>
+            <li><span class="num">03</span><a href="#params">Laser Parameters & Material Settings</a></li>
+            <li><span class="num">04</span><a href="#cricut">Cricut Design Space & Iron-On Workflow</a></li>
+            <li><span class="num">05</span><a href="#skills">Key Skills & Competencies Developed</a></li>
+            <li><span class="num">06</span><a href="#tools">Tool Reference Table</a></li>
+            <li><span class="num">07</span><a href="#reflection">Personal Reflection</a></li>
+            <li><span class="num">08</span><a href="#resources">Useful Learning Resources</a></li>
+        </ol>
+    </div>
+
+</div>
+
+<!-- ===================== GLOBAL SECTION STYLES ===================== -->
+<style>
+.internship-section {
+    max-width: 1100px; margin: 80px auto; padding: 20px;
+    font-family: Arial, sans-serif; color: #1f2937;
+}
+
+.section-header { margin-bottom: 50px; }
+.mini-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #6b7280; margin-bottom: 15px; }
+.section-header h1 { font-size: 52px; line-height: 1.2; color: #111827; margin-bottom: 20px; }
+.intro-highlight { font-size: 18px; line-height: 1.9; color: #4b5563; max-width: 800px; }
+
+.content-card {
+    background: #ffffff; border: 1px solid #e5e7eb;
+    border-radius: 24px; padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05); margin-bottom: 40px;
+}
+.content-card p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 24px; }
+.content-card a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.content-card a:hover { text-decoration: underline; }
+
+.highlight-name { color: #111827; font-weight: 700; }
+
+.info-box {
+    margin-top: 30px; background: #eff6ff;
+    border-left: 5px solid #2563eb; padding: 22px;
+    border-radius: 14px; line-height: 1.8; color: #1e3a8a;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+.sub-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 30px; }
+
+.section-number {
+    width: 60px; height: 60px; background: #111827; color: white;
+    border-radius: 18px; display: flex; align-items: center;
+    justify-content: center; font-weight: bold; font-size: 20px;
+    flex-shrink: 0;
+}
+
+.small-heading { font-size: 12px; letter-spacing: 2px; color: #6b7280; margin-bottom: 10px; }
+.sub-heading h2 { font-size: 38px; line-height: 1.3; color: #111827; margin: 0; }
+
+.styled-list { padding-left: 20px; margin-bottom: 30px; }
+.styled-list li { margin-bottom: 14px; line-height: 1.8; color: #374151; }
+
+.reference-box {
+    background: #f8fafc; border: 1px solid #e2e8f0;
+    padding: 22px; border-radius: 16px; margin: 35px 0;
+}
+.reference-label {
+    display: inline-block; margin-bottom: 12px; font-size: 12px;
+    letter-spacing: 1px; text-transform: uppercase; color: #64748b;
+}
+.reference-box p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 16px; }
+.reference-box a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.reference-box a:hover { text-decoration: underline; }
+
+.resource-list { margin: 0; padding-left: 18px; }
+.resource-list li { margin-bottom: 12px; line-height: 1.8; }
+
+.topic-heading { font-size: 28px; color: #111827; margin-bottom: 25px; margin-top: 5px; }
+
+.image-gallery { margin-top: 50px; }
+.image-card { margin-bottom: 55px; text-align: center; }
+.image-card img {
+    width: 100%; max-width: 900px; border-radius: 20px;
+    border: 1px solid #e5e7eb; box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+.image-card img:hover { transform: translateY(-4px); }
+.image-caption {
+    margin-top: 18px; font-size: 15px; line-height: 1.9; color: #4b5563;
+    max-width: 850px; margin-left: auto; margin-right: auto;
+}
+
+.video-container {
+    position: relative; width: 100%; padding-bottom: 56.25%;
+    height: 0; overflow: hidden; border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-top: 20px;
+}
+.video-container iframe { position: absolute; width: 100%; height: 100%; left: 0; top: 0; border: none; }
+.video-fallback {
+    position: absolute; left: 0; top: 0; right: 0; bottom: 0;
+    display: block; text-decoration: none; color: inherit;
+}
+.video-fallback img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.play-overlay {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%); width: 84px; height: 84px;
+    border-radius: 50%; background: rgba(26,20,16,0.72); color: #fff;
+    display: grid; place-items: center; font-size: 34px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.code-block {
+    background: #0f172a; border-radius: 16px; padding: 20px;
+    overflow-x: auto; margin-bottom: 18px;
+}
+.code-block pre { margin: 0; color: #f8fafc; font-size: 15px; line-height: 2; font-family: Consolas, monospace; }
+.code-block code { font-size: 14px; line-height: 1.8; font-family: Consolas, monospace; }
+.comment { color: #94a3b8; display: block; margin-bottom: 12px; }
+.cmd { color: #f8fafc; }
+.flag { color: #38bdf8; }
+.string { color: #86efac; }
+
+/* overview grid cards */
+.overview-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
+}
+.overview-item {
+    background: white; border: 1px solid #e5e7eb;
+    border-radius: 18px; padding: 24px; transition: 0.3s ease;
+}
+.overview-item:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.overview-item h4 { font-size: 18px; color: #111827; margin-bottom: 14px; }
+.overview-item p { font-size: 15px; line-height: 1.9; color: #4b5563; margin: 0; }
+
+/* parameter comparison */
+.param-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 24px 0; }
+.param-card {
+    background: white; border: 1px solid #e5e7eb;
+    border-radius: 18px; padding: 28px;
+}
+.param-card h4 { font-size: 20px; color: #111827; margin-bottom: 16px; }
+.param-card p { font-size: 15px; line-height: 1.9; color: #4b5563; margin-bottom: 12px; }
+
+/* theme override to match week 1 warm palette */
+:root {
+    --bg-page: #f0ede8; --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10); --accent: #1a1410; --accent-warm: #b87333;
+    --text-primary: #0f0c09; --text-secondary: #5a533f;
+}
+body { font-family: var(--font-body, 'DM Sans', sans-serif); background: var(--bg-page); }
+h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif); color: var(--accent); }
+.section-number { background: var(--accent); color: #f7f3ed; }
+.divider { background: linear-gradient(to right, transparent, rgba(26,20,16,0.18), transparent); }
+
+@media(max-width:768px) {
+    .section-header h1 { font-size: 38px; }
+    .sub-heading { flex-direction: column; }
+    .sub-heading h2 { font-size: 30px; }
+    .content-card { padding: 28px; }
+    .param-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ===================== MAIN SECTION ===================== -->
+<section class="internship-section">
+
+    <!-- INTRO HEADER -->
+    <div class="section-header">
+        <h1 id="intro">Introduction</h1>
+        <p class="intro-highlight">
+            A hands-on journey into digital fabrication technologies — from laser cutting workflows to vinyl design production — that bridge software and physical manufacturing.
+        </p>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 2 focused on digital fabrication technologies and machine-control software used in modern prototyping environments. The learning activities introduced software platforms used for <span class="highlight-name">laser cutting</span> and <span class="highlight-name">vinyl cutting</span>, along with the workflows required to convert digital designs into physical products.
+        </p>
+        <p>
+            The week provided practical exposure to machine setup, design preparation, parameter configuration, material selection, and production workflows. Two major systems were explored: <span class="highlight-name">LaserCAD</span> for CO₂ laser cutting operations and <span class="highlight-name">Cricut Design Space</span> for vinyl and iron-on fabrication projects.
+        </p>
+        <p>
+            Rather than focusing on a single tool, the sessions demonstrated how a complete digital-to-physical workflow functions — from preparing a vector design in software, configuring machine parameters, to producing a finished physical artifact.
+        </p>
+        <p>
+            This week built directly on the digital design foundations established in Week 1, applying vector graphics knowledge to real machine control systems and fabrication environments.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 01 — LASERCAD -->
+    <div class="sub-heading">
+        <span class="section-number">01</span>
+        <div>
+            <p class="small-heading">LASER CUTTING & MACHINE CONTROL SOFTWARE</p>
+            <h2 id="lasercad">LaserCAD & Laser Cutting Workflow</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">LaserCAD</span> is machine-control software used with Trocen-based CO₂ laser cutters. During this session, the complete workflow from software installation to machine communication and job transfer was explored in detail.
+        </p>
+        <p>
+            The software provides tools for creating vector-based designs, assigning cutting parameters to individual layers, and sending jobs directly to the laser controller for execution.
+        </p>
+        <p>The complete workflow covered during the learning session included:</p>
+
+        <ul class="styled-list">
+            <li>Installing LaserCAD V8.28 and configuring the environment</li>
+            <li>Setting up USB communication drivers for machine connectivity</li>
+            <li>Linking CorelDraw integration for design import workflows</li>
+            <li>Understanding the LaserCAD workspace and tool layout</li>
+            <li>Creating basic vector designs using ellipse and text tools</li>
+            <li>Managing Cut and Engrave layers with distinct color assignments</li>
+            <li>Configuring speed, power, and operating mode parameters</li>
+            <li>Establishing COM port communication with the laser controller</li>
+            <li>Downloading completed jobs to the controller memory for execution</li>
+        </ul>
+
+        <p>
+            A sample nameplate design was created using the ellipse and text tools inside LaserCAD. Different layer colors were assigned to define cutting and engraving operations independently, allowing precise control over how each element is processed by the machine.
+        </p>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            The session demonstrated how digital designs are translated into machine-readable instructions and highlighted the importance of proper parameter configuration before sending any job to the laser cutter.
+        </div>
+
+        <!-- KEY CONCEPTS OVERVIEW -->
+        <div class="reference-box" style="margin-top: 40px;">
+            <span class="reference-label">Key Concepts Learned</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Vector-Based Design</h4>
+                    <p>All laser cutting operations require vector paths. LaserCAD uses these paths to define the exact trajectory of the laser beam.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Layer Management</h4>
+                    <p>Different colored layers define independent operations. Each layer carries its own speed, power, and mode settings.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Machine Communication</h4>
+                    <p>USB-based COM port communication links the computer to the Trocen controller, enabling direct job transfer to machine memory.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Origin & Positioning</h4>
+                    <p>Correct origin setup ensures the design is cut at the intended location on the material without misalignment.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Controller-Based Job Transfer</h4>
+                    <p>Jobs downloaded to the controller can run independently from the computer, enabling standalone machine operation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- REFERENCE RESOURCES -->
+        <div class="reference-box">
+            <span class="reference-label">Official Resources</span>
+            <ul class="resource-list">
+                <li><a href="https://www.sztrocen.com" target="_blank">Trocen Controller Official Website</a></li>
+                <li><a href="https://www.coreldraw.com" target="_blank">CorelDraw (Design Integration)</a></li>
+            </ul>
+        </div>
+
+        <!-- IMAGES -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/l1.png" alt="LaserCAD Installation">
+                <p class="image-caption">
+                    <strong>Fig. 2.0:</strong> Installation and initial setup of LaserCAD V8.28 for Trocen-based CO₂ laser systems.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/l2.png" alt="LaserCAD Workspace">
+                <p class="image-caption">
+                    <strong>Fig. 2.1:</strong> LaserCAD workspace showing machine bed configuration, layer panel, parameter controls, and design canvas.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/l3.png" alt="LaserCAD Layer Parameters">
+                <p class="image-caption">
+                    <strong>Fig. 2.2:</strong> Configuration of Cut and Engrave layer parameters including speed, power, and operating mode settings.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 02 — LASER PARAMETERS -->
+    <div class="sub-heading">
+        <span class="section-number">02</span>
+        <div>
+            <p class="small-heading">MATERIAL CONFIGURATION & SAFETY PROTOCOLS</p>
+            <h2 id="params">Laser Parameters & Material Settings</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            A significant component of the laser cutting module involved understanding how <span class="highlight-name">speed</span>, <span class="highlight-name">power</span>, and <span class="highlight-name">operating mode</span> parameters affect cutting and engraving performance across different materials.
+        </p>
+        <p>
+            The <span class="highlight-name">SIL laser parameter chart</span> was introduced as a reference guide for selecting appropriate settings based on material type and thickness. The chart covered configurations for: acrylic, MDF, cardboard, paper, leather, marble, glass, thermocol, and wood applications.
+        </p>
+
+        <!-- CUTTING VS ENGRAVING -->
+        <div class="reference-box">
+            <span class="reference-label">Cut vs. Engrave — Operating Mode Comparison</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>✂ Cutting</h4>
+                    <p>Used for fully penetrating the material to separate shapes and parts.</p>
+                    <ul class="styled-list">
+                        <li>Lower speed settings</li>
+                        <li>Higher power output</li>
+                        <li>Complete material separation</li>
+                        <li>Sharp, clean edge results</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>◎ Engraving</h4>
+                    <p>Used for surface marking, texturing, and shallow material removal.</p>
+                    <ul class="styled-list">
+                        <li>Higher speed settings</li>
+                        <li>Lower power output</li>
+                        <li>Surface-level material removal</li>
+                        <li>Precise detail and texture</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SAFETY -->
+        <div class="reference-box">
+            <span class="reference-label">Safety & Maintenance Protocols</span>
+            <p>
+                The importance of water-chiller operation was emphasized as a critical safety requirement during all laser operations.
+            </p>
+            <ul class="styled-list">
+                <li>Always start the water chiller <strong>before</strong> powering on the laser</li>
+                <li>Perform regular water replacement and quality checks</li>
+                <li>Monitor power settings to avoid material scorching or fire risk</li>
+                <li>Select material-specific parameters before any cutting job</li>
+                <li>Never leave the machine unattended during active operation</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Understanding parameter selection is critical for achieving accurate cuts, preventing material damage, maintaining consistent output quality, and ensuring machine safety throughout fabrication operations.
+        </div>
+
+        <!-- IMAGE -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/l4.png" alt="Laser Parameter Chart">
+                <p class="image-caption">
+                    <strong>Fig. 3.0:</strong> SIL material parameter reference chart showing recommended speed, power, and operating modes for each material type and thickness.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 03 — CRICUT -->
+    <div class="sub-heading">
+        <span class="section-number">03</span>
+        <div>
+            <p class="small-heading">VINYL CUTTING & IRON-ON DESIGN FABRICATION</p>
+            <h2 id="cricut">Cricut Design Space & Iron-On Design Workflow</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            The second fabrication workflow explored during Week 2 involved the <span class="highlight-name">Cricut Maker 4</span> precision cutting machine and <span class="highlight-name">Cricut Design Space</span> software. The software acts as the primary interface for preparing vinyl and iron-on projects before sending them to the cutting machine.
+        </p>
+        <p>
+            Cricut Design Space provides a web-based and desktop design environment that enables users to compose layouts, apply text and graphics, preview material placement, and send optimized cut files directly to the cutter — all within a single integrated workflow.
+        </p>
+
+        <p>The complete Cricut workflow covered during the session included:</p>
+        <ul class="styled-list">
+            <li>Downloading and installing Cricut Design Space desktop application</li>
+            <li>Account setup and new project initialization</li>
+            <li>Using text and image tools on the canvas workspace</li>
+            <li>Preparing and sizing an iron-on vinyl design</li>
+            <li>Applying the mirror function required for iron-on transfers</li>
+            <li>Previewing the design using Cricut's product mockup tools</li>
+            <li>Selecting material type and confirming machine settings</li>
+            <li>Sending the project to Cricut Maker 4 for cutting</li>
+        </ul>
+
+        <!-- KEY CONCEPTS -->
+        <div class="reference-box">
+            <span class="reference-label">Key Concepts Explored</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Design Canvas</h4>
+                    <p>A ruler-based workspace for precise design placement, scaling, and alignment before any material is cut.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Iron-On Materials</h4>
+                    <p>Material selection within Design Space determines blade pressure, cutting speed, and heat transfer behavior.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Mirror Function</h4>
+                    <p>Iron-on designs must be horizontally mirrored before cutting to ensure correct orientation after heat transfer application.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Preview Workflow</h4>
+                    <p>Cricut's built-in mockup preview allows visualization of the final product appearance before committing to fabrication.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            The Cricut workflow demonstrated how digital graphics can be efficiently converted into physical custom products through structured design preparation, correct material configuration, and machine-assisted precision cutting.
+        </div>
+
+        <!-- REFERENCE -->
+        <div class="reference-box">
+            <span class="reference-label">Official Resources</span>
+            <ul class="resource-list">
+                <li><a href="https://design.cricut.com" target="_blank">Cricut Design Space — Web App</a></li>
+                <li><a href="https://help.cricut.com" target="_blank">Cricut Help Center</a></li>
+                <li><a href="https://learn.cricut.com" target="_blank">Cricut Learning Resources</a></li>
+            </ul>
+        </div>
+
+        <!-- IMAGES -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/c1.png" alt="Cricut Design Space Download">
+                <p class="image-caption">
+                    <strong>Fig. 4.0:</strong> Download and installation process for Cricut Design Space desktop application.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/c2.png" alt="Design Space Canvas">
+                <p class="image-caption">
+                    <strong>Fig. 4.1:</strong> Cricut Design Space project canvas showing design preparation, text tools, and layout composition workflow.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/c3.png" alt="Iron On Project Preview">
+                <p class="image-caption">
+                    <strong>Fig. 4.2:</strong> Final iron-on design preview using Cricut's product mockup tool before sending the project to the cutting machine.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 04 — SKILLS -->
+    <div class="sub-heading">
+        <span class="section-number">04</span>
+        <div>
+            <p class="small-heading">KEY SKILLS & COMPETENCIES</p>
+            <h2 id="skills">Key Skills & Competencies Developed</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 2 contributed a combination of technical, machine-operation, and design-to-fabrication workflow skills across laser cutting and vinyl cutting environments.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Technical Skills</span>
+            <ul class="styled-list">
+                <li>LaserCAD software operation and workspace configuration</li>
+                <li>Laser parameter optimization for different materials</li>
+                <li>USB/COM port machine communication setup</li>
+                <li>Layer-based design management for cut vs. engrave operations</li>
+                <li>Cricut Design Space project creation and management</li>
+                <li>Iron-on vinyl design preparation and mirror workflow</li>
+                <li>Material selection and fabrication planning</li>
+            </ul>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Fabrication Skills</span>
+            <ul class="styled-list">
+                <li>Digital-to-physical workflow understanding</li>
+                <li>Cut vs. engrave decision making based on design intent</li>
+                <li>Production parameter optimization for material-specific results</li>
+                <li>Machine safety awareness and chiller operation protocols</li>
+                <li>Design preparation and verification before manufacturing</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 05 — TOOLS TABLE -->
+    <div class="sub-heading">
+        <span class="section-number">05</span>
+        <div>
+            <p class="small-heading">TOOL REFERENCE</p>
+            <h2 id="tools">Tool Reference Table</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>The following table lists the key tools and systems referenced during Week 2 and their primary purpose within the fabrication workflow.</p>
+
+        <div style="overflow: auto;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #fafafa;">
+                        <th style="text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb;">Tool</th>
+                        <th style="text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb;">Primary Purpose</th>
+                        <th style="text-align: left; padding: 10px; border-bottom: 1px solid #e5e7eb;">Official Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">LaserCAD V8.28</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Laser cutter control & design software</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://www.sztrocen.com" target="_blank">sztrocen.com</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Trocen Controller</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Laser machine onboard controller</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://www.sztrocen.com" target="_blank">sztrocen.com</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">CO₂ Laser Cutter</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Material cutting and surface engraving</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Water Chiller</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Laser tube cooling & safety system</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Cricut Design Space</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Vinyl & iron-on design preparation software</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://design.cricut.com" target="_blank">design.cricut.com</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Cricut Maker 4</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Precision vinyl & iron-on cutting machine</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://www.cricut.com" target="_blank">cricut.com</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;">CorelDraw</td>
+                        <td style="padding: 10px;">Vector design integration with LaserCAD</td>
+                        <td style="padding: 10px;"><a href="https://www.coreldraw.com" target="_blank">coreldraw.com</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 06 — REFLECTION -->
+    <div class="sub-heading">
+        <span class="section-number">06</span>
+        <div>
+            <p class="small-heading">REFLECTION</p>
+            <h2 id="reflection">Personal Reflection</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 2 provided valuable hands-on exposure to practical digital fabrication technologies and machine-control workflows. The sessions demonstrated how digital designs are converted into physical products through specialized software, machine configuration, and material-specific parameter tuning.
+        </p>
+        <p>
+            Working with LaserCAD introduced the principles of laser cutting, engraving, and parameter optimization, while Cricut Design Space demonstrated a streamlined yet highly effective workflow for vinyl and iron-on fabrication. Together, these experiences strengthened the understanding of digital manufacturing and modern rapid prototyping systems.
+        </p>
+        <p>
+            The week reinforced that successful fabrication depends not only on the design itself, but equally on the accuracy of machine parameters, the selection of appropriate materials, and strict adherence to safety protocols throughout the production process.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 07 — RESOURCES -->
+    <div class="sub-heading">
+        <span class="section-number">07</span>
+        <div>
+            <p class="small-heading">RESOURCES</p>
+            <h2 id="resources">Useful Learning Resources & References</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <ul class="styled-list">
+            <li>Trocen / LaserCAD Resources — <a href="https://www.sztrocen.com" target="_blank">www.sztrocen.com</a></li>
+            <li>Cricut Help Center — <a href="https://help.cricut.com" target="_blank">help.cricut.com</a></li>
+            <li>Cricut Design Space (Web) — <a href="https://design.cricut.com" target="_blank">design.cricut.com</a></li>
+            <li>Cricut Learning Hub — <a href="https://learn.cricut.com" target="_blank">learn.cricut.com</a></li>
+            <li>CorelDraw Documentation — <a href="https://www.coreldraw.com/en/pages/tutorials/" target="_blank">coreldraw.com/tutorials</a></li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>
