@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 3 Technical Documentation Report</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-page: #f0ede8;
+    --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10);
+    --border-strong: rgba(26,20,16,0.18);
+    --accent: #1a1410;
+    --accent-warm: #b87333;
+    --accent-dim: rgba(26,20,16,0.45);
+    --text-primary: #0f0c09;
+    --text-secondary: #8a7f74;
+    --text-tertiary: #b5a99c;
+    --shadow-card: 0 16px 50px rgba(26,20,16,0.12);
+    --radius-card: 24px;
+    --radius-pill: 999px;
+    --font-heading: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--bg-page);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(184,115,51,0.08) 0%, transparent 70%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    overflow-x: hidden;
+}
+
+.video-bg {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: -3;
+    filter: brightness(1.15) contrast(1.05) saturate(0.9);
+}
+
+body::before {
+    content: ""; position: fixed; inset: 0;
+    background: rgba(250, 249, 247, 0.62); z-index: -2;
+}
+
+.container { max-width: 900px; margin: auto; padding: 70px 25px; }
+
+.byline {
+    font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
+    color: #5f6780; margin-bottom: 18px;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 5vw, 4.5rem);
+    color: var(--accent); line-height: 1.1; margin-bottom: 20px; font-weight: 500;
+}
+
+.tagline {
+    color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;
+    border-left: 4px solid rgba(184,115,51,0.18); padding-left: 18px;
+    margin-bottom: 55px;
+}
+
+.white-block {
+    background: var(--bg-card); padding: 42px;
+    border-radius: var(--radius-card); border: 1px solid var(--border);
+    box-shadow: var(--shadow-card); margin-top: 30px;
+}
+
+hr { border: none; border-top: 1px solid #ececec; margin-bottom: 26px; }
+
+.toc-label {
+    font-size: .75rem; text-transform: uppercase; letter-spacing: .08em;
+    color: #999; margin-bottom: 18px;
+}
+
+ol.toc {
+    list-style: none;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0 30px;
+}
+
+ol.toc li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f1f1f1; }
+.num { color: #b7b7b7; font-size: .75rem; min-width: 20px; }
+ol.toc a { text-decoration: none; color: #333; font-size: .92rem; transition: .25s; }
+ol.toc a:hover { color: #000; transform: translateX(4px); }
+</style>
+</head>
+
+<body>
+
+<video class="video-bg" autoplay muted loop playsinline>
+    <source src="12681526_3840_2160_30fps.mp4" type="video/mp4">
+</video>
+
+<div class="container">
+
+    <p class="byline">
+        Sanjivani University • Summer Internship 2026 • Tinkerers' Lab • SARTHAK TURKANE
+    </p>
+
+    <h2>Week 3 Technical Documentation Report</h2>
+    <br>
+
+    <p class="tagline">
+        A comprehensive exploration of Electronics, Embedded Systems, Physical AI,
+        Sensors, Actuators, Control Systems, and IoT Communication Technologies —
+        the building blocks of intelligent real-world systems.
+    </p>
+
+    <div class="white-block">
+        <hr>
+        <p class="toc-label">Table of Contents</p>
+        <ol class="toc">
+            <li><span class="num">01</span><a href="#intro">Introduction</a></li>
+            <li><span class="num">02</span><a href="#esp32">ESP32 Technology</a></li>
+            <li><span class="num">03</span><a href="#arduino">Arduino Boards Comparison</a></li>
+            <li><span class="num">04</span><a href="#physicalai">Physical AI</a></li>
+            <li><span class="num">05</span><a href="#mcu-vs-cpu">Microcontroller vs Processor</a></li>
+            <li><span class="num">06</span><a href="#edge">Edge Computing</a></li>
+            <li><span class="num">07</span><a href="#sca">Sensor, Controller & Actuator</a></li>
+            <li><span class="num">08</span><a href="#control">Control Systems (P / PI / PID)</a></li>
+            <li><span class="num">09</span><a href="#sensors">Sensors Documentation</a></li>
+            <li><span class="num">10</span><a href="#motors">Actuators & Motors</a></li>
+            <li><span class="num">11</span><a href="#semiconductors">LED, Semiconductors & Transistors</a></li>
+            <li><span class="num">12</span><a href="#mosfet">MOSFET & Relay</a></li>
+            <li><span class="num">13</span><a href="#firebase">ESP32 & Firebase IoT</a></li>
+            <li><span class="num">14</span><a href="#skills">Key Skills Developed</a></li>
+            <li><span class="num">15</span><a href="#reflection">Personal Reflection</a></li>
+            <li><span class="num">16</span><a href="#resources">References & Resources</a></li>
+        </ol>
+    </div>
+
+</div>
+
+<!-- ===================== GLOBAL SECTION STYLES ===================== -->
+<style>
+.internship-section {
+    max-width: 1100px; margin: 80px auto; padding: 20px;
+    font-family: Arial, sans-serif; color: #1f2937;
+}
+
+.section-header { margin-bottom: 50px; }
+.mini-label { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: #6b7280; margin-bottom: 15px; }
+.section-header h1 { font-size: 52px; line-height: 1.2; color: #111827; margin-bottom: 20px; }
+.intro-highlight { font-size: 18px; line-height: 1.9; color: #4b5563; max-width: 800px; }
+
+.content-card {
+    background: #ffffff; border: 1px solid #e5e7eb;
+    border-radius: 24px; padding: 40px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.05); margin-bottom: 40px;
+}
+.content-card p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 24px; }
+.content-card a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.content-card a:hover { text-decoration: underline; }
+
+.highlight-name { color: #111827; font-weight: 700; }
+
+.info-box {
+    margin-top: 30px; background: #eff6ff;
+    border-left: 5px solid #2563eb; padding: 22px;
+    border-radius: 14px; line-height: 1.8; color: #1e3a8a;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 60px 0;
+}
+
+.sub-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 30px; }
+
+.section-number {
+    width: 60px; height: 60px; background: #111827; color: white;
+    border-radius: 18px; display: flex; align-items: center;
+    justify-content: center; font-weight: bold; font-size: 20px;
+    flex-shrink: 0;
+}
+
+.small-heading { font-size: 12px; letter-spacing: 2px; color: #6b7280; margin-bottom: 10px; }
+.sub-heading h2 { font-size: 38px; line-height: 1.3; color: #111827; margin: 0; }
+
+.styled-list { padding-left: 20px; margin-bottom: 30px; }
+.styled-list li { margin-bottom: 14px; line-height: 1.8; color: #374151; }
+
+.reference-box {
+    background: #f8fafc; border: 1px solid #e2e8f0;
+    padding: 22px; border-radius: 16px; margin: 35px 0;
+}
+.reference-label {
+    display: inline-block; margin-bottom: 12px; font-size: 12px;
+    letter-spacing: 1px; text-transform: uppercase; color: #64748b;
+}
+.reference-box p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 16px; }
+.reference-box a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.reference-box a:hover { text-decoration: underline; }
+
+.resource-list { margin: 0; padding-left: 18px; }
+.resource-list li { margin-bottom: 12px; line-height: 1.8; }
+
+.topic-heading { font-size: 28px; color: #111827; margin-bottom: 25px; margin-top: 5px; }
+
+/* overview grid cards */
+.overview-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
+}
+.overview-item {
+    background: white; border: 1px solid #e5e7eb;
+    border-radius: 18px; padding: 24px; transition: 0.3s ease;
+}
+.overview-item:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.overview-item h4 { font-size: 18px; color: #111827; margin-bottom: 14px; }
+.overview-item p { font-size: 15px; line-height: 1.9; color: #4b5563; margin: 0; }
+
+/* comparison table */
+.param-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 24px 0; }
+.param-card {
+    background: white; border: 1px solid #e5e7eb;
+    border-radius: 18px; padding: 28px;
+}
+.param-card h4 { font-size: 20px; color: #111827; margin-bottom: 16px; }
+.param-card p { font-size: 15px; line-height: 1.9; color: #4b5563; margin-bottom: 12px; }
+
+/* data table */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table thead tr { background: #fafafa; }
+.data-table th { text-align: left; padding: 12px 14px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #374151; }
+.data-table td { padding: 11px 14px; border-bottom: 1px solid #f1f1f1; font-size: 15px; color: #374151; }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: #f9fafb; }
+
+/* flow diagram */
+.flow-diagram {
+    display: flex; align-items: center; gap: 12px;
+    flex-wrap: wrap; margin: 24px 0; padding: 20px;
+    background: #f8fafc; border-radius: 14px; border: 1px solid #e2e8f0;
+}
+.flow-box {
+    background: #1a1410; color: #f7f3ed;
+    padding: 10px 20px; border-radius: 10px;
+    font-size: 14px; font-weight: 600; text-align: center;
+}
+.flow-arrow { color: #b87333; font-size: 22px; font-weight: bold; }
+
+/* three column grid */
+.three-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 24px 0;
+}
+.three-card {
+    background: white; border: 1px solid #e5e7eb;
+    border-radius: 16px; padding: 22px; transition: 0.3s;
+}
+.three-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
+.three-card h4 { font-size: 17px; color: #111827; margin-bottom: 12px; }
+.three-card p { font-size: 14px; line-height: 1.8; color: #4b5563; margin: 0; }
+.three-card ul { padding-left: 16px; margin: 0; }
+.three-card ul li { font-size: 14px; line-height: 1.9; color: #4b5563; }
+
+/* firebase architecture */
+.firebase-arch {
+    background: #0f172a; border-radius: 18px; padding: 28px;
+    margin: 28px 0; font-family: Consolas, monospace;
+}
+.firebase-arch p {
+    color: #94a3b8; font-size: 14px; line-height: 2.2;
+    margin: 0; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 4px 0;
+}
+.firebase-arch p:last-child { border-bottom: none; }
+.fb-device { color: #38bdf8; }
+.fb-arrow { color: #b87333; }
+.fb-service { color: #86efac; }
+
+/* theme override to match warm palette */
+:root {
+    --bg-page: #f0ede8; --bg-card: #faf9f7;
+    --border: rgba(26,20,16,0.10); --accent: #1a1410; --accent-warm: #b87333;
+    --text-primary: #0f0c09; --text-secondary: #5a533f;
+}
+body { font-family: var(--font-body, 'DM Sans', sans-serif); background: var(--bg-page); }
+h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif); color: var(--accent); }
+.section-number { background: var(--accent); color: #f7f3ed; }
+.divider { background: linear-gradient(to right, transparent, rgba(26,20,16,0.18), transparent); }
+
+@media(max-width:768px) {
+    .section-header h1 { font-size: 38px; }
+    .sub-heading { flex-direction: column; }
+    .sub-heading h2 { font-size: 30px; }
+    .content-card { padding: 28px; }
+    .param-grid { grid-template-columns: 1fr; }
+    .flow-diagram { flex-direction: column; align-items: flex-start; }
+}
+</style>
+
+<!-- ===================== MAIN SECTION ===================== -->
+<section class="internship-section">
+
+    <!-- INTRO HEADER -->
+    <div class="section-header">
+        <h1 id="intro">Introduction</h1>
+        <p class="intro-highlight">
+            Week 3 explored the fundamentals of electronics, embedded systems, and Physical AI — bridging software intelligence with real-world hardware interaction through sensors, actuators, control systems, and IoT communication.
+        </p>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 3 focused on the core building blocks of intelligent systems: <span class="highlight-name">Electronics</span>, <span class="highlight-name">Embedded Systems</span>, <span class="highlight-name">Physical AI</span>, <span class="highlight-name">Sensors</span>, <span class="highlight-name">Actuators</span>, <span class="highlight-name">Control Systems</span>, and <span class="highlight-name">IoT Communication Technologies</span>. These concepts are foundational to robotics, automation, healthcare devices, and smart IoT applications.
+        </p>
+        <p>
+            The knowledge gained during this week is directly applicable to the project <span class="highlight-name">"Real-Time Skin Cancer Detection System using Deep Learning on Raspberry Pi 4"</span>, where sensors, controllers, edge computing, and communication technologies play a significant role.
+        </p>
+        <p>
+            Sessions covered platforms such as <span class="highlight-name">ESP32</span> and the <span class="highlight-name">Arduino family</span> for embedded development, explored concepts like edge computing and Physical AI, examined sensor and motor technologies, and demonstrated cloud integration using <span class="highlight-name">Firebase</span>.
+        </p>
+        <p>
+            This week built a strong bridge between digital design knowledge from previous weeks and the physical world of hardware-driven intelligent systems.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 01 — ESP32 -->
+    <div class="sub-heading">
+        <span class="section-number">01</span>
+        <div>
+            <p class="small-heading">MICROCONTROLLER & IoT PLATFORM</p>
+            <h2 id="esp32">ESP32 Technology</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">ESP32</span> is a powerful, low-cost microcontroller developed by <span class="highlight-name">Espressif Systems</span>. It combines processing capabilities with built-in Wi-Fi and Bluetooth connectivity, making it one of the most widely used platforms for Internet of Things (IoT) applications.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Key Specifications</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Processor</h4>
+                    <p>Dual-Core Xtensa LX6 running up to 240 MHz clock speed for high-performance embedded tasks.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Memory</h4>
+                    <p>520 KB SRAM with support for external flash. Suitable for moderate data processing workloads.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Wireless</h4>
+                    <p>Integrated Wi-Fi and Bluetooth support enables seamless IoT connectivity without external modules.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>GPIO & Peripherals</h4>
+                    <p>34 GPIO pins with 18 ADC channels, 2 DAC channels, and PWM support for versatile interfacing.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Power</h4>
+                    <p>3.3V operating voltage with Deep Sleep power-saving mode for battery-powered deployments.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Development</h4>
+                    <p>Compatible with Arduino IDE, ESP-IDF, and MicroPython with a large active community ecosystem.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Applications</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>IoT & Connectivity</h4>
+                    <ul class="styled-list">
+                        <li>Smart Home Systems</li>
+                        <li>Wireless Sensor Networks</li>
+                        <li>Industrial IoT Monitoring</li>
+                        <li>Remote Data Logging</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>Embedded & Robotics</h4>
+                    <ul class="styled-list">
+                        <li>Robotics Control Systems</li>
+                        <li>Healthcare Monitoring Devices</li>
+                        <li>Industrial Automation</li>
+                        <li>Real-Time Sensor Processing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            ESP32's combination of processing power, wireless connectivity, and low cost makes it an ideal platform for IoT and Physical AI applications, particularly for real-time data acquisition and remote monitoring systems.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 02 — ARDUINO -->
+    <div class="sub-heading">
+        <span class="section-number">02</span>
+        <div>
+            <p class="small-heading">OPEN-SOURCE MICROCONTROLLER PLATFORM</p>
+            <h2 id="arduino">Arduino Boards Comparison</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Arduino</span> is an open-source microcontroller platform widely used for embedded systems and rapid prototyping. Three primary board variants were studied: the <span class="highlight-name">Uno</span>, <span class="highlight-name">Nano</span>, and <span class="highlight-name">Mega</span>, each suited for different project scales and constraints.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Board Profiles</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>Arduino Uno</h4>
+                    <ul>
+                        <li>MCU: ATmega328P</li>
+                        <li>Clock: 16 MHz</li>
+                        <li>Digital Pins: 14</li>
+                        <li>Analog Inputs: 6</li>
+                        <li>Flash: 32 KB</li>
+                        <li>Best for: Learning & sensors</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>Arduino Nano</h4>
+                    <ul>
+                        <li>MCU: ATmega328P</li>
+                        <li>Compact & breadboard friendly</li>
+                        <li>Digital Pins: 14</li>
+                        <li>Analog Inputs: 8</li>
+                        <li>Flash: 32 KB</li>
+                        <li>Best for: Wearables & portable</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>Arduino Mega</h4>
+                    <ul>
+                        <li>MCU: ATmega2560</li>
+                        <li>Large form factor</li>
+                        <li>Digital Pins: 54</li>
+                        <li>Analog Inputs: 16</li>
+                        <li>Flash: 256 KB</li>
+                        <li>Best for: Large robotics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow: auto; margin-top: 10px;">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Uno</th>
+                        <th>Nano</th>
+                        <th>Mega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Flash Memory</td><td>32 KB</td><td>32 KB</td><td>256 KB</td></tr>
+                    <tr><td>Digital Pins</td><td>14</td><td>14</td><td>54</td></tr>
+                    <tr><td>Analog Pins</td><td>6</td><td>8</td><td>16</td></tr>
+                    <tr><td>Form Factor</td><td>Medium</td><td>Small</td><td>Large</td></tr>
+                    <tr><td>Best For</td><td>Beginners</td><td>Compact Projects</td><td>Advanced Projects</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box" style="margin-top: 30px;">
+            <strong>Learning Outcome:</strong><br>
+            Choosing the right Arduino board depends on I/O requirements, size constraints, and memory needs. The Uno suits learning, Nano suits compact builds, and Mega handles high pin-count and complex multi-sensor systems.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 03 — PHYSICAL AI -->
+    <div class="sub-heading">
+        <span class="section-number">03</span>
+        <div>
+            <p class="small-heading">INTELLIGENT SYSTEMS IN THE REAL WORLD</p>
+            <h2 id="physicalai">Physical AI</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Physical AI</span> refers to intelligent systems that can perceive, reason, and act within the physical world. Unlike traditional AI that operates purely in software environments, Physical AI enables machines to interact with real-world surroundings through a continuous sense-reason-act loop.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Core Mechanism — Sense → Reason → Act</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>1. Sensing</h4>
+                    <p>Environmental data is collected through physical sensors.</p>
+                    <ul>
+                        <li>Camera</li>
+                        <li>LiDAR</li>
+                        <li>Ultrasonic Sensor</li>
+                        <li>Temperature Sensor</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>2. Reasoning</h4>
+                    <p>Collected data is processed using AI algorithms.</p>
+                    <ul>
+                        <li>Deep Learning</li>
+                        <li>Computer Vision</li>
+                        <li>Vision-Language-Action Models</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>3. Actuation</h4>
+                    <p>The system executes decisions through physical actuators.</p>
+                    <ul>
+                        <li>Motors</li>
+                        <li>Robotic Arms</li>
+                        <li>Hydraulic Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-box">Sensor Input</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">AI Processing</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Decision Making</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Actuator Action</div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Physical AI closes the loop between perception and action, enabling systems like autonomous robots, healthcare diagnostics, and real-time monitoring to operate intelligently in dynamic environments.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 04 — MCU vs CPU -->
+    <div class="sub-heading">
+        <span class="section-number">04</span>
+        <div>
+            <p class="small-heading">HARDWARE ARCHITECTURE</p>
+            <h2 id="mcu-vs-cpu">Microcontroller vs Processor</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Understanding the distinction between <span class="highlight-name">microcontrollers</span> and <span class="highlight-name">processors</span> is essential for selecting the right hardware platform for any embedded or AI application.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Head-to-Head Comparison</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>⚙ Microcontroller</h4>
+                    <p>Compact integrated circuits designed for specific control tasks with minimal overhead.</p>
+                    <ul class="styled-list">
+                        <li>Examples: Arduino, ESP32, STM32</li>
+                        <li>Low Power Consumption</li>
+                        <li>Real-Time Control Capability</li>
+                        <li>Dedicated Task Execution</li>
+                        <li>No OS Required</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>🖥 Processor</h4>
+                    <p>Designed for complex computing operations and multitasking with high performance.</p>
+                    <ul class="styled-list">
+                        <li>Examples: Raspberry Pi, Intel, AMD</li>
+                        <li>High Processing Power</li>
+                        <li>Multitasking Support</li>
+                        <li>Requires Operating System</li>
+                        <li>Higher Power Consumption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="overflow: auto;">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Microcontroller</th>
+                        <th>Processor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Task Type</td><td>Single Task</td><td>Multi Task</td></tr>
+                    <tr><td>Power Consumption</td><td>Low</td><td>High</td></tr>
+                    <tr><td>Cost</td><td>Low</td><td>Higher</td></tr>
+                    <tr><td>Operating System</td><td>Not Required</td><td>Required</td></tr>
+                    <tr><td>Processing Speed</td><td>Moderate</td><td>High</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box" style="margin-top: 30px;">
+            <strong>Learning Outcome:</strong><br>
+            For real-time control tasks, microcontrollers are the optimal choice. For AI inference and complex computation like the Skin Cancer Detection project, a processor-level device like Raspberry Pi 4 is required.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 05 — EDGE COMPUTING -->
+    <div class="sub-heading">
+        <span class="section-number">05</span>
+        <div>
+            <p class="small-heading">DISTRIBUTED COMPUTING MODEL</p>
+            <h2 id="edge">Edge Computing</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Edge Computing</span> is a distributed computing model where data processing occurs close to the data source rather than a centralized cloud server. For latency-sensitive and privacy-critical applications, edge computing provides significant advantages over traditional cloud-based approaches.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Why Edge Computing?</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Faster Response</h4>
+                    <p>Processing at the source eliminates round-trip cloud latency, enabling near-instant real-time decisions.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Reduced Bandwidth</h4>
+                    <p>Only results or processed summaries are transmitted, drastically reducing network consumption.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Improved Privacy</h4>
+                    <p>Sensitive data such as medical images never leaves the local device, ensuring patient data security.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Real-Time Decision Making</h4>
+                    <p>Critical applications like autonomous vehicles or medical diagnostics require millisecond-level responses.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Example — Skin Cancer Detection System</span>
+            <p style="margin-bottom: 12px; font-weight: 600; color: #374151;">Traditional Cloud Approach:</p>
+            <div class="flow-diagram" style="margin: 0 0 20px 0;">
+                <div class="flow-box">Camera</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Cloud Server</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Processing</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Result</div>
+            </div>
+            <p style="margin-bottom: 12px; font-weight: 600; color: #374151;">Edge Computing Approach:</p>
+            <div class="flow-diagram" style="margin: 0;">
+                <div class="flow-box">Camera</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Raspberry Pi 4</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Result</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Edge computing is the enabling architecture for the Skin Cancer Detection project, allowing the Raspberry Pi 4 to run deep learning inference locally without cloud dependency, ensuring fast and private diagnostics.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 06 — SENSOR CONTROLLER ACTUATOR -->
+    <div class="sub-heading">
+        <span class="section-number">06</span>
+        <div>
+            <p class="small-heading">CONTROL SYSTEM COMPONENTS</p>
+            <h2 id="sca">Sensor, Controller & Actuator</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Every intelligent control system is built on three fundamental components working together: <span class="highlight-name">Sensors</span> that perceive the world, <span class="highlight-name">Controllers</span> that process and decide, and <span class="highlight-name">Actuators</span> that take action.
+        </p>
+
+        <div class="three-grid">
+            <div class="three-card">
+                <h4>📡 Sensor</h4>
+                <p>Measures physical quantities and converts them into electrical signals.</p>
+                <ul>
+                    <li>Temperature Sensor</li>
+                    <li>Light Sensor (LDR)</li>
+                    <li>Distance Sensor (Ultrasonic)</li>
+                    <li>Camera Module</li>
+                </ul>
+            </div>
+            <div class="three-card">
+                <h4>🧠 Controller</h4>
+                <p>Receives sensor data, processes it, and determines appropriate response actions.</p>
+                <ul>
+                    <li>Arduino</li>
+                    <li>ESP32</li>
+                    <li>Raspberry Pi</li>
+                    <li>STM32</li>
+                </ul>
+            </div>
+            <div class="three-card">
+                <h4>⚡ Actuator</h4>
+                <p>Converts controller output signals into physical mechanical or electrical actions.</p>
+                <ul>
+                    <li>DC Motor</li>
+                    <li>Relay Switch</li>
+                    <li>Solenoid</li>
+                    <li>Servo Motor</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flow-diagram" style="margin-top: 28px;">
+            <div class="flow-box">Sensor</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Controller</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Actuator</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Physical World</div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 07 — CONTROL SYSTEMS -->
+    <div class="sub-heading">
+        <span class="section-number">07</span>
+        <div>
+            <p class="small-heading">FEEDBACK & REGULATION SYSTEMS</p>
+            <h2 id="control">Control Systems — P, PI & PID</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Control systems regulate machine behavior automatically by continuously monitoring output and adjusting inputs to minimize error. Three controller types were studied: <span class="highlight-name">P</span>, <span class="highlight-name">PI</span>, and <span class="highlight-name">PID</span>, each offering increasing levels of accuracy and stability.
+        </p>
+
+        <div class="three-grid">
+            <div class="three-card">
+                <h4>P Controller</h4>
+                <p>Output depends only on the present error value.</p>
+                <ul>
+                    <li>✅ Simple implementation</li>
+                    <li>✅ Fast response</li>
+                    <li>⚠ Steady-state error remains</li>
+                </ul>
+            </div>
+            <div class="three-card">
+                <h4>PI Controller</h4>
+                <p>Combines proportional and integral control to eliminate steady-state error.</p>
+                <ul>
+                    <li>✅ Eliminates steady-state error</li>
+                    <li>✅ Stable operation</li>
+                    <li>Used in: Motor & temperature control</li>
+                </ul>
+            </div>
+            <div class="three-card">
+                <h4>PID Controller</h4>
+                <p>Combines all three terms for highest accuracy, speed, and stability.</p>
+                <ul>
+                    <li>✅ High accuracy</li>
+                    <li>✅ Fast response</li>
+                    <li>✅ Excellent stability</li>
+                    <li>Used in: Robotics, drones, automation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            PID controllers are the industry standard in precision automation systems. Understanding their behavior is critical for designing stable, responsive control loops in robotics and embedded systems projects.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 08 — SENSORS -->
+    <div class="sub-heading">
+        <span class="section-number">08</span>
+        <div>
+            <p class="small-heading">PERCEPTION & MEASUREMENT</p>
+            <h2 id="sensors">Sensors Documentation</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            A <span class="highlight-name">sensor</span> converts physical phenomena into measurable electrical signals. Sensors are categorized as <span class="highlight-name">Active</span> (require external power) or <span class="highlight-name">Passive</span> (respond to environmental changes without external energy input).
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Active Sensors</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>Ultrasonic Sensor</h4>
+                    <p><strong>Working Principle:</strong> Uses sound waves to measure distance by calculating time-of-flight of reflected pulses.</p>
+                    <p><strong>Range:</strong> 2 cm – 400 cm</p>
+                    <ul class="styled-list">
+                        <li>Obstacle Detection</li>
+                        <li>Robotics Navigation</li>
+                        <li>Parking Assistance Systems</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>LiDAR Sensor</h4>
+                    <p><strong>Working Principle:</strong> Uses laser pulses to calculate precise distances and create 3D environment maps.</p>
+                    <p><strong>Range:</strong> Up to several hundred meters</p>
+                    <ul class="styled-list">
+                        <li>Autonomous Vehicles</li>
+                        <li>3D Mapping Systems</li>
+                        <li>Advanced Robotics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Passive Sensors</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>LDR (Light Dependent Resistor)</h4>
+                    <p><strong>Working Principle:</strong> Resistance changes proportionally with ambient light intensity.</p>
+                    <ul class="styled-list">
+                        <li>Automatic Street Lighting</li>
+                        <li>Light Monitoring Systems</li>
+                        <li>Display Brightness Control</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>Thermistor</h4>
+                    <p><strong>Working Principle:</strong> Resistance changes according to temperature variation.</p>
+                    <ul class="styled-list">
+                        <li>Temperature Monitoring</li>
+                        <li>Medical Diagnostic Devices</li>
+                        <li>Industrial Thermal Control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Selecting the correct sensor type is fundamental to system accuracy. Active sensors like LiDAR provide precision at the cost of power; passive sensors like thermistors offer simplicity with minimal energy overhead.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 09 — MOTORS -->
+    <div class="sub-heading">
+        <span class="section-number">09</span>
+        <div>
+            <p class="small-heading">MOTION & MECHANICAL ACTUATION</p>
+            <h2 id="motors">Actuators & Motors</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Actuators translate electrical control signals into physical mechanical action. Five major motor types were studied, each with distinct operating principles and application suitability.
+        </p>
+
+        <div class="overview-grid">
+            <div class="overview-item">
+                <h4>Induction Motor (AC)</h4>
+                <p>Operates on AC supply through electromagnetic induction. Widely used in industrial machinery and high-power applications.</p>
+            </div>
+            <div class="overview-item">
+                <h4>DC Motor</h4>
+                <p>Powered by direct current with straightforward speed control via voltage adjustment. Common in robotics and consumer devices.</p>
+            </div>
+            <div class="overview-item">
+                <h4>Stepper Motor</h4>
+                <p>Rotates in precise discrete steps, providing positional accuracy without feedback. Ideal for CNC machines and 3D printers.</p>
+            </div>
+            <div class="overview-item">
+                <h4>BLDC Motor</h4>
+                <p>Brushless design eliminates mechanical wear, delivering high efficiency and reliability. Used in drones and electric vehicles.</p>
+            </div>
+            <div class="overview-item">
+                <h4>Servo Motor</h4>
+                <p>Closed-loop control with position feedback delivers extremely precise angular control. Standard in robotics and aerospace.</p>
+            </div>
+        </div>
+
+        <div class="reference-box" style="margin-top: 30px;">
+            <span class="reference-label">Servo vs Stepper — Comparison</span>
+            <div style="overflow: auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Feature</th><th>Servo Motor</th><th>Stepper Motor</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Feedback</td><td>Yes (Closed Loop)</td><td>No (Open Loop)</td></tr>
+                        <tr><td>Speed</td><td>High</td><td>Medium</td></tr>
+                        <tr><td>Accuracy</td><td>Very High</td><td>High</td></tr>
+                        <tr><td>Efficiency</td><td>Better</td><td>Lower</td></tr>
+                        <tr><td>Cost</td><td>Higher</td><td>Lower</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 10 — SEMICONDUCTORS -->
+    <div class="sub-heading">
+        <span class="section-number">10</span>
+        <div>
+            <p class="small-heading">ELECTRONIC COMPONENTS</p>
+            <h2 id="semiconductors">LED, Semiconductors & Transistors</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            A foundational understanding of <span class="highlight-name">LEDs</span>, <span class="highlight-name">semiconductors</span>, and <span class="highlight-name">transistors</span> is essential for designing and debugging electronic circuits in embedded systems.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">LED — Light Emitting Diode</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>Types</h4>
+                    <ul>
+                        <li>Red LED</li>
+                        <li>Green LED</li>
+                        <li>Blue LED</li>
+                        <li>RGB LED</li>
+                        <li>Infrared (IR) LED</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li>Status Indicators</li>
+                        <li>Display Backlighting</li>
+                        <li>Communication Systems</li>
+                        <li>Optical Sensing</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>Semiconductor Materials</h4>
+                    <p>Conductivity between a conductor and insulator.</p>
+                    <ul>
+                        <li>Silicon, Germanium</li>
+                        <li>Used in: Transistors, Diodes, Processors, ICs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Transistor Types</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>BJT</h4>
+                    <p>Bipolar Junction Transistor — operates as a current-controlled switch or amplifier.</p>
+                    <ul><li>NPN Type</li><li>PNP Type</li></ul>
+                </div>
+                <div class="three-card">
+                    <h4>FET</h4>
+                    <p>Field Effect Transistor — voltage-controlled device with high input impedance.</p>
+                    <ul><li>JFET</li><li>MOSFET</li></ul>
+                </div>
+                <div class="three-card">
+                    <h4>IGBT</h4>
+                    <p>Insulated Gate Bipolar Transistor — combines MOSFET and BJT characteristics for high-power switching in industrial electronics.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 11 — MOSFET & RELAY -->
+    <div class="sub-heading">
+        <span class="section-number">11</span>
+        <div>
+            <p class="small-heading">SWITCHING & POWER CONTROL</p>
+            <h2 id="mosfet">MOSFET & Relay</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">MOSFETs</span> and <span class="highlight-name">Relays</span> are the two primary technologies used for switching and power control in embedded and IoT systems, each suited to different voltage, speed, and isolation requirements.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">MOSFET — Metal Oxide Semiconductor Field Effect Transistor</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>Terminals & Types</h4>
+                    <ul class="styled-list">
+                        <li><strong>Gate</strong> — Control input terminal</li>
+                        <li><strong>Drain</strong> — Output current terminal</li>
+                        <li><strong>Source</strong> — Reference terminal</li>
+                        <li>N-Channel: Higher efficiency, widely used</li>
+                        <li>P-Channel: High-side switching</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>Advantages & Applications</h4>
+                    <ul class="styled-list">
+                        <li>High Switching Speed</li>
+                        <li>Low Power Loss</li>
+                        <li>Motor Drivers & H-Bridge Circuits</li>
+                        <li>Power Supply Regulation</li>
+                        <li>Battery Management Systems</li>
+                        <li>Robotics Drive Circuits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Relay — Electrically Operated Switch</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>Key Advantages</h4>
+                    <ul class="styled-list">
+                        <li>Complete electrical isolation between control and load circuits</li>
+                        <li>Controls high voltage loads using low voltage microcontroller signals</li>
+                        <li>Simple to interface with Arduino and ESP32</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>Applications</h4>
+                    <ul class="styled-list">
+                        <li>Home Automation Systems</li>
+                        <li>Industrial Equipment Control</li>
+                        <li>Smart Appliance Switching</li>
+                        <li>AC Load Control via Microcontroller</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            MOSFETs are preferred for high-speed, low-loss switching in DC circuits, while Relays are used when electrical isolation is critical or when switching AC mains loads from low-voltage controller circuits.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 12 — FIREBASE -->
+    <div class="sub-heading">
+        <span class="section-number">12</span>
+        <div>
+            <p class="small-heading">CLOUD IoT INTEGRATION</p>
+            <h2 id="firebase">ESP32 & Firebase</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Firebase</span> is a cloud-based platform by Google that enables real-time data synchronization between multiple devices. When combined with ESP32, it creates a powerful bi-directional IoT communication channel for remote monitoring and control applications.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Write & Read Operations</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>ESP32 → Firebase (Write)</h4>
+                    <p>ESP32 sends data to the Firebase Realtime Database for cloud storage and multi-device access.</p>
+                    <ul class="styled-list">
+                        <li>Sensor Readings</li>
+                        <li>Temperature & Humidity Values</li>
+                        <li>Device Status Updates</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>Firebase → ESP32 (Read)</h4>
+                    <p>ESP32 receives commands and configuration from Firebase, enabling remote device control.</p>
+                    <ul class="styled-list">
+                        <li>LED ON/OFF Commands</li>
+                        <li>Motor Control Signals</li>
+                        <li>Remote Device Settings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">System Architecture</span>
+            <div class="firebase-arch">
+                <p><span class="fb-device">ESP32 Device</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Database</span> <span class="fb-arrow">→</span> <span class="fb-device">Mobile App / Web Dashboard</span></p>
+                <p><span class="fb-device">ESP32 Device 1</span> <span class="fb-arrow">↔</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">↔</span> <span class="fb-device">ESP32 Device 2</span></p>
+                <p><span class="fb-device">ESP32 Device 3</span> <span class="fb-arrow">↔</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">↔</span> <span class="fb-device">Web Dashboard</span></p>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Advantages of ESP32 + Firebase</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Real-Time Sync</h4>
+                    <p>Data changes propagate instantly across all connected devices and dashboards without polling.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Remote Monitoring</h4>
+                    <p>View live sensor data and device status from anywhere in the world via a mobile or web interface.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Multi-Device Communication</h4>
+                    <p>Multiple ESP32 devices can read and write to shared data nodes, enabling coordinated IoT systems.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Cloud Storage</h4>
+                    <p>Historical sensor data is persisted in the cloud for trend analysis, logging, and remote diagnostics.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            The ESP32–Firebase integration provides a complete IoT communication pipeline, enabling both real-time remote monitoring and bidirectional device control — essential for connected healthcare and smart automation systems.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 13 — SKILLS -->
+    <div class="sub-heading">
+        <span class="section-number">13</span>
+        <div>
+            <p class="small-heading">COMPETENCIES GAINED</p>
+            <h2 id="skills">Key Skills Developed</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 3 contributed a broad set of technical, hardware, and systems-thinking skills across electronics, embedded development, and IoT communication.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Technical Skills</span>
+            <ul class="styled-list">
+                <li>Embedded Systems fundamentals and architecture</li>
+                <li>ESP32 platform programming and IoT deployment</li>
+                <li>Arduino board selection and development workflow</li>
+                <li>Sensor integration and signal interpretation</li>
+                <li>Motor selection and control circuit design</li>
+                <li>MOSFET and Relay switching circuit knowledge</li>
+                <li>Firebase Realtime Database integration with ESP32</li>
+            </ul>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Systems & Conceptual Skills</span>
+            <ul class="styled-list">
+                <li>Physical AI sense-reason-act system design</li>
+                <li>Edge computing architecture and deployment strategy</li>
+                <li>Control system design — P, PI, and PID theory</li>
+                <li>IoT communication and cloud integration planning</li>
+                <li>Hardware-software interface understanding</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 14 — REFLECTION -->
+    <div class="sub-heading">
+        <span class="section-number">14</span>
+        <div>
+            <p class="small-heading">REFLECTION</p>
+            <h2 id="reflection">Personal Reflection</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 3 provided a strong foundation in electronics, embedded systems, and Physical AI. Understanding sensors, controllers, actuators, and communication systems helped bridge the gap between software intelligence and real-world hardware interaction.
+        </p>
+        <p>
+            Working through the ESP32 platform and Arduino board comparisons clarified the hardware decision-making process for IoT projects. The exploration of Physical AI as a concept — and how the sense-reason-act loop operates in real systems — was particularly valuable for contextualizing the Skin Cancer Detection project.
+        </p>
+        <p>
+            The concepts of edge computing and ESP32-Firebase integration are directly applicable for implementing real-time monitoring and control systems in future projects. The knowledge of control systems, motor types, and switching components like MOSFETs and Relays will be essential as the internship progresses toward more complex hardware builds.
+        </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 15 — RESOURCES -->
+    <div class="sub-heading">
+        <span class="section-number">15</span>
+        <div>
+            <p class="small-heading">REFERENCES</p>
+            <h2 id="resources">References & Learning Resources</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <ul class="styled-list">
+            <li>ESP32 Official Documentation — <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank">docs.espressif.com</a></li>
+            <li>Arduino Official Documentation — <a href="https://docs.arduino.cc" target="_blank">docs.arduino.cc</a></li>
+            <li>Random Nerd Tutorials (ESP32 Projects) — <a href="https://randomnerdtutorials.com/projects-esp32/" target="_blank">randomnerdtutorials.com</a></li>
+            <li>Firebase Documentation — <a href="https://firebase.google.com/docs" target="_blank">firebase.google.com/docs</a></li>
+            <li>Espressif Systems ESP32 Datasheet — <a href="https://www.espressif.com/en/support/documents/technical-documents" target="_blank">espressif.com</a></li>
+            <li>IoT and Edge Computing Research Papers — IEEE Xplore</li>
+            <li>Industrial Control Systems Reference Material — PID Controller Design Theory</li>
+            <li>Physical AI and Robotics Learning Resources — NVIDIA Isaac Platform</li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>
