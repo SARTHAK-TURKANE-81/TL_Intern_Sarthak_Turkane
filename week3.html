@@ -137,11 +137,10 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
             <li><span class="num">15</span><a href="#expert1">Expert Session — Edge AI & Edge Impulse</a></li>
             <li><span class="num">16</span><a href="#edgeimpulse">Edge Impulse Platform</a></li>
             <li><span class="num">17</span><a href="#opencv">OpenCV & Computer Vision Basics</a></li>
-            <li><span class="num">18</span><a href="#expert2">Expert Session 2</a></li>
-            <li><span class="num">19</span><a href="#firebase-iot">ESP32 & Firebase IoT Architecture</a></li>
-            <li><span class="num">20</span><a href="#skills">Key Skills Developed</a></li>
-            <li><span class="num">21</span><a href="#reflection">Personal Reflection</a></li>
-            <li><span class="num">22</span><a href="#resources">References & Resources</a></li>
+            <li><span class="num">18</span><a href="#firebase-iot">ESP32 & Firebase IoT Architecture</a></li>
+            <li><span class="num">19</span><a href="#skills">Key Skills Developed</a></li>
+            <li><span class="num">20</span><a href="#reflection">Personal Reflection</a></li>
+            <li><span class="num">21</span><a href="#resources">References & Resources</a></li>
         </ol>
     </div>
 
@@ -176,7 +175,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     border-radius: 14px; line-height: 1.8; color: #6b3f10;
 }
 
-/* warm accent info box variant */
 .info-box-warm {
     margin-top: 30px; background: #fdf6ee;
     border-left: 5px solid #b87333; padding: 22px;
@@ -223,7 +221,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 
 .topic-heading { font-size: 28px; color: #111827; margin-bottom: 25px; margin-top: 5px; }
 
-/* overview grid cards */
 .overview-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
 }
@@ -235,7 +232,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .overview-item h4 { font-size: 18px; color: #111827; margin-bottom: 14px; }
 .overview-item p { font-size: 15px; line-height: 1.9; color: #4b5563; margin: 0; }
 
-/* comparison table */
 .param-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 24px 0; }
 .param-card {
     background: white; border: 1px solid #e5e7eb;
@@ -244,7 +240,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .param-card h4 { font-size: 20px; color: #111827; margin-bottom: 16px; }
 .param-card p { font-size: 15px; line-height: 1.9; color: #4b5563; margin-bottom: 12px; }
 
-/* data table */
 .data-table { width: 100%; border-collapse: collapse; }
 .data-table thead tr { background: #fafafa; }
 .data-table th { text-align: left; padding: 12px 14px; border-bottom: 1px solid #e5e7eb; font-size: 14px; color: #374151; }
@@ -252,7 +247,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .data-table tbody tr:last-child td { border-bottom: none; }
 .data-table tbody tr:hover { background: #f9fafb; }
 
-/* flow diagram */
 .flow-diagram {
     display: flex; align-items: center; gap: 12px;
     flex-wrap: wrap; margin: 24px 0; padding: 20px;
@@ -265,7 +259,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 }
 .flow-arrow { color: #b87333; font-size: 22px; font-weight: bold; }
 
-/* three column grid */
 .three-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 24px 0;
 }
@@ -279,7 +272,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .three-card ul { padding-left: 16px; margin: 0; }
 .three-card ul li { font-size: 14px; line-height: 1.9; color: #4b5563; }
 
-/* firebase architecture */
 .firebase-arch {
     background: #0f172a; border-radius: 18px; padding: 28px;
     margin: 28px 0; font-family: Consolas, monospace;
@@ -293,23 +285,15 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .fb-arrow { color: #b87333; }
 .fb-service { color: #86efac; }
 
-/* ── IMAGE PLACEHOLDER ── */
-.img-placeholder {
-    width: 100%; border-radius: 18px; overflow: hidden;
-    background: #f0ede8; border: 2px dashed rgba(184,115,51,0.35);
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; padding: 48px 24px; margin: 28px 0;
-    text-align: center; gap: 10px;
+/* ── SECTION IMAGE — 50% width, centred ── */
+.section-img {
+    display: block;
+    width: 50%;
+    margin: 28px auto;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
-.img-placeholder span.icon { font-size: 36px; }
-.img-placeholder span.label {
-    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
-    color: #b87333; font-weight: 600;
-}
-.img-placeholder span.sub { font-size: 13px; color: #8a7f74; }
-
-/* actual image inside placeholder area */
-.img-placeholder img { width: 100%; border-radius: 14px; display: block; }
 
 /* ── VIDEO EMBED ── */
 .video-embed-wrap {
@@ -320,21 +304,6 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .video-embed-wrap iframe {
     position: absolute; inset: 0; width: 100%; height: 100%; border: none;
 }
-.video-placeholder {
-    position: relative; width: 100%; padding-top: 56.25%;
-    border-radius: 18px; overflow: hidden; margin: 28px 0;
-    background: #1a1410; border: 2px dashed rgba(184,115,51,0.35);
-}
-.video-placeholder-inner {
-    position: absolute; inset: 0; display: flex; flex-direction: column;
-    align-items: center; justify-content: center; gap: 10px; text-align: center;
-}
-.video-placeholder-inner span.icon { font-size: 42px; }
-.video-placeholder-inner span.label {
-    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
-    color: #b87333; font-weight: 600;
-}
-.video-placeholder-inner span.sub { font-size: 13px; color: #8a7f74; }
 
 /* ── EXPERT SPEAKER CARD ── */
 .expert-card {
@@ -346,9 +315,7 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     width: 100px; height: 100px; border-radius: 50%;
     object-fit: cover; flex-shrink: 0;
     border: 3px solid rgba(184,115,51,0.3);
-    background: #f0ede8;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 36px;
+    overflow: hidden;
 }
 .expert-avatar img {
     width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
@@ -381,14 +348,12 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .pipeline-step h4 { font-size: 16px; color: #111827; margin-bottom: 4px; }
 .pipeline-step p { font-size: 14px; color: #4b5563; line-height: 1.7; margin: 0; }
 
-/* ── HIGHLIGHT BADGE ── */
 .badge {
     display: inline-block; padding: 4px 12px; border-radius: 999px;
     font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
     background: rgba(184,115,51,0.12); color: #7a4a18; margin-right: 6px; margin-bottom: 6px;
 }
 
-/* theme override to match warm palette */
 :root {
     --bg-page: #f0ede8; --bg-card: #faf9f7;
     --border: rgba(26,20,16,0.10); --accent: #1a1410; --accent-warm: #b87333;
@@ -409,6 +374,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
     .param-grid { grid-template-columns: 1fr; }
     .flow-diagram { flex-direction: column; align-items: flex-start; }
     .expert-card { flex-direction: column; }
+    .section-img { width: 80%; }
 }
 </style>
 
@@ -419,7 +385,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
     <div class="section-header">
         <h1 id="intro">Introduction</h1>
         <p class="intro-highlight">
-            Week 3 was the most hands-on week of the internship so far — live circuits, real sensor data streaming to Firebase, servo motor control, two expert sessions, and an introduction to Edge AI using Edge Impulse. This report documents everything that was learned, built, and experienced.
+            Week 3 was the most hands-on week of the internship so far — live circuits, real sensor data streaming to Firebase, servo motor control, an expert session, and an introduction to Edge AI using Edge Impulse. This report documents everything that was learned, built, and experienced.
         </p>
     </div>
 
@@ -431,9 +397,11 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             A major highlight of the week was completing a <span class="highlight-name">live ESP32 + Firebase integration</span> — connecting a temperature sensor to a Firebase Realtime Database and visualising the data on a web frontend in real time. LEDs were used as output actuators and a servo motor was controlled through the same setup.
         </p>
         <p>
-            The week also featured <span class="highlight-name">two expert sessions</span>. The first, delivered by <span class="highlight-name">Jaydeep Ashtekar</span>, provided a deep-dive into the <span class="highlight-name">Edge Impulse</span> platform — covering data collection, model training, and deployment on embedded devices. A second expert session further expanded on industry-level IoT and AI applications.
+            The week also featured an <span class="highlight-name">expert session</span> delivered by <span class="highlight-name">Jaydeep Ashtekar</span>, which provided a deep-dive into the <span class="highlight-name">Edge Impulse</span> platform — covering data collection, model training, and deployment on embedded devices.
         </p>
-      
+        <p>
+            All knowledge gained during this week directly feeds into the ongoing project: <span class="highlight-name">"Real-Time Skin Cancer Detection System using Deep Learning on Raspberry Pi 4"</span>, where sensors, controllers, edge computing, and communication technologies play a significant role.
+        </p>
     </div>
 
     <div class="divider"></div>
@@ -482,12 +450,8 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
-        <!-- IMAGE PLACEHOLDER — ESP32 pinout diagram -->
-        <div class="img-placeholder">
-            <span class="icon">▶</span>
-            <span class="label">Image — ESP32 Pinout Diagram</span>
-            <span class="sub">Replace this block with: &lt;img src="YOUR_IMAGE_PATH" alt="ESP32 Pinout"&gt;</span>
-        </div>
+        <!-- ESP32 Pinout Image -->
+        <img src="https://i.ibb.co/pvJwBk9y/Chat-GPT-Image-Jun-14-2026-11-35-46-PM.png" alt="ESP32 Pinout Diagram" class="section-img">
 
         <div class="info-box">
             <strong>Learning Outcome:</strong><br>
@@ -552,20 +516,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
-        <!-- IMAGE PLACEHOLDER — Firebase web app screenshot -->
-        <div class="img-placeholder">
-            <span class="icon">▶</span>
-            <span class="label">Screenshot — Firebase Web App Dashboard</span>
-            <span class="sub">Replace with your actual Firebase dashboard screenshot.<br>Example: &lt;img src="firebase-dashboard.png" alt="Firebase Web App"&gt;</span>
-        </div>
-
-        <!-- VIDEO PLACEHOLDER — Personal recording -->
-        <div class="video-placeholder">
-            <div class="video-placeholder-inner">
-                <span class="icon">▶</span>
-                <span class="label">Video — Live Firebase Temperature Demo</span>
-                <span class="sub">Paste your YouTube link here once uploaded.<br>Replace this div with: &lt;div class="video-embed-wrap"&gt;&lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"&gt;&lt;/iframe&gt;&lt;/div&gt;</span>
-            </div>
+        <!-- Live Firebase Demo Video -->
+        <div class="video-embed-wrap">
+            <iframe src="https://www.youtube.com/embed/XeY-6MhZMzM" allowfullscreen></iframe>
         </div>
 
         <div class="firebase-arch">
@@ -594,6 +547,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <p>
             <span class="highlight-name">Arduino</span> is an open-source microcontroller platform widely used for embedded systems and rapid prototyping. Three primary board variants were studied: the <span class="highlight-name">Uno</span>, <span class="highlight-name">Nano</span>, and <span class="highlight-name">Mega</span>, each suited for different project scales and constraints.
         </p>
+
+        <!-- Arduino Boards Image -->
+        <img src="https://i.ibb.co/XZnfBkJ1/Chat-GPT-Image-Jun-15-2026-12-10-37-AM.png" alt="Arduino Boards Comparison" class="section-img">
 
         <div class="reference-box">
             <span class="reference-label">Board Profiles</span>
@@ -710,15 +666,6 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
-        <!-- VIDEO PLACEHOLDER — Servo demo -->
-        <div class="video-placeholder">
-            <div class="video-placeholder-inner">
-                <span class="icon">▶</span>
-                <span class="label">Video — Servo Motor Demo</span>
-                <span class="sub">Paste your YouTube link here once uploaded.</span>
-            </div>
-        </div>
-
         <div class="reference-box">
             <span class="reference-label">Where Servo Motors Are Used</span>
             <div class="overview-grid">
@@ -762,6 +709,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <p>
             <span class="highlight-name">Physical AI</span> refers to intelligent systems that can perceive, reason, and act within the physical world. Unlike traditional AI that operates purely in software environments, Physical AI enables machines to interact with real-world surroundings through a continuous sense-reason-act loop.
         </p>
+
+        <!-- Physical AI Image -->
+        <img src="https://i.ibb.co/962LfWp/Chat-GPT-Image-Jun-15-2026-12-27-41-AM.png" alt="Physical AI Diagram" class="section-img">
 
         <div class="reference-box">
             <span class="reference-label">Core Mechanism — Sense → Reason → Act</span>
@@ -828,6 +778,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <p>
             Understanding the distinction between <span class="highlight-name">microcontrollers</span> and <span class="highlight-name">processors</span> is essential for selecting the right hardware platform for any embedded or AI application.
         </p>
+
+        <!-- MCU vs CPU Image -->
+        <img src="https://i.ibb.co/svvsbxCz/Chat-GPT-Image-Jun-15-2026-12-35-26-AM.png" alt="Microcontroller vs Processor" class="section-img">
 
         <div class="reference-box">
             <span class="reference-label">Head-to-Head Comparison</span>
@@ -1317,9 +1270,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         NEW SECTION — EXPERT SESSION 1 — JAYDEEP ASHTEKAR
-    ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 14 — EXPERT SESSION 1 -->
     <div class="sub-heading">
         <span class="section-number">14</span>
         <div>
@@ -1336,8 +1287,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <!-- EXPERT SPEAKER CARD -->
         <div class="expert-card">
             <div class="expert-avatar">
-                <!-- REPLACE this emoji with: <img src="YOUR_PHOTO_PATH" alt="Jaydeep Ashtekar"> -->
-                👤
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQGdtP1Vc1c_og/profile-displayphoto-crop_800_800/B4DZ66dySUKIAI-/0/1781244834601?e=1782950400&v=beta&t=QCgBMLlSrSbWjp9n2KvFrZVyK-_2P9p6uH1Cax934DI" alt="Jaydeep Ashtekar">
             </div>
             <div class="expert-info">
                 <h3>Jaydeep Ashtekar</h3>
@@ -1349,12 +1299,8 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
-        <!-- IMAGE PLACEHOLDER — Expert session photo -->
-        <div class="img-placeholder">
-            <span class="icon">▶</span>
-            <span class="label">Photo — Expert Session with Jaydeep Ashtekar</span>
-            <span class="sub">Replace with your session photo.<br>Example: &lt;img src="jaydeep-session.jpg" alt="Expert Session"&gt;</span>
-        </div>
+        <!-- Expert Session Photo -->
+        <img src="https://i.ibb.co/WvMDhYmQ/Whats-App-Image-2026-06-10-at-09-56-31-2.jpg" alt="Expert Session with Jaydeep Ashtekar" class="section-img">
 
         <div class="reference-box">
             <span class="reference-label">Session Highlights</span>
@@ -1394,9 +1340,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         NEW SECTION — EDGE IMPULSE PLATFORM
-    ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 15 — EDGE IMPULSE -->
     <div class="sub-heading">
         <span class="section-number">15</span>
         <div>
@@ -1481,15 +1425,6 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <div class="flow-box">Deploy to Device</div>
         </div>
 
-        <!-- VIDEO PLACEHOLDER — Edge Impulse walkthrough -->
-        <div class="video-placeholder">
-            <div class="video-placeholder-inner">
-                <span class="icon">▶</span>
-                <span class="label">Video — Edge Impulse Platform Walkthrough</span>
-                <span class="sub">Paste your YouTube link once recorded & uploaded.</span>
-            </div>
-        </div>
-
         <div class="info-box">
             <strong>Learning Outcome:</strong><br>
             Edge Impulse democratises machine learning for embedded systems. The ability to train a working model and deploy it to a microcontroller in under an hour — without ML expertise — opens up an entirely new class of hardware-AI applications for students and makers.
@@ -1498,9 +1433,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         NEW SECTION — OPENCV & COMPUTER VISION
-    ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 16 — OPENCV -->
     <div class="sub-heading">
         <span class="section-number">16</span>
         <div>
@@ -1578,40 +1511,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- ═══════════════════════════════════════════════════════════
-         NEW SECTION — EXPERT SESSION 2 PLACEHOLDER
-    ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 17 — FIREBASE IoT ARCHITECTURE -->
     <div class="sub-heading">
         <span class="section-number">17</span>
-        <div>
-            <p class="small-heading">EXPERT SESSION — WEEK 3</p>
-            <h2 id="expert2">Expert Session 2</h2>
-        </div>
-    </div>
-
-    <div class="content-card">
-        <p>
-            A second expert session was held during Week 3, further expanding on industry applications of IoT, embedded AI, and intelligent systems. Details will be updated once session notes are compiled.
-        </p>
-
-        <!-- IMAGE PLACEHOLDER — Expert session 2 photo -->
-        <div class="img-placeholder">
-            <span class="icon">▶</span>
-            <span class="label">Photo — Expert Session 2</span>
-            <span class="sub">Add the speaker's name, photo, and LinkedIn here once confirmed.</span>
-        </div>
-
-        <div class="info-box-warm">
-            <strong>Note:</strong><br>
-            This section will be updated with the speaker profile, session topics, and key takeaways. Add the expert's LinkedIn, photo path, and a summary of what was covered.
-        </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- SECTION — FIREBASE IoT ARCHITECTURE (renamed from old 12) -->
-    <div class="sub-heading">
-        <span class="section-number">18</span>
         <div>
             <p class="small-heading">CLOUD IoT INTEGRATION</p>
             <h2 id="firebase-iot">ESP32 & Firebase IoT Architecture</h2>
@@ -1686,9 +1588,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION — SKILLS -->
+    <!-- SECTION 18 — SKILLS -->
     <div class="sub-heading">
-        <span class="section-number">19</span>
+        <span class="section-number">18</span>
         <div>
             <p class="small-heading">COMPETENCIES GAINED</p>
             <h2 id="skills">Key Skills Developed</h2>
@@ -1697,7 +1599,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Week 3 was the most practically dense week of the internship so far — combining theoretical electronics knowledge with live circuit builds, cloud integration, expert sessions, and first exposure to Edge AI tooling.
+            Week 3 was the most practically dense week of the internship so far — combining theoretical electronics knowledge with live circuit builds, cloud integration, an expert session, and first exposure to Edge AI tooling.
         </p>
 
         <div class="reference-box">
@@ -1731,9 +1633,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION — REFLECTION -->
+    <!-- SECTION 19 — REFLECTION -->
     <div class="sub-heading">
-        <span class="section-number">20</span>
+        <span class="section-number">19</span>
         <div>
             <p class="small-heading">REFLECTION</p>
             <h2 id="reflection">Personal Reflection</h2>
@@ -1757,9 +1659,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION — RESOURCES -->
+    <!-- SECTION 20 — RESOURCES -->
     <div class="sub-heading">
-        <span class="section-number">21</span>
+        <span class="section-number">20</span>
         <div>
             <p class="small-heading">REFERENCES</p>
             <h2 id="resources">References & Learning Resources</h2>
