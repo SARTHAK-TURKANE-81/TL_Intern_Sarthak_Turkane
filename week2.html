@@ -51,7 +51,7 @@ body::before {
 
 .byline {
     font-size: .8rem; letter-spacing: .08em; text-transform: uppercase;
-    color: #5f6780; margin-bottom: 18px;
+    color: #9c8a72; margin-bottom: 18px;
 }
 
 h1 {
@@ -108,9 +108,11 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     <br>
 
     <p class="tagline">
-        A structured documentation of digital fabrication workflows,
-        machine-control software, laser cutting operations,
-        and vinyl/iron-on design processes explored during Week 2.
+        A first-hand account of one of the most exciting weeks of the internship so far — from
+        project ideation and one-on-one mentorship, through a guest lecture on design thinking and
+        rapid prototyping, to hands-on time with 3D printing, CO₂ laser cutting, and vinyl / iron-on
+        fabrication. This report documents how an idea moves from raw material and methodology
+        all the way to a finished, physical product.
     </p>
 
     <div class="white-block">
@@ -118,13 +120,16 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
         <p class="toc-label">Table of Contents</p>
         <ol class="toc">
             <li><span class="num">01</span><a href="#intro">Introduction</a></li>
-            <li><span class="num">02</span><a href="#lasercad">LaserCAD & Laser Cutting Workflow</a></li>
-            <li><span class="num">03</span><a href="#params">Laser Parameters & Material Settings</a></li>
-            <li><span class="num">04</span><a href="#cricut">Cricut Design Space & Iron-On Workflow</a></li>
-            <li><span class="num">05</span><a href="#skills">Key Skills & Competencies Developed</a></li>
-            <li><span class="num">06</span><a href="#tools">Tool Reference Table</a></li>
-            <li><span class="num">07</span><a href="#reflection">Personal Reflection</a></li>
-            <li><span class="num">08</span><a href="#resources">Useful Learning Resources</a></li>
+            <li><span class="num">02</span><a href="#mentorship">Project Ideation & Mentorship</a></li>
+            <li><span class="num">03</span><a href="#printing">3D Printing Ecosystem — Bambu Lab</a></li>
+            <li><span class="num">04</span><a href="#designthinking">Design Thinking & Rapid Prototyping</a></li>
+            <li><span class="num">05</span><a href="#lasercad">LaserCAD & Laser Cutting Workflow</a></li>
+            <li><span class="num">06</span><a href="#params">Laser Parameters, Anatomy & Safety</a></li>
+            <li><span class="num">07</span><a href="#cricut">Cricut Design Space & Iron-On Workflow</a></li>
+            <li><span class="num">08</span><a href="#skills">Key Skills & Competencies Developed</a></li>
+            <li><span class="num">09</span><a href="#tools">Tool Reference Table</a></li>
+            <li><span class="num">10</span><a href="#reflection">Personal Reflection</a></li>
+            <li><span class="num">11</span><a href="#resources">Useful Learning Resources</a></li>
         </ol>
     </div>
 
@@ -148,15 +153,15 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     box-shadow: 0 12px 35px rgba(0,0,0,0.05); margin-bottom: 40px;
 }
 .content-card p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 24px; }
-.content-card a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.content-card a { color: #b87333; text-decoration: none; font-weight: 600; }
 .content-card a:hover { text-decoration: underline; }
 
 .highlight-name { color: #111827; font-weight: 700; }
 
 .info-box {
-    margin-top: 30px; background: #eff6ff;
-    border-left: 5px solid #2563eb; padding: 22px;
-    border-radius: 14px; line-height: 1.8; color: #1e3a8a;
+    margin-top: 30px; background: #f7eee2;
+    border-left: 5px solid #b87333; padding: 22px;
+    border-radius: 14px; line-height: 1.8; color: #5a3a1a;
 }
 
 .divider {
@@ -189,7 +194,7 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     letter-spacing: 1px; text-transform: uppercase; color: #64748b;
 }
 .reference-box p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 16px; }
-.reference-box a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.reference-box a { color: #b87333; text-decoration: none; font-weight: 600; }
 .reference-box a:hover { text-decoration: underline; }
 
 .resource-list { margin: 0; padding-left: 18px; }
@@ -288,41 +293,300 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
     <div class="section-header">
         <h1 id="intro">Introduction</h1>
         <p class="intro-highlight">
-           Gained hands-on experience in digital fabrication technologies, including laser cutting workflows and vinyl design production, translating digital concepts into physical manufacturing outputs.
+           Week 2 marked the shift from digital design foundations into full digital fabrication —
+           pairing hands-on training on laser cutting and vinyl/iron-on machines with project
+           ideation, one-on-one mentorship, and a guest lecture on design thinking that reshaped
+           how I approach building anything from scratch.
         </p>
     </div>
 
  <div class="content-card">
     <p>
-        The second week of the <span class="highlight-name">Summer Internship Program</span> focused on <span class="highlight-name">Digital Fabrication Technologies</span> and <span class="highlight-name">Machine-Control Software</span> used in modern prototyping environments. The sessions introduced the principles of <span class="highlight-name">Computer-Controlled Manufacturing</span> and the workflows required to transform digital designs into physical products.
+        Week 2 of the <span class="highlight-name">Summer Internship Program</span> turned out to be one of the most action-packed and genuinely exciting weeks so far — a blend of <span class="highlight-name">Project Ideation</span>, <span class="highlight-name">Industry Mentorship</span>, <span class="highlight-name">Design Thinking</span>, and hands-on time with <span class="highlight-name">Digital Fabrication Technologies</span>. The week opened with mentorship sessions that helped shape the direction of my own project, before moving into the machines and software that turn digital designs into real, physical products.
     </p>
 
     <p>
-        The week provided an overview of <span class="highlight-name">Fabrication Tools</span>, <span class="highlight-name">Machine Setup Procedures</span>, <span class="highlight-name">Design Preparation Techniques</span>, <span class="highlight-name">Material Selection</span>, and <span class="highlight-name">Production Workflows</span>. It established an understanding of how digital design files are processed and converted into machine instructions for fabrication systems.
+        On the fabrication side, the week introduced <span class="highlight-name">Computer-Controlled Manufacturing</span> through two very different but complementary technologies: <span class="highlight-name">CO₂ Laser Cutting</span> using
+        <a href="https://www.sztrocen.com/m/support.php?cid=28" target="_blank" class="highlight-name">LaserCAD</a>,
+        and <span class="highlight-name">Vinyl & Iron-On Cutting</span> using
+        <a href="https://design.cricut.com/" target="_blank" class="highlight-name">Cricut Design Space</a>.
+        Alongside these, an introduction to the <span class="highlight-name">Bambu Lab 3D Printing Ecosystem</span> rounded out the picture — covering additive, subtractive, and cutting-based fabrication all within the same lab.
     </p>
 
     <p>
-        During this week, I gained practical exposure to multiple fabrication technologies, including <span class="highlight-name">CO₂ Laser Cutting</span> and <span class="highlight-name">Vinyl Cutting</span> systems. The primary software platforms explored were
-        <a href="https://www.sztrocen.com/m/support.php?cid=28" target="_blank" class="highlight-name">LaserCAD</a>
-        for laser cutting operations and
-        <a href="https://design.cricut.com/" target="_blank" class="highlight-name">Cricut Design Space</a>
-        for vinyl and iron-on design applications.
+        A real highlight of the week was a guest lecture on <span class="highlight-name">Design Thinking</span> and <span class="highlight-name">Rapid Prototyping</span>, which reframed how I think about building anything — starting from empathy and a clearly defined problem, rather than jumping straight to a solution. Being asked about my own project during the session, and getting to talk through the <span class="highlight-name">Computer Vision</span> and <span class="highlight-name">Embedded Systems</span> ideas I'm working on, was honestly one of the most exciting moments of the week.
     </p>
 
     <p>
-        Rather than focusing on a single fabrication tool, the internship emphasized the complete <span class="highlight-name">Digital-to-Physical Workflow</span>. This approach helped in understanding how <span class="highlight-name">Vector-Based Designs</span>, <span class="highlight-name">Machine Parameter Configuration</span>, <span class="highlight-name">Material Selection</span>, and <span class="highlight-name">Production Processes</span> work together to create accurate and efficient fabrication outcomes in real-world prototyping environments.
+        Rather than treating each tool in isolation, the week emphasized the complete <span class="highlight-name">Digital-to-Physical Workflow</span> — how an idea moves from a sketch, through <span class="highlight-name">Vector-Based Design</span> and <span class="highlight-name">Machine Parameter Configuration</span>, into a finished object using the right material and the right machine for the job.
     </p>
 
     <p>
-        Building upon the <a href="https://sarthak-turkane-81.github.io/TL_Intern_Sarthak_Turkane/week1.html" target="_blank" class="highlight-name">Week 1 Digital Design Foundations</a>, this phase of the internship demonstrated how <span class="highlight-name">Software-Driven Design Processes</span> are integrated with <span class="highlight-name">Fabrication Technologies</span> to transform concepts into tangible products.
+        Building on the <a href="https://sarthak-turkane-81.github.io/TL_Intern_Sarthak_Turkane/week1.html" target="_blank" class="highlight-name">Week 1 Digital Design Foundations</a>, this week showed just how much can be built when <span class="highlight-name">Mentorship</span>, <span class="highlight-name">Design Thinking</span>, and <span class="highlight-name">Fabrication Technology</span> come together — and set the stage for the project work ahead.
     </p>
+
+    <!-- IMAGES -->
+    <div class="image-gallery">
+        <div class="image-card">
+            <img src="week2-img/i1.png" alt="Week 2 Overview at Tinkerers' Lab">
+            <p class="image-caption">
+                <strong>Fig. 1.0:</strong> A snapshot of Week 2 at Tinkerers' Lab — mentorship discussions, guest lectures, and hands-on fabrication sessions all in one week.
+            </p>
+        </div>
+
+        <div class="image-card">
+            <div class="video-container">
+                <a class="video-fallback" href="week2-video/week2-highlights.mp4" target="_blank">
+                    <img src="week2-img/v-intro.png" alt="Week 2 Highlights Reel">
+                    <span class="play-overlay">▶</span>
+                </a>
+            </div>
+            <p class="image-caption">
+                <strong>Fig. 1.1 (Video):</strong> A short highlight reel covering the key moments of Week 2 — from the mentorship session to first-time hands-on machine operation.
+            </p>
+        </div>
+    </div>
 </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 01 — LASERCAD -->
+    <!-- SECTION 01 — PROJECT IDEATION & MENTORSHIP -->
     <div class="sub-heading">
         <span class="section-number">01</span>
+        <div>
+            <p class="small-heading">PROJECT IDEATION & INDUSTRY MENTORSHIP</p>
+            <h2 id="mentorship">Project Ideation & Mentorship Sessions</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            Week 2 began on a reflective note — before touching a single machine, the focus was on a group discussion about the direction each of us wanted to take for our individual projects. The goal was to land on a <span class="highlight-name">Project Theme</span> that felt both meaningful to work on and realistically achievable within the scope of the internship.
+        </p>
+
+        <p>
+            This discussion was guided by
+            <a href="https://www.linkedin.com/in/dr-kiran-wakchaure/" target="_blank" class="highlight-name">Dr. Kiran Wakchaure</a> sir
+            and
+            <a href="https://www.linkedin.com/in/arvind-mukundan-89a911106/" target="_blank" class="highlight-name">Arvind Mukundan</a> sir,
+            whose mentorship gave the session real direction and depth. They walked us through how to actually look at the tools, materials, and machines around us — not as separate, isolated resources, but as a connected toolkit capable of taking an idea all the way from <span class="highlight-name">Raw Material</span> to a <span class="highlight-name">Full-Fledged Product</span>.
+        </p>
+
+        <p>
+            One idea that stuck with me from this session was the reassurance that almost everything needed to build something unique is already available inside the lab — it's a matter of combining <span class="highlight-name">Digital Fabrication</span>, <span class="highlight-name">Electronics</span>, and <span class="highlight-name">Software</span> with the right amount of creativity and iteration. That mindset shift — from "what tool do I need to buy" to "what can I build with what's already here" — was genuinely energizing, and it directly shaped how I started thinking about my own project for the rest of the internship.
+        </p>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Mentorship sessions like this are where project direction actually gets set. Having experienced mentors validate and sharpen an idea early on saves enormous amounts of time later, and realizing that a fully equipped lab dramatically lowers the barrier between an idea and a working prototype was one of the most valuable takeaways of the week.
+        </div>
+
+        <!-- IMAGES -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/m1.png" alt="Project Ideation Discussion">
+                <p class="image-caption">
+                    <strong>Fig. 2.0:</strong> Group discussion on project themes and direction, guided by Dr. Kiran Wakchaure sir and Arvind Mukundan sir.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/m2.png" alt="Lab Resource Walkthrough">
+                <p class="image-caption">
+                    <strong>Fig. 2.1:</strong> Walkthrough of the tools, machines, and materials available within Tinkerers' Lab as a connected fabrication toolkit.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 02 — 3D PRINTING ECOSYSTEM (BAMBU LAB) -->
+    <div class="sub-heading">
+        <span class="section-number">02</span>
+        <div>
+            <p class="small-heading">ADDITIVE MANUFACTURING & 3D PRINTING SYSTEMS</p>
+            <h2 id="printing">3D Printing Ecosystem — Bambu Lab A1 Mini & X2D</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            With laser cutting and vinyl cutting covering subtractive and cutting-based fabrication, the next piece of the puzzle was <span class="highlight-name">Additive Manufacturing</span> — and the lab's <span class="highlight-name">Bambu Lab 3D Printing Ecosystem</span> turned out to be the perfect introduction. This session focused on understanding two machines that sit at opposite ends of the lineup: the compact <span class="highlight-name">Bambu Lab A1 Mini</span> and the flagship <span class="highlight-name">Bambu Lab X2D</span>.
+        </p>
+
+        <p>
+            The <span class="highlight-name">A1 Mini</span> is a compact, entry-level FDM printer built for speed and simplicity — a great machine for understanding the fundamentals of slicing, bed leveling, and filament handling without being overwhelmed by features. We went through its full specification sheet in detail, from build volume to supported materials.
+        </p>
+
+        <p>
+            At the other end sits the <span class="highlight-name">X2D</span> — Bambu Lab's current flagship, built around a <span class="highlight-name">Dual-Nozzle Extrusion System</span> and an actively heated chamber designed for premium surface quality and engineering-grade materials. Studying its capabilities gave a real sense of what "industrial-grade" desktop 3D printing looks like in 2026.
+        </p>
+
+        <!-- PRINTER COMPARISON -->
+        <div class="reference-box">
+            <span class="reference-label">A1 Mini vs. X2D — Specification Comparison</span>
+            <div class="param-grid">
+                <div class="param-card">
+                    <h4>🖨 Bambu Lab A1 Mini</h4>
+                    <p>The compact entry point into the Bambu Lab ecosystem — small footprint, fast prints, and a magnetic flexible build plate.</p>
+                    <ul class="styled-list">
+                        <li>Build Volume: 180 × 180 × 180 mm</li>
+                        <li>Max Toolhead Speed: up to 500 mm/s</li>
+                        <li>Max Bed Temperature: 80 °C</li>
+                        <li>Max Nozzle Temperature: 300 °C</li>
+                        <li>Build Plate: Magnetic flexible PEI (textured / smooth)</li>
+                        <li>Supported Filaments: PLA, PETG, TPU, PVA</li>
+                    </ul>
+                </div>
+                <div class="param-card">
+                    <h4>🖨 Bambu Lab X2D</h4>
+                    <p>The current flagship of the X-series — built for premium surface quality, dual-material workflows, and engineering-grade materials.</p>
+                    <ul class="styled-list">
+                        <li>Build Volume: 256 × 256 × 260 mm (main nozzle) / 235.5 × 256 × 256 mm (dual-nozzle)</li>
+                        <li>Extrusion: Dual-nozzle system (main + auxiliary)</li>
+                        <li>Chamber: Actively heated, up to 65 °C</li>
+                        <li>Max Nozzle Temperature: 300 °C</li>
+                        <li>Air Filtration: Three-stage (pre-filter + HEPA + activated carbon)</li>
+                        <li>Positioning: Flagship of the X-series, successor to the X1 Carbon</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY CONCEPTS -->
+        <div class="reference-box">
+            <span class="reference-label">Key Concepts Learned</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Magnetic Build Plates</h4>
+                    <p>Flexible PEI plates that snap onto the bed magnetically, making print removal as simple as flexing the plate.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Slicing & Bambu Studio</h4>
+                    <p>The software layer that converts a 3D model into printable layers, with material-specific presets baked in.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Dual-Nozzle Extrusion</h4>
+                    <p>The X2D's main and auxiliary nozzles enable faster color changes and reduced material waste compared to single-nozzle systems.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Active Chamber Heating</h4>
+                    <p>A heated chamber reduces warping and improves layer adhesion for engineering-grade filaments.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Understanding the Bambu Lab ecosystem completed the fabrication picture for the week — additive (3D printing), subtractive (laser cutting), and cutting-based (vinyl/iron-on) processes all working together. This combination is exactly what's needed to prototype enclosures, fixtures, and mechanical parts for future project work.
+        </div>
+
+        <!-- IMAGES -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/b1.png" alt="Bambu Lab A1 Mini">
+                <p class="image-caption">
+                    <strong>Fig. 3.0:</strong> Bambu Lab A1 Mini — compact FDM 3D printer with magnetic flexible build plate, used to study core slicing and printing fundamentals.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/b2.png" alt="Bambu Lab X2D">
+                <p class="image-caption">
+                    <strong>Fig. 3.1:</strong> Bambu Lab X2D — the flagship dual-nozzle 3D printer, studied for its actively heated chamber and engineering-grade material support.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 03 — DESIGN THINKING & RAPID PROTOTYPING -->
+    <div class="sub-heading">
+        <span class="section-number">03</span>
+        <div>
+            <p class="small-heading">GUEST LECTURE — INNOVATION & DESIGN METHODOLOGY</p>
+            <h2 id="designthinking">Design Thinking & Rapid Prototyping</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            One of the standout moments of Week 2 was a guest lecture by <span class="highlight-name">Prof. Girija Kumari Sagi</span>, an international business strategist and cross-functional management expert with a strong background in innovation and entrepreneurship mentoring. The session shifted focus — from machines and materials to <span class="highlight-name">Methodology</span>: how do you actually go about building something new, the right way?
+        </p>
+
+        <p>
+            The core framework introduced was <span class="highlight-name">Design Thinking</span> — a five-stage, human-centered approach to problem-solving: <span class="highlight-name">Empathize</span>, <span class="highlight-name">Define</span>, <span class="highlight-name">Ideate</span>, <span class="highlight-name">Prototype</span>, and <span class="highlight-name">Test</span>. Rather than starting with a solution, the framework pushes you to start with the user and the problem — and only then move toward building.
+        </p>
+
+        <p>
+            We also explored <span class="highlight-name">Rapid Prototyping</span> as a mindset rather than just a set of tools, including a fascinating look at Japanese <span class="highlight-name">Origami</span> techniques as a form of structural prototyping — folding flat material into complex, functional 3D forms with minimal waste and no additional fasteners. It was a great reminder that not every prototype needs a machine; sometimes a sheet of paper and the right fold pattern is enough to test an idea.
+        </p>
+
+        <!-- DESIGN THINKING STAGES -->
+        <div class="reference-box">
+            <span class="reference-label">The Five Stages of Design Thinking</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>1. Empathize</h4>
+                    <p>Understanding the real needs, motivations, and pain points of the people a project is being built for.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>2. Define</h4>
+                    <p>Translating those observations into a clear, well-scoped problem statement worth solving.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>3. Ideate</h4>
+                    <p>Generating a wide range of possible solutions before narrowing down to the most promising ones.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>4. Prototype</h4>
+                    <p>Building quick, low-cost representations of ideas to make them tangible and testable.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>5. Test</h4>
+                    <p>Putting prototypes in front of real users, gathering feedback, and iterating based on results.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>A Personal Highlight:</strong><br>
+            During the session, I was asked to share details about my own project — and got to talk through the <span class="highlight-name">Computer Vision</span>, <span class="highlight-name">Embedded Systems</span>, and <span class="highlight-name">Open-Source Integration</span> ideas I've been working on. Explaining my project to an industry expert, and hearing their perspective on it, was genuinely one of the most exciting and motivating parts of the week.
+        </div>
+
+        <!-- IMAGES -->
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="week2-img/d1.png" alt="Design Thinking Guest Lecture">
+                <p class="image-caption">
+                    <strong>Fig. 4.0:</strong> Guest lecture by Prof. Girija Kumari Sagi on Design Thinking, Rapid Prototyping, and Innovation Mentorship.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/d2.png" alt="Design Thinking Stages and Origami Prototyping">
+                <p class="image-caption">
+                    <strong>Fig. 4.1:</strong> Discussion slide covering the five stages of Design Thinking alongside Japanese origami-based rapid prototyping techniques.
+                </p>
+            </div>
+            <div class="image-card">
+                <div class="video-container">
+                    <a class="video-fallback" href="week2-video/design-thinking-lecture.mp4" target="_blank">
+                        <img src="week2-img/v-design.png" alt="Design Thinking Lecture Recording">
+                        <span class="play-overlay">▶</span>
+                    </a>
+                </div>
+                <p class="image-caption">
+                    <strong>Fig. 4.2 (Video):</strong> Recording from the guest lecture session on Design Thinking and Rapid Prototyping.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 04 — LASERCAD -->
+    <div class="sub-heading">
+        <span class="section-number">04</span>
         <div>
             <p class="small-heading">LASER CUTTING & MACHINE CONTROL SOFTWARE</p>
             <h2 id="lasercad">LaserCAD & Laser Cutting Workflow</h2>
@@ -352,6 +616,10 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
         <p>
             A sample nameplate design was created using the ellipse and text tools inside LaserCAD. Different layer colors were assigned to define cutting and engraving operations independently, allowing precise control over how each element is processed by the machine.
+        </p>
+
+        <p>
+            The session went beyond theory — once the workspace and parameters were configured, each of us got to take a piece of <span class="highlight-name">Cardboard</span> and run our own design through the laser cutter using LaserCAD. Watching a design built on screen turn into a precisely cut physical piece, beam by beam, was a small but genuinely thrilling first taste of digital fabrication.
         </p>
 
         <div class="info-box">
@@ -386,6 +654,32 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
+        <!-- LASER ANATOMY -->
+        <div class="reference-box">
+            <span class="reference-label">Anatomy of a CO₂ Laser Cutting System</span>
+            <p>
+                Beyond the software, the session also covered the physical path a laser beam takes from generation to cut — a journey through a precise chain of optical components inside the machine.
+            </p>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>CO₂ Laser Tube</h4>
+                    <p>The source of the beam itself — a sealed glass tube in which an electrical discharge excites a CO₂ gas mixture to produce the infrared laser beam.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Mirror 1 & Mirror 2</h4>
+                    <p>A pair of precisely aligned mirrors redirect the beam from the tube, across the gantry, and down toward the cutting head — any misalignment here directly affects cut quality.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Focus Lens & Nozzle Head</h4>
+                    <p>The focus lens concentrates the beam to a fine point at the nozzle head, which also directs a stream of compressed air to clear debris and reduce flare-ups during cutting.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Workpiece & Bed Surface</h4>
+                    <p>The final stage — where the focused beam meets the material on the honeycomb bed, cutting or engraving along the vector path defined in LaserCAD.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- REFERENCE RESOURCES -->
         <div class="reference-box">
             <span class="reference-label">Official Resources</span>
@@ -400,19 +694,42 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <div class="image-card">
                 <img src="week2-img/l1.png" alt="LaserCAD Installation">
                 <p class="image-caption">
-                    <strong>Fig. 2.0:</strong> Installation and initial setup of LaserCAD V8.28 for Trocen-based CO₂ laser systems.
+                    <strong>Fig. 5.0:</strong> Installation and initial setup of LaserCAD V8.28 for Trocen-based CO₂ laser systems.
                 </p>
             </div>
             <div class="image-card">
                 <img src="week2-img/l2.png" alt="LaserCAD Workspace">
                 <p class="image-caption">
-                    <strong>Fig. 2.1:</strong> LaserCAD workspace showing machine bed configuration, layer panel, parameter controls, and design canvas.
+                    <strong>Fig. 5.1:</strong> LaserCAD workspace showing machine bed configuration, layer panel, parameter controls, and design canvas.
                 </p>
             </div>
             <div class="image-card">
                 <img src="week2-img/l3.png" alt="LaserCAD Layer Parameters">
                 <p class="image-caption">
-                    <strong>Fig. 2.2:</strong> Configuration of Cut and Engrave layer parameters including speed, power, and operating mode settings.
+                    <strong>Fig. 5.2:</strong> Configuration of Cut and Engrave layer parameters including speed, power, and operating mode settings.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/l5.png" alt="CO2 Laser System Anatomy Diagram">
+                <p class="image-caption">
+                    <strong>Fig. 5.3:</strong> Annotated diagram of the CO₂ laser system — laser tube, Mirror 1, Mirror 2, focus lens, nozzle head, and bed surface.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/l6.png" alt="Hands-On Cardboard Laser Cutting">
+                <p class="image-caption">
+                    <strong>Fig. 5.4:</strong> Hands-on practical — cutting a personal cardboard design using LaserCAD and the CO₂ laser cutter.
+                </p>
+            </div>
+            <div class="image-card">
+                <div class="video-container">
+                    <a class="video-fallback" href="week2-video/laser-cutting-demo.mp4" target="_blank">
+                        <img src="week2-img/v-laser.png" alt="Laser Cutting Demonstration Video">
+                        <span class="play-overlay">▶</span>
+                    </a>
+                </div>
+                <p class="image-caption">
+                    <strong>Fig. 5.5 (Video):</strong> Hands-on laser cutting demonstration — sending a vector design from LaserCAD to the CO₂ laser cutter and cutting it from cardboard.
                 </p>
             </div>
         </div>
@@ -420,12 +737,12 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 02 — LASER PARAMETERS -->
+    <!-- SECTION 05 — LASER PARAMETERS -->
     <div class="sub-heading">
-        <span class="section-number">02</span>
+        <span class="section-number">05</span>
         <div>
             <p class="small-heading">MATERIAL CONFIGURATION & SAFETY PROTOCOLS</p>
-            <h2 id="params">Laser Parameters & Material Settings</h2>
+            <h2 id="params">Laser Parameters, Anatomy & Safety</h2>
         </div>
     </div>
 
@@ -464,6 +781,24 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             </div>
         </div>
 
+        <!-- SUPPORT SYSTEMS -->
+        <div class="reference-box">
+            <span class="reference-label">Support Systems — Chiller & Air Compressor</span>
+            <p>
+                Two support systems run alongside the laser tube on every job, and both were emphasized as essential to safe, clean cutting:
+            </p>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Water Chiller</h4>
+                    <p>Continuously circulates coolant through the CO₂ laser tube to keep it within safe operating temperature, preventing overheating and permanent tube damage. It must always be switched on before the laser itself.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Air Compressor</h4>
+                    <p>Feeds the air-assist stream through the nozzle head, blowing combustion by-products and debris away from the cut line — reducing flare-ups, scorching, and charred edges, especially on wood and acrylic.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- SAFETY -->
         <div class="reference-box">
             <span class="reference-label">Safety & Maintenance Protocols</span>
@@ -473,6 +808,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <ul class="styled-list">
                 <li>Always start the water chiller <strong>before</strong> powering on the laser</li>
                 <li>Perform regular water replacement and quality checks</li>
+                <li>Ensure the air compressor is running to provide air-assist during cutting and engraving</li>
                 <li>Monitor power settings to avoid material scorching or fire risk</li>
                 <li>Select material-specific parameters before any cutting job</li>
                 <li>Never leave the machine unattended during active operation</li>
@@ -481,7 +817,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
         <div class="info-box">
             <strong>Learning Outcome:</strong><br>
-            Understanding parameter selection is critical for achieving accurate cuts, preventing material damage, maintaining consistent output quality, and ensuring machine safety throughout fabrication operations.
+            Understanding parameter selection — and the support systems running behind every job — is critical for achieving accurate cuts, preventing material damage, maintaining consistent output quality, and ensuring machine safety throughout fabrication operations.
         </div>
 
         <!-- IMAGE -->
@@ -489,7 +825,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <div class="image-card">
                 <img src="week2-img/l4.png" alt="Laser Parameter Chart">
                 <p class="image-caption">
-                    <strong>Fig. 3.0:</strong> SIL material parameter reference chart showing recommended speed, power, and operating modes for each material type and thickness.
+                    <strong>Fig. 6.0:</strong> SIL material parameter reference chart showing recommended speed, power, and operating modes for each material type and thickness.
                 </p>
             </div>
         </div>
@@ -497,9 +833,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 03 — CRICUT -->
+    <!-- SECTION 06 — CRICUT -->
     <div class="sub-heading">
-        <span class="section-number">03</span>
+        <span class="section-number">06</span>
         <div>
             <p class="small-heading">VINYL CUTTING & IRON-ON DESIGN FABRICATION</p>
             <h2 id="cricut">Cricut Design Space & Iron-On Design Workflow</h2>
@@ -508,8 +844,15 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            The second fabrication workflow explored during Week 2 involved the <span class="highlight-name">Cricut Maker 4</span> precision cutting machine and <span class="highlight-name">Cricut Design Space</span> software. The software acts as the primary interface for preparing vinyl and iron-on projects before sending them to the cutting machine.
+            The second fabrication workflow explored during Week 2 involved the <span class="highlight-name">Cricut Maker 3</span> precision cutting machine and <span class="highlight-name">Cricut Design Space</span> software. The software acts as the primary interface for preparing vinyl and iron-on projects before sending them to the cutting machine.
         </p>
+
+        <p>
+            This part of the week held a special moment for me —
+            <a href="https://www.linkedin.com/in/dr-kiran-wakchaure/" target="_blank" class="highlight-name">Dr. Kiran Wakchaure</a> sir
+            gave me the first opportunity in the lab to operate the <span class="highlight-name">Cricut Maker 3</span> myself. Getting hands-on with an industry-grade cutting machine on a live project — rather than just observing — made this one of the most memorable sessions of the week.
+        </p>
+
         <p>
             Cricut Design Space provides a web-based and desktop design environment that enables users to compose layouts, apply text and graphics, preview material placement, and send optimized cut files directly to the cutter — all within a single integrated workflow.
         </p>
@@ -523,8 +866,12 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <li>Applying the mirror function required for iron-on transfers</li>
             <li>Previewing the design using Cricut's product mockup tools</li>
             <li>Selecting material type and confirming machine settings</li>
-            <li>Sending the project to Cricut Maker 4 for cutting</li>
+            <li>Sending the project to Cricut Maker 3 for cutting</li>
         </ul>
+
+        <p>
+            Alongside iron-on transfers, the session also covered <span class="highlight-name">Adhesive Vinyl</span> — cutting custom stickers and logo decals directly from vector designs, and understanding how cut settings change between adhesive vinyl, iron-on vinyl, and other Smart Materials.
+        </p>
 
         <!-- KEY CONCEPTS -->
         <div class="reference-box">
@@ -543,15 +890,42 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                     <p>Iron-on designs must be horizontally mirrored before cutting to ensure correct orientation after heat transfer application.</p>
                 </div>
                 <div class="overview-item">
+                    <h4>Adhesive Vinyl & Stickers</h4>
+                    <p>Custom stickers and logo decals are cut from adhesive vinyl, weeded by hand, and transferred onto surfaces using transfer tape.</p>
+                </div>
+                <div class="overview-item">
                     <h4>Preview Workflow</h4>
                     <p>Cricut's built-in mockup preview allows visualization of the final product appearance before committing to fabrication.</p>
                 </div>
             </div>
         </div>
 
+        <!-- CRICUT MAKER 3 FEATURES -->
+        <div class="reference-box">
+            <span class="reference-label">Cricut Maker 3 — Key Features</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Adaptive Tool System</h4>
+                    <p>A single QuickSwap housing accepts up to 13 different tools — for cutting, scoring, debossing, engraving, and more — without needing separate machines.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>300+ Material Compatibility</h4>
+                    <p>From thin paper and adhesive vinyl to leather, basswood, and fabric — all cut with the same machine using the right blade and settings.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Speed & Cutting Force</h4>
+                    <p>Up to 2× faster cutting than the original Cricut Maker, with significantly higher cutting force than entry-level Explore machines.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Smart Materials — Matless Cutting</h4>
+                    <p>Smart Vinyl and Smart Iron-On can be fed directly into the machine without a cutting mat, enabling long, continuous cuts.</p>
+                </div>
+            </div>
+        </div>
+
         <div class="info-box">
             <strong>Learning Outcome:</strong><br>
-            The Cricut workflow demonstrated how digital graphics can be efficiently converted into physical custom products through structured design preparation, correct material configuration, and machine-assisted precision cutting.
+            The Cricut workflow demonstrated how digital graphics can be efficiently converted into physical custom products through structured design preparation, correct material configuration, and machine-assisted precision cutting — and getting first-hand operating experience made this learning stick in a way that observation alone couldn't.
         </div>
 
         <!-- REFERENCE -->
@@ -569,19 +943,42 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <div class="image-card">
                 <img src="week2-img/c1.png" alt="Cricut Design Space Download">
                 <p class="image-caption">
-                    <strong>Fig. 4.0:</strong> Download and installation process for Cricut Design Space desktop application.
+                    <strong>Fig. 7.0:</strong> Download and installation process for Cricut Design Space desktop application.
                 </p>
             </div>
             <div class="image-card">
                 <img src="week2-img/c2.png" alt="Design Space Canvas">
                 <p class="image-caption">
-                    <strong>Fig. 4.1:</strong> Cricut Design Space project canvas showing design preparation, text tools, and layout composition workflow.
+                    <strong>Fig. 7.1:</strong> Cricut Design Space project canvas showing design preparation, text tools, and layout composition workflow.
                 </p>
             </div>
             <div class="image-card">
                 <img src="week2-img/c3.png" alt="Iron On Project Preview">
                 <p class="image-caption">
-                    <strong>Fig. 4.2:</strong> Final iron-on design preview using Cricut's product mockup tool before sending the project to the cutting machine.
+                    <strong>Fig. 7.2:</strong> Final iron-on design preview using Cricut's product mockup tool before sending the project to the cutting machine.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/c4.png" alt="Cricut Maker 3 Adaptive Tool System">
+                <p class="image-caption">
+                    <strong>Fig. 7.3:</strong> Cricut Maker 3 and its Adaptive Tool System — operated hands-on for the first time during this session.
+                </p>
+            </div>
+            <div class="image-card">
+                <img src="week2-img/c5.png" alt="Adhesive Vinyl Stickers and Logo Decals">
+                <p class="image-caption">
+                    <strong>Fig. 7.4:</strong> Custom stickers and logo decals cut from adhesive vinyl using the Cricut Maker 3.
+                </p>
+            </div>
+            <div class="image-card">
+                <div class="video-container">
+                    <a class="video-fallback" href="week2-video/cricut-maker3-demo.mp4" target="_blank">
+                        <img src="week2-img/v-cricut.png" alt="Cricut Maker 3 Cutting Demonstration Video">
+                        <span class="play-overlay">▶</span>
+                    </a>
+                </div>
+                <p class="image-caption">
+                    <strong>Fig. 7.5 (Video):</strong> Cricut Maker 3 in action — cutting an iron-on vinyl design prepared in Cricut Design Space.
                 </p>
             </div>
         </div>
@@ -589,9 +986,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 04 — SKILLS -->
+    <!-- SECTION 07 — SKILLS -->
     <div class="sub-heading">
-        <span class="section-number">04</span>
+        <span class="section-number">07</span>
         <div>
             <p class="small-heading">KEY SKILLS & COMPETENCIES</p>
             <h2 id="skills">Key Skills & Competencies Developed</h2>
@@ -600,8 +997,18 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Week 2 contributed a combination of technical, machine-operation, and design-to-fabrication workflow skills across laser cutting and vinyl cutting environments.
+            Week 2 contributed a wide-ranging combination of strategic, technical, machine-operation, and design-to-fabrication workflow skills — spanning project ideation, design methodology, 3D printing, laser cutting, and vinyl cutting environments.
         </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Strategic & Methodology Skills</span>
+            <ul class="styled-list">
+                <li>Project ideation and theme selection through structured mentorship</li>
+                <li>Applying the Design Thinking framework (Empathize → Define → Ideate → Prototype → Test) to project planning</li>
+                <li>Understanding rapid prototyping mindsets, including origami-based structural prototyping</li>
+                <li>Communicating technical project ideas clearly to industry experts</li>
+            </ul>
+        </div>
 
         <div class="reference-box">
             <span class="reference-label">Technical Skills</span>
@@ -610,8 +1017,12 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                 <li>Laser parameter optimization for different materials</li>
                 <li>USB/COM port machine communication setup</li>
                 <li>Layer-based design management for cut vs. engrave operations</li>
+                <li>CO₂ laser system anatomy — tube, mirrors, focus lens, and nozzle head</li>
+                <li>Bambu Lab 3D printing ecosystem fundamentals (A1 Mini & X2D)</li>
                 <li>Cricut Design Space project creation and management</li>
                 <li>Iron-on vinyl design preparation and mirror workflow</li>
+                <li>Adhesive vinyl sticker and logo decal production</li>
+                <li>Cricut Maker 3 Adaptive Tool System operation</li>
                 <li>Material selection and fabrication planning</li>
             </ul>
         </div>
@@ -619,10 +1030,10 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <div class="reference-box">
             <span class="reference-label">Fabrication Skills</span>
             <ul class="styled-list">
-                <li>Digital-to-physical workflow understanding</li>
+                <li>Digital-to-physical workflow understanding across additive, subtractive, and cutting processes</li>
                 <li>Cut vs. engrave decision making based on design intent</li>
                 <li>Production parameter optimization for material-specific results</li>
-                <li>Machine safety awareness and chiller operation protocols</li>
+                <li>Machine safety awareness — chiller and air compressor operation protocols</li>
                 <li>Design preparation and verification before manufacturing</li>
             </ul>
         </div>
@@ -630,9 +1041,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 05 — TOOLS TABLE -->
+    <!-- SECTION 08 — TOOLS TABLE -->
     <div class="sub-heading">
-        <span class="section-number">05</span>
+        <span class="section-number">08</span>
         <div>
             <p class="small-heading">TOOL REFERENCE</p>
             <h2 id="tools">Tool Reference Table</h2>
@@ -673,13 +1084,28 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                         <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">—</td>
                     </tr>
                     <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Air Compressor</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Air-assist system for laser cutting & engraving</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">—</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Bambu Lab A1 Mini</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Compact entry-level FDM 3D printer</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://bambulab.com" target="_blank">bambulab.com</a></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Bambu Lab X2D</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Flagship dual-nozzle FDM 3D printer</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://bambulab.com" target="_blank">bambulab.com</a></td>
+                    </tr>
+                    <tr>
                         <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Cricut Design Space</td>
                         <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Vinyl & iron-on design preparation software</td>
                         <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://design.cricut.com" target="_blank">design.cricut.com</a></td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Cricut Maker 4</td>
-                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Precision vinyl & iron-on cutting machine</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Cricut Maker 3</td>
+                        <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;">Precision vinyl & iron-on cutting machine with Adaptive Tool System</td>
                         <td style="padding: 10px; border-bottom: 1px solid #f1f1f1;"><a href="https://www.cricut.com" target="_blank">cricut.com</a></td>
                     </tr>
                     <tr>
@@ -694,9 +1120,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 06 — REFLECTION -->
+    <!-- SECTION 09 — REFLECTION -->
     <div class="sub-heading">
-        <span class="section-number">06</span>
+        <span class="section-number">09</span>
         <div>
             <p class="small-heading">REFLECTION</p>
             <h2 id="reflection">Personal Reflection</h2>
@@ -705,21 +1131,24 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Week 2 provided valuable hands-on exposure to practical digital fabrication technologies and machine-control workflows. The sessions demonstrated how digital designs are converted into physical products through specialized software, machine configuration, and material-specific parameter tuning.
+            Week 2 was, without question, one of the richest weeks of the internship so far — not because of any single machine or session, but because of how everything connected. It started with a conversation about what to build, moved through the methodology of how to build it well, and ended with genuinely exciting hands-on time on real industrial machines.
         </p>
         <p>
-            Working with LaserCAD introduced the principles of laser cutting, engraving, and parameter optimization, while Cricut Design Space demonstrated a streamlined yet highly effective workflow for vinyl and iron-on fabrication. Together, these experiences strengthened the understanding of digital manufacturing and modern rapid prototyping systems.
+            The mentorship session with Dr. Kiran Wakchaure sir and Arvind Mukundan sir reframed how I think about resources — realizing that the lab already contains nearly everything needed to take an idea from raw material to finished product was a real confidence boost going into the rest of the internship. The guest lecture on Design Thinking by Prof. Girija Kumari Sagi added a methodology layer that I plan to apply directly to my own project — starting from empathy and a clear problem definition rather than jumping straight into building.
         </p>
         <p>
-            The week reinforced that successful fabrication depends not only on the design itself, but equally on the accuracy of machine parameters, the selection of appropriate materials, and strict adherence to safety protocols throughout the production process.
+            On the fabrication side, working with LaserCAD deepened my understanding of laser cutting, engraving, parameter optimization, and the optical anatomy of a CO₂ laser system, while the Bambu Lab session introduced 3D printing as the additive piece of the fabrication puzzle. But the personal highlight was getting hands-on with the Cricut Maker 3 for the first time — being trusted to operate it on a live project made the whole week feel like a genuine step from "student" to "maker."
+        </p>
+        <p>
+            If there's one takeaway from Week 2, it's that successful fabrication is as much about mindset and methodology — empathy, ideation, iteration — as it is about machine parameters, material selection, and strict adherence to safety protocols throughout the production process.
         </p>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 07 — RESOURCES -->
+    <!-- SECTION 10 — RESOURCES -->
     <div class="sub-heading">
-        <span class="section-number">07</span>
+        <span class="section-number">10</span>
         <div>
             <p class="small-heading">RESOURCES</p>
             <h2 id="resources">Useful Learning Resources & References</h2>
@@ -733,6 +1162,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <li>Cricut Design Space (Web) — <a href="https://design.cricut.com" target="_blank">design.cricut.com</a></li>
             <li>Cricut Learning Hub — <a href="https://learn.cricut.com" target="_blank">learn.cricut.com</a></li>
             <li>CorelDraw Documentation — <a href="https://www.coreldraw.com/en/pages/tutorials/" target="_blank">coreldraw.com/tutorials</a></li>
+            <li>Bambu Lab — <a href="https://bambulab.com" target="_blank">bambulab.com</a></li>
+            <li>Bambu Lab Wiki — <a href="https://wiki.bambulab.com" target="_blank">wiki.bambulab.com</a></li>
+            <li>Stanford d.school — Design Thinking Resources — <a href="https://dschool.stanford.edu" target="_blank">dschool.stanford.edu</a></li>
         </ul>
     </div>
 
