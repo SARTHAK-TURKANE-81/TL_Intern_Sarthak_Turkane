@@ -108,13 +108,12 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
         Sanjivani University • Summer Internship 2026 • Tinkerers' Lab • SARTHAK TURKANE
     </p>
 
-    <h2>Week 3 Technical Documentation Report</h2>
-    <br>
+    <h1>Week 3 Technical Documentation Report</h1>
 
     <p class="tagline">
-        A comprehensive exploration of Electronics, Embedded Systems, Physical AI,
-        Sensors, Actuators, Control Systems, and IoT Communication Technologies —
-        the building blocks of intelligent real-world systems.
+        A hands-on week bridging electronics, embedded systems, and Physical AI —
+        from live sensor data on Firebase to Edge AI model training with Edge Impulse,
+        and two expert sessions that brought industry-level insight into the lab.
     </p>
 
     <div class="white-block">
@@ -122,21 +121,27 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
         <p class="toc-label">Table of Contents</p>
         <ol class="toc">
             <li><span class="num">01</span><a href="#intro">Introduction</a></li>
-            <li><span class="num">02</span><a href="#esp32">ESP32 Technology</a></li>
-            <li><span class="num">03</span><a href="#arduino">Arduino Boards Comparison</a></li>
-            <li><span class="num">04</span><a href="#physicalai">Physical AI</a></li>
-            <li><span class="num">05</span><a href="#mcu-vs-cpu">Microcontroller vs Processor</a></li>
-            <li><span class="num">06</span><a href="#edge">Edge Computing</a></li>
-            <li><span class="num">07</span><a href="#sca">Sensor, Controller & Actuator</a></li>
-            <li><span class="num">08</span><a href="#control">Control Systems (P / PI / PID)</a></li>
-            <li><span class="num">09</span><a href="#sensors">Sensors Documentation</a></li>
-            <li><span class="num">10</span><a href="#motors">Actuators & Motors</a></li>
-            <li><span class="num">11</span><a href="#semiconductors">LED, Semiconductors & Transistors</a></li>
-            <li><span class="num">12</span><a href="#mosfet">MOSFET & Relay</a></li>
-            <li><span class="num">13</span><a href="#firebase">ESP32 & Firebase IoT</a></li>
-            <li><span class="num">14</span><a href="#skills">Key Skills Developed</a></li>
-            <li><span class="num">15</span><a href="#reflection">Personal Reflection</a></li>
-            <li><span class="num">16</span><a href="#resources">References & Resources</a></li>
+            <li><span class="num">02</span><a href="#esp32">ESP32 & Firebase Integration</a></li>
+            <li><span class="num">03</span><a href="#firebase-demo">Live Firebase Demo — Temperature Sensor</a></li>
+            <li><span class="num">04</span><a href="#arduino">Arduino Boards Comparison</a></li>
+            <li><span class="num">05</span><a href="#servo">Servo Motors & Actuators</a></li>
+            <li><span class="num">06</span><a href="#physicalai">Physical AI</a></li>
+            <li><span class="num">07</span><a href="#mcu-vs-cpu">Microcontroller vs Processor</a></li>
+            <li><span class="num">08</span><a href="#edge">Edge Computing</a></li>
+            <li><span class="num">09</span><a href="#sca">Sensor, Controller & Actuator</a></li>
+            <li><span class="num">10</span><a href="#control">Control Systems (P / PI / PID)</a></li>
+            <li><span class="num">11</span><a href="#sensors">Sensors Documentation</a></li>
+            <li><span class="num">12</span><a href="#motors">Actuators & Motors</a></li>
+            <li><span class="num">13</span><a href="#semiconductors">LED, Semiconductors & Transistors</a></li>
+            <li><span class="num">14</span><a href="#mosfet">MOSFET & Relay</a></li>
+            <li><span class="num">15</span><a href="#expert1">Expert Session — Edge AI & Edge Impulse</a></li>
+            <li><span class="num">16</span><a href="#edgeimpulse">Edge Impulse Platform</a></li>
+            <li><span class="num">17</span><a href="#opencv">OpenCV & Computer Vision Basics</a></li>
+            <li><span class="num">18</span><a href="#expert2">Expert Session 2</a></li>
+            <li><span class="num">19</span><a href="#firebase-iot">ESP32 & Firebase IoT Architecture</a></li>
+            <li><span class="num">20</span><a href="#skills">Key Skills Developed</a></li>
+            <li><span class="num">21</span><a href="#reflection">Personal Reflection</a></li>
+            <li><span class="num">22</span><a href="#resources">References & Resources</a></li>
         </ol>
     </div>
 
@@ -160,15 +165,22 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     box-shadow: 0 12px 35px rgba(0,0,0,0.05); margin-bottom: 40px;
 }
 .content-card p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 24px; }
-.content-card a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.content-card a { color: #b87333; text-decoration: none; font-weight: 600; }
 .content-card a:hover { text-decoration: underline; }
 
 .highlight-name { color: #111827; font-weight: 700; }
 
 .info-box {
-    margin-top: 30px; background: #eff6ff;
-    border-left: 5px solid #2563eb; padding: 22px;
-    border-radius: 14px; line-height: 1.8; color: #1e3a8a;
+    margin-top: 30px; background: #fdf6ee;
+    border-left: 5px solid #b87333; padding: 22px;
+    border-radius: 14px; line-height: 1.8; color: #6b3f10;
+}
+
+/* warm accent info box variant */
+.info-box-warm {
+    margin-top: 30px; background: #fdf6ee;
+    border-left: 5px solid #b87333; padding: 22px;
+    border-radius: 14px; line-height: 1.8; color: #6b3f10;
 }
 
 .divider {
@@ -180,9 +192,11 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 .sub-heading { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 30px; }
 
 .section-number {
+    font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    letter-spacing: 0.02em; font-size: 22px !important;
     width: 60px; height: 60px; background: #111827; color: white;
     border-radius: 18px; display: flex; align-items: center;
-    justify-content: center; font-weight: bold; font-size: 20px;
+    justify-content: center; font-weight: bold; 
     flex-shrink: 0;
 }
 
@@ -201,7 +215,7 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     letter-spacing: 1px; text-transform: uppercase; color: #64748b;
 }
 .reference-box p { font-size: 16px; line-height: 2; color: #374151; margin-bottom: 16px; }
-.reference-box a { color: #2563eb; text-decoration: none; font-weight: 600; }
+.reference-box a { color: #b87333; text-decoration: none; font-weight: 600; }
 .reference-box a:hover { text-decoration: underline; }
 
 .resource-list { margin: 0; padding-left: 18px; }
@@ -275,9 +289,104 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
     margin: 0; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 4px 0;
 }
 .firebase-arch p:last-child { border-bottom: none; }
-.fb-device { color: #38bdf8; }
+.fb-device { color: #e8a87c; }
 .fb-arrow { color: #b87333; }
 .fb-service { color: #86efac; }
+
+/* ── IMAGE PLACEHOLDER ── */
+.img-placeholder {
+    width: 100%; border-radius: 18px; overflow: hidden;
+    background: #f0ede8; border: 2px dashed rgba(184,115,51,0.35);
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 48px 24px; margin: 28px 0;
+    text-align: center; gap: 10px;
+}
+.img-placeholder span.icon { font-size: 36px; }
+.img-placeholder span.label {
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: #b87333; font-weight: 600;
+}
+.img-placeholder span.sub { font-size: 13px; color: #8a7f74; }
+
+/* actual image inside placeholder area */
+.img-placeholder img { width: 100%; border-radius: 14px; display: block; }
+
+/* ── VIDEO EMBED ── */
+.video-embed-wrap {
+    position: relative; width: 100%; padding-top: 56.25%;
+    border-radius: 18px; overflow: hidden; margin: 28px 0;
+    border: 1px solid #e5e7eb; background: #0f172a;
+}
+.video-embed-wrap iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: none;
+}
+.video-placeholder {
+    position: relative; width: 100%; padding-top: 56.25%;
+    border-radius: 18px; overflow: hidden; margin: 28px 0;
+    background: #1a1410; border: 2px dashed rgba(184,115,51,0.35);
+}
+.video-placeholder-inner {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px; text-align: center;
+}
+.video-placeholder-inner span.icon { font-size: 42px; }
+.video-placeholder-inner span.label {
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    color: #b87333; font-weight: 600;
+}
+.video-placeholder-inner span.sub { font-size: 13px; color: #8a7f74; }
+
+/* ── EXPERT SPEAKER CARD ── */
+.expert-card {
+    display: flex; gap: 28px; align-items: flex-start;
+    background: #faf9f7; border: 1px solid #e5e7eb;
+    border-radius: 20px; padding: 28px; margin: 28px 0;
+}
+.expert-avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    border: 3px solid rgba(184,115,51,0.3);
+    background: #f0ede8;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 36px;
+}
+.expert-avatar img {
+    width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
+}
+.expert-info h3 { font-size: 22px; color: #111827; margin-bottom: 6px; }
+.expert-info .expert-role { font-size: 13px; color: #b87333; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+.expert-info p { font-size: 15px; line-height: 1.8; color: #4b5563; margin: 0; }
+.expert-linkedin {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 12px; font-size: 13px; font-weight: 600;
+    color: #b87333; text-decoration: none;
+}
+.expert-linkedin:hover { text-decoration: underline; }
+
+/* ── STEP PIPELINE ── */
+.pipeline {
+    display: flex; flex-direction: column; gap: 0; margin: 24px 0;
+}
+.pipeline-step {
+    display: flex; gap: 20px; align-items: flex-start; padding: 18px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+.pipeline-step:last-child { border-bottom: none; }
+.pipeline-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #1a1410; color: #f7f3ed;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+}
+.pipeline-step h4 { font-size: 16px; color: #111827; margin-bottom: 4px; }
+.pipeline-step p { font-size: 14px; color: #4b5563; line-height: 1.7; margin: 0; }
+
+/* ── HIGHLIGHT BADGE ── */
+.badge {
+    display: inline-block; padding: 4px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+    background: rgba(184,115,51,0.12); color: #7a4a18; margin-right: 6px; margin-bottom: 6px;
+}
 
 /* theme override to match warm palette */
 :root {
@@ -287,7 +396,9 @@ ol.toc a:hover { color: #000; transform: translateX(4px); }
 }
 body { font-family: var(--font-body, 'DM Sans', sans-serif); background: var(--bg-page); }
 h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif); color: var(--accent); }
-.section-number { background: var(--accent); color: #f7f3ed; }
+.section-number {
+    font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+    letter-spacing: 0.02em; font-size: 22px !important; background: var(--accent); color: #f7f3ed; }
 .divider { background: linear-gradient(to right, transparent, rgba(26,20,16,0.18), transparent); }
 
 @media(max-width:768px) {
@@ -297,6 +408,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
     .content-card { padding: 28px; }
     .param-grid { grid-template-columns: 1fr; }
     .flow-diagram { flex-direction: column; align-items: flex-start; }
+    .expert-card { flex-direction: column; }
 }
 </style>
 
@@ -307,7 +419,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
     <div class="section-header">
         <h1 id="intro">Introduction</h1>
         <p class="intro-highlight">
-            Week 3 explored the fundamentals of electronics, embedded systems, and Physical AI — bridging software intelligence with real-world hardware interaction through sensors, actuators, control systems, and IoT communication.
+            Week 3 was the most hands-on week of the internship so far — live circuits, real sensor data streaming to Firebase, servo motor control, two expert sessions, and an introduction to Edge AI using Edge Impulse. This report documents everything that was learned, built, and experienced.
         </p>
     </div>
 
@@ -316,97 +428,164 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             Week 3 focused on the core building blocks of intelligent systems: <span class="highlight-name">Electronics</span>, <span class="highlight-name">Embedded Systems</span>, <span class="highlight-name">Physical AI</span>, <span class="highlight-name">Sensors</span>, <span class="highlight-name">Actuators</span>, <span class="highlight-name">Control Systems</span>, and <span class="highlight-name">IoT Communication Technologies</span>. These concepts are foundational to robotics, automation, healthcare devices, and smart IoT applications.
         </p>
         <p>
-            The knowledge gained during this week is directly applicable to the project <span class="highlight-name">"Real-Time Skin Cancer Detection System using Deep Learning on Raspberry Pi 4"</span>, where sensors, controllers, edge computing, and communication technologies play a significant role.
+            A major highlight of the week was completing a <span class="highlight-name">live ESP32 + Firebase integration</span> — connecting a temperature sensor to a Firebase Realtime Database and visualising the data on a web frontend in real time. LEDs were used as output actuators and a servo motor was controlled through the same setup.
         </p>
         <p>
-            Sessions covered platforms such as <span class="highlight-name">ESP32</span> and the <span class="highlight-name">Arduino family</span> for embedded development, explored concepts like edge computing and Physical AI, examined sensor and motor technologies, and demonstrated cloud integration using <span class="highlight-name">Firebase</span>.
+            The week also featured <span class="highlight-name">two expert sessions</span>. The first, delivered by <span class="highlight-name">Jaydeep Ashtekar</span>, provided a deep-dive into the <span class="highlight-name">Edge Impulse</span> platform — covering data collection, model training, and deployment on embedded devices. A second expert session further expanded on industry-level IoT and AI applications.
         </p>
         <p>
-            This week built a strong bridge between digital design knowledge from previous weeks and the physical world of hardware-driven intelligent systems.
+            All knowledge gained during this week directly feeds into the ongoing project: <span class="highlight-name">"Real-Time Skin Cancer Detection System using Deep Learning on Raspberry Pi 4"</span>, where sensors, controllers, edge computing, and communication technologies play a significant role.
         </p>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 01 — ESP32 -->
+    <!-- SECTION 01 — ESP32 + FIREBASE -->
     <div class="sub-heading">
         <span class="section-number">01</span>
         <div>
             <p class="small-heading">MICROCONTROLLER & IoT PLATFORM</p>
-            <h2 id="esp32">ESP32 Technology</h2>
+            <h2 id="esp32">ESP32 & Firebase Integration</h2>
         </div>
     </div>
 
     <div class="content-card">
         <p>
-            <span class="highlight-name">ESP32</span> is a powerful, low-cost microcontroller developed by <span class="highlight-name">Espressif Systems</span>. It combines processing capabilities with built-in Wi-Fi and Bluetooth connectivity, making it one of the most widely used platforms for Internet of Things (IoT) applications.
+            <span class="highlight-name">ESP32</span> is a powerful, low-cost microcontroller developed by <span class="highlight-name">Espressif Systems</span>. It combines dual-core processing with built-in Wi-Fi and Bluetooth, making it one of the most widely used platforms for IoT applications. This week, the ESP32's full pinout and internal architecture were studied in detail — understanding which pins carry which functions before wiring any circuit.
         </p>
 
         <div class="reference-box">
-            <span class="reference-label">Key Specifications</span>
+            <span class="reference-label">ESP32 Pin Architecture — Studied This Week</span>
             <div class="overview-grid">
                 <div class="overview-item">
                     <h4>Processor</h4>
-                    <p>Dual-Core Xtensa LX6 running up to 240 MHz clock speed for high-performance embedded tasks.</p>
+                    <p>Dual-Core Xtensa LX6 running up to 240 MHz — handles both Wi-Fi stack and user application simultaneously.</p>
                 </div>
                 <div class="overview-item">
                     <h4>Memory</h4>
-                    <p>520 KB SRAM with support for external flash. Suitable for moderate data processing workloads.</p>
+                    <p>520 KB SRAM with external flash support. Enough for sensor buffering and Firebase communication tasks.</p>
                 </div>
                 <div class="overview-item">
                     <h4>Wireless</h4>
-                    <p>Integrated Wi-Fi and Bluetooth support enables seamless IoT connectivity without external modules.</p>
+                    <p>Integrated Wi-Fi (802.11 b/g/n) and Bluetooth 4.2/BLE — the key feature that enables Firebase cloud connectivity.</p>
                 </div>
                 <div class="overview-item">
                     <h4>GPIO & Peripherals</h4>
-                    <p>34 GPIO pins with 18 ADC channels, 2 DAC channels, and PWM support for versatile interfacing.</p>
+                    <p>34 GPIO pins with 18 ADC channels, 2 DAC channels, PWM, I2C, SPI, UART — each studied for its specific role.</p>
                 </div>
                 <div class="overview-item">
                     <h4>Power</h4>
-                    <p>3.3V operating voltage with Deep Sleep power-saving mode for battery-powered deployments.</p>
+                    <p>3.3V operating voltage with Deep Sleep mode for battery deployments. USB powered during lab sessions.</p>
                 </div>
                 <div class="overview-item">
-                    <h4>Development</h4>
-                    <p>Compatible with Arduino IDE, ESP-IDF, and MicroPython with a large active community ecosystem.</p>
+                    <h4>Development Environment</h4>
+                    <p>Arduino IDE was used for all programming during the week. Libraries: FirebaseESP32, DHT sensor, Servo.</p>
                 </div>
             </div>
         </div>
 
-        <div class="reference-box">
-            <span class="reference-label">Applications</span>
-            <div class="param-grid">
-                <div class="param-card">
-                    <h4>IoT & Connectivity</h4>
-                    <ul class="styled-list">
-                        <li>Smart Home Systems</li>
-                        <li>Wireless Sensor Networks</li>
-                        <li>Industrial IoT Monitoring</li>
-                        <li>Remote Data Logging</li>
-                    </ul>
-                </div>
-                <div class="param-card">
-                    <h4>Embedded & Robotics</h4>
-                    <ul class="styled-list">
-                        <li>Robotics Control Systems</li>
-                        <li>Healthcare Monitoring Devices</li>
-                        <li>Industrial Automation</li>
-                        <li>Real-Time Sensor Processing</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- IMAGE PLACEHOLDER — ESP32 pinout diagram -->
+        <div class="img-placeholder">
+            <span class="icon">🖼️</span>
+            <span class="label">Image — ESP32 Pinout Diagram</span>
+            <span class="sub">Replace this block with: &lt;img src="YOUR_IMAGE_PATH" alt="ESP32 Pinout"&gt;</span>
         </div>
 
         <div class="info-box">
             <strong>Learning Outcome:</strong><br>
-            ESP32's combination of processing power, wireless connectivity, and low cost makes it an ideal platform for IoT and Physical AI applications, particularly for real-time data acquisition and remote monitoring systems.
+            Understanding the ESP32's pin map before any circuit work prevented wiring errors. The deep-dive into its architecture clarified why it is the go-to microcontroller for IoT builds — processing power plus wireless in a single affordable chip.
         </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 02 — ARDUINO -->
+    <!-- SECTION 02 — LIVE FIREBASE DEMO -->
     <div class="sub-heading">
         <span class="section-number">02</span>
+        <div>
+            <p class="small-heading">HANDS-ON LAB ACTIVITY</p>
+            <h2 id="firebase-demo">Live Firebase Demo — Temperature Sensor</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            The highlight activity of Week 3 was building a complete IoT pipeline from scratch: a <span class="highlight-name">temperature sensor</span> connected to the ESP32 streamed live readings to a <span class="highlight-name">Firebase Realtime Database</span>, which was then visualised on a <span class="highlight-name">Firebase-hosted web frontend</span>. An <span class="highlight-name">LED</span> was wired as an output actuator that toggled based on temperature thresholds set in the database.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">Full Pipeline — Step by Step</span>
+            <div class="pipeline">
+                <div class="pipeline-step">
+                    <div class="pipeline-num">1</div>
+                    <div>
+                        <h4>Hardware Setup</h4>
+                        <p>ESP32 connected to a DHT11/DHT22 temperature & humidity sensor on a breadboard. An LED wired to a GPIO output pin through a current-limiting resistor.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">2</div>
+                    <div>
+                        <h4>Firebase Project Setup</h4>
+                        <p>Created a Firebase project on the Google Firebase console. Enabled Realtime Database and noted down the database URL, API key, and authentication credentials.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">3</div>
+                    <div>
+                        <h4>ESP32 Code — Writing Sensor Data</h4>
+                        <p>Arduino IDE sketch written to read temperature values every 2 seconds and push them to the Firebase Realtime Database using the FirebaseESP32 library.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">4</div>
+                    <div>
+                        <h4>Web Frontend (Firebase Hosting)</h4>
+                        <p>A simple HTML + JavaScript webpage built that reads from the Firebase database in real time and displays live temperature readings on the screen — no manual refresh needed.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">5</div>
+                    <div>
+                        <h4>Bidirectional Control — LED via Firebase</h4>
+                        <p>A toggle button on the web dashboard writes an ON/OFF command to Firebase. The ESP32 reads this value and turns the LED on or off — demonstrating full two-way communication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IMAGE PLACEHOLDER — Firebase web app screenshot -->
+        <div class="img-placeholder">
+            <span class="icon">📸</span>
+            <span class="label">Screenshot — Firebase Web App Dashboard</span>
+            <span class="sub">Replace with your actual Firebase dashboard screenshot.<br>Example: &lt;img src="firebase-dashboard.png" alt="Firebase Web App"&gt;</span>
+        </div>
+
+        <!-- VIDEO PLACEHOLDER — Personal recording -->
+        <div class="video-placeholder">
+            <div class="video-placeholder-inner">
+                <span class="icon">🎬</span>
+                <span class="label">Video — Live Firebase Temperature Demo</span>
+                <span class="sub">Paste your YouTube link here once uploaded.<br>Replace this div with: &lt;div class="video-embed-wrap"&gt;&lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"&gt;&lt;/iframe&gt;&lt;/div&gt;</span>
+            </div>
+        </div>
+
+        <div class="firebase-arch">
+            <p><span class="fb-device">DHT Sensor</span> <span class="fb-arrow">→</span> <span class="fb-device">ESP32</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">→</span> <span class="fb-device">Web Dashboard (live)</span></p>
+            <p><span class="fb-device">Web Dashboard Button</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">→</span> <span class="fb-device">ESP32</span> <span class="fb-arrow">→</span> <span class="fb-device">LED ON / OFF</span></p>
+        </div>
+
+        <div class="info-box-warm">
+            <strong>Personal Note:</strong><br>
+            Seeing the temperature number update live on the browser the moment I breathed warm air near the sensor was a genuinely exciting moment — it made the entire concept of IoT click in a very real way. The LED toggling from a web button made it feel like an actual product.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 03 — ARDUINO -->
+    <div class="sub-heading">
+        <span class="section-number">03</span>
         <div>
             <p class="small-heading">OPEN-SOURCE MICROCONTROLLER PLATFORM</p>
             <h2 id="arduino">Arduino Boards Comparison</h2>
@@ -485,9 +664,96 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 03 — PHYSICAL AI -->
+    <!-- SECTION 04 — SERVO MOTORS -->
     <div class="sub-heading">
-        <span class="section-number">03</span>
+        <span class="section-number">04</span>
+        <div>
+            <p class="small-heading">ACTUATOR — PRECISE POSITION CONTROL</p>
+            <h2 id="servo">Servo Motors & Actuators</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Servo motors</span> were studied and used hands-on this week. Unlike a regular DC motor that simply spins, a servo motor accepts a <span class="highlight-name">PWM (Pulse Width Modulation)</span> signal and rotates to a precise angular position — making it essential for any application where controlled movement matters, such as robotic arms, camera gimbals, or automated doors.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">How a Servo Motor Works</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>Input Signal</h4>
+                    <p>A PWM signal (typically 50 Hz) with pulse width between 1 ms and 2 ms determines the target angle.</p>
+                    <ul>
+                        <li>1 ms pulse → 0°</li>
+                        <li>1.5 ms pulse → 90°</li>
+                        <li>2 ms pulse → 180°</li>
+                    </ul>
+                </div>
+                <div class="three-card">
+                    <h4>Internal Components</h4>
+                    <p>A servo contains a DC motor, a gear train, a position sensor (potentiometer), and a control circuit — all in one compact unit.</p>
+                </div>
+                <div class="three-card">
+                    <h4>Closed-Loop Control</h4>
+                    <p>The internal pot continuously reports actual angle. The control circuit adjusts motor drive until actual position matches target.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Servo with ESP32 — Arduino Code Pattern</span>
+            <div class="firebase-arch">
+                <p><span class="fb-service">#include &lt;ESP32Servo.h&gt;</span></p>
+                <p><span class="fb-device">Servo myServo;</span></p>
+                <p><span class="fb-device">myServo.attach(18);</span>  <span class="fb-arrow">// GPIO 18</span></p>
+                <p><span class="fb-device">myServo.write(90);</span>    <span class="fb-arrow">// Rotate to 90 degrees</span></p>
+                <p><span class="fb-device">myServo.write(0);</span>     <span class="fb-arrow">// Rotate to 0 degrees</span></p>
+            </div>
+        </div>
+
+        <!-- VIDEO PLACEHOLDER — Servo demo -->
+        <div class="video-placeholder">
+            <div class="video-placeholder-inner">
+                <span class="icon">🎬</span>
+                <span class="label">Video — Servo Motor Demo</span>
+                <span class="sub">Paste your YouTube link here once uploaded.</span>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Where Servo Motors Are Used</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Robotics</h4>
+                    <p>Robotic arms use multiple servo joints to achieve multi-axis precise movement and manipulation.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Drones & Gimbals</h4>
+                    <p>Camera stabilisation gimbals use servos to compensate for movement and maintain level framing.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>RC & Vehicles</h4>
+                    <p>Steering control in RC cars and model aircraft uses servos for accurate direction response.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Smart Automation</h4>
+                    <p>Automated door locks, valve controllers, and conveyor position systems rely on servo precision.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Servo motors demonstrate how a feedback loop — even a simple internal one — transforms a dumb spinning motor into a precision positioning tool. This directly parallels how PID control loops are used in larger systems.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 05 — PHYSICAL AI -->
+    <div class="sub-heading">
+        <span class="section-number">05</span>
         <div>
             <p class="small-heading">INTELLIGENT SYSTEMS IN THE REAL WORLD</p>
             <h2 id="physicalai">Physical AI</h2>
@@ -551,9 +817,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 04 — MCU vs CPU -->
+    <!-- SECTION 06 — MCU vs CPU -->
     <div class="sub-heading">
-        <span class="section-number">04</span>
+        <span class="section-number">06</span>
         <div>
             <p class="small-heading">HARDWARE ARCHITECTURE</p>
             <h2 id="mcu-vs-cpu">Microcontroller vs Processor</h2>
@@ -620,9 +886,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 05 — EDGE COMPUTING -->
+    <!-- SECTION 07 — EDGE COMPUTING -->
     <div class="sub-heading">
-        <span class="section-number">05</span>
+        <span class="section-number">07</span>
         <div>
             <p class="small-heading">DISTRIBUTED COMPUTING MODEL</p>
             <h2 id="edge">Edge Computing</h2>
@@ -686,9 +952,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 06 — SENSOR CONTROLLER ACTUATOR -->
+    <!-- SECTION 08 — SCA -->
     <div class="sub-heading">
-        <span class="section-number">06</span>
+        <span class="section-number">08</span>
         <div>
             <p class="small-heading">CONTROL SYSTEM COMPONENTS</p>
             <h2 id="sca">Sensor, Controller & Actuator</h2>
@@ -705,7 +971,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                 <h4>📡 Sensor</h4>
                 <p>Measures physical quantities and converts them into electrical signals.</p>
                 <ul>
-                    <li>Temperature Sensor</li>
+                    <li>Temperature Sensor (DHT11)</li>
                     <li>Light Sensor (LDR)</li>
                     <li>Distance Sensor (Ultrasonic)</li>
                     <li>Camera Module</li>
@@ -725,10 +991,10 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                 <h4>⚡ Actuator</h4>
                 <p>Converts controller output signals into physical mechanical or electrical actions.</p>
                 <ul>
-                    <li>DC Motor</li>
+                    <li>LED (used this week)</li>
+                    <li>Servo Motor (used this week)</li>
                     <li>Relay Switch</li>
-                    <li>Solenoid</li>
-                    <li>Servo Motor</li>
+                    <li>DC Motor</li>
                 </ul>
             </div>
         </div>
@@ -746,9 +1012,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 07 — CONTROL SYSTEMS -->
+    <!-- SECTION 09 — CONTROL SYSTEMS -->
     <div class="sub-heading">
-        <span class="section-number">07</span>
+        <span class="section-number">09</span>
         <div>
             <p class="small-heading">FEEDBACK & REGULATION SYSTEMS</p>
             <h2 id="control">Control Systems — P, PI & PID</h2>
@@ -799,9 +1065,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 08 — SENSORS -->
+    <!-- SECTION 10 — SENSORS -->
     <div class="sub-heading">
-        <span class="section-number">08</span>
+        <span class="section-number">10</span>
         <div>
             <p class="small-heading">PERCEPTION & MEASUREMENT</p>
             <h2 id="sensors">Sensors Documentation</h2>
@@ -810,7 +1076,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            A <span class="highlight-name">sensor</span> converts physical phenomena into measurable electrical signals. Sensors are categorized as <span class="highlight-name">Active</span> (require external power) or <span class="highlight-name">Passive</span> (respond to environmental changes without external energy input).
+            A <span class="highlight-name">sensor</span> converts physical phenomena into measurable electrical signals. Sensors are categorized as <span class="highlight-name">Active</span> (require external power) or <span class="highlight-name">Passive</span> (respond to environmental changes without external energy input). This week, the <span class="highlight-name">DHT11 temperature & humidity sensor</span> was used live to stream data to Firebase.
         </p>
 
         <div class="reference-box">
@@ -852,28 +1118,23 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                     </ul>
                 </div>
                 <div class="param-card">
-                    <h4>Thermistor</h4>
-                    <p><strong>Working Principle:</strong> Resistance changes according to temperature variation.</p>
+                    <h4>Thermistor / DHT11</h4>
+                    <p><strong>Working Principle:</strong> Resistance changes with temperature; DHT11 additionally gives humidity readings digitally.</p>
                     <ul class="styled-list">
-                        <li>Temperature Monitoring</li>
+                        <li>Temperature Monitoring (used this week)</li>
                         <li>Medical Diagnostic Devices</li>
                         <li>Industrial Thermal Control</li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <div class="info-box">
-            <strong>Learning Outcome:</strong><br>
-            Selecting the correct sensor type is fundamental to system accuracy. Active sensors like LiDAR provide precision at the cost of power; passive sensors like thermistors offer simplicity with minimal energy overhead.
-        </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 09 — MOTORS -->
+    <!-- SECTION 11 — MOTORS -->
     <div class="sub-heading">
-        <span class="section-number">09</span>
+        <span class="section-number">11</span>
         <div>
             <p class="small-heading">MOTION & MECHANICAL ACTUATION</p>
             <h2 id="motors">Actuators & Motors</h2>
@@ -882,7 +1143,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Actuators translate electrical control signals into physical mechanical action. Five major motor types were studied, each with distinct operating principles and application suitability.
+            Actuators translate electrical control signals into physical mechanical action. Five major motor types were studied, each with distinct operating principles and application suitability. The <span class="highlight-name">Servo Motor</span> was used hands-on this week with the ESP32.
         </p>
 
         <div class="overview-grid">
@@ -903,8 +1164,8 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                 <p>Brushless design eliminates mechanical wear, delivering high efficiency and reliability. Used in drones and electric vehicles.</p>
             </div>
             <div class="overview-item">
-                <h4>Servo Motor</h4>
-                <p>Closed-loop control with position feedback delivers extremely precise angular control. Standard in robotics and aerospace.</p>
+                <h4>Servo Motor ✅ Used This Week</h4>
+                <p>Closed-loop control with position feedback delivers extremely precise angular control. Interfaced with ESP32 via PWM during lab session.</p>
             </div>
         </div>
 
@@ -929,9 +1190,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 10 — SEMICONDUCTORS -->
+    <!-- SECTION 12 — SEMICONDUCTORS -->
     <div class="sub-heading">
-        <span class="section-number">10</span>
+        <span class="section-number">12</span>
         <div>
             <p class="small-heading">ELECTRONIC COMPONENTS</p>
             <h2 id="semiconductors">LED, Semiconductors & Transistors</h2>
@@ -940,7 +1201,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            A foundational understanding of <span class="highlight-name">LEDs</span>, <span class="highlight-name">semiconductors</span>, and <span class="highlight-name">transistors</span> is essential for designing and debugging electronic circuits in embedded systems.
+            A foundational understanding of <span class="highlight-name">LEDs</span>, <span class="highlight-name">semiconductors</span>, and <span class="highlight-name">transistors</span> is essential for designing and debugging electronic circuits in embedded systems. This week, LEDs were used as output actuators in the Firebase demo — toggled via commands sent from the web dashboard.
         </p>
 
         <div class="reference-box">
@@ -959,7 +1220,7 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                 <div class="three-card">
                     <h4>Applications</h4>
                     <ul>
-                        <li>Status Indicators</li>
+                        <li>Status Indicators ✅ Used this week</li>
                         <li>Display Backlighting</li>
                         <li>Communication Systems</li>
                         <li>Optical Sensing</li>
@@ -999,9 +1260,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 11 — MOSFET & RELAY -->
+    <!-- SECTION 13 — MOSFET & RELAY -->
     <div class="sub-heading">
-        <span class="section-number">11</span>
+        <span class="section-number">13</span>
         <div>
             <p class="small-heading">SWITCHING & POWER CONTROL</p>
             <h2 id="mosfet">MOSFET & Relay</h2>
@@ -1071,18 +1332,310 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 12 — FIREBASE -->
+    <!-- ═══════════════════════════════════════════════════════════
+         NEW SECTION — EXPERT SESSION 1 — JAYDEEP ASHTEKAR
+    ═══════════════════════════════════════════════════════════ -->
     <div class="sub-heading">
-        <span class="section-number">12</span>
+        <span class="section-number">14</span>
         <div>
-            <p class="small-heading">CLOUD IoT INTEGRATION</p>
-            <h2 id="firebase">ESP32 & Firebase</h2>
+            <p class="small-heading">EXPERT SESSION — WEEK 3</p>
+            <h2 id="expert1">Expert Session — Edge AI & Edge Impulse</h2>
         </div>
     </div>
 
     <div class="content-card">
         <p>
-            <span class="highlight-name">Firebase</span> is a cloud-based platform by Google that enables real-time data synchronization between multiple devices. When combined with ESP32, it creates a powerful bi-directional IoT communication channel for remote monitoring and control applications.
+            One of the most impactful experiences of Week 3 was an expert session delivered by <span class="highlight-name">Jaydeep Ashtekar</span>, an industry professional with expertise in embedded AI and Edge computing. The session provided a full walkthrough of the <span class="highlight-name">Edge Impulse</span> platform — from data collection to model training and live deployment on embedded hardware.
+        </p>
+
+        <!-- EXPERT SPEAKER CARD -->
+        <div class="expert-card">
+            <div class="expert-avatar">
+                <!-- REPLACE this emoji with: <img src="YOUR_PHOTO_PATH" alt="Jaydeep Ashtekar"> -->
+                👤
+            </div>
+            <div class="expert-info">
+                <h3>Jaydeep Ashtekar</h3>
+                <p class="expert-role">Industry Expert — Edge AI & Embedded Systems</p>
+                <p>Delivered a comprehensive, step-by-step session on how the Edge Impulse platform works end-to-end — covering data acquisition, model training without writing code, and deployment on microcontrollers and embedded devices. The session highlighted the growing importance of Edge AI in modern industries and inspired students to explore AI-driven innovation at the hardware level.</p>
+                <a class="expert-linkedin" href="https://www.linkedin.com/in/jaydeep-ashtekar-6a54a1196/" target="_blank">
+                    🔗 Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+
+        <!-- IMAGE PLACEHOLDER — Expert session photo -->
+        <div class="img-placeholder">
+            <span class="icon">📸</span>
+            <span class="label">Photo — Expert Session with Jaydeep Ashtekar</span>
+            <span class="sub">Replace with your session photo.<br>Example: &lt;img src="jaydeep-session.jpg" alt="Expert Session"&gt;</span>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Session Highlights</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Introduction to Edge AI</h4>
+                    <p>Covered the distinction between cloud AI and Edge AI — why running inference locally on hardware changes what's possible in real-world systems.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Building ML Models with Edge Impulse</h4>
+                    <p>Demonstrated how to train machine learning models on the Edge Impulse platform without writing a single line of training code.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Data Acquisition & Model Training</h4>
+                    <p>Walked through collecting labelled data directly from embedded hardware, splitting into training/test sets, and running the training pipeline.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Deployment on Embedded Devices</h4>
+                    <p>Showed how to export a trained model as a deployable firmware package and flash it directly onto a microcontroller or embedded board.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Real-World Applications</h4>
+                    <p>Covered industry examples: gesture recognition, sound classification, anomaly detection in machinery, and predictive maintenance systems.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Live Demonstration</h4>
+                    <p>A live model was trained and deployed during the session, demonstrating the full Edge Impulse pipeline from raw data to running inference in real time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box-warm">
+            <strong>Key Takeaway:</strong><br>
+            This session reframed how AI is deployed. It's not always about large servers — increasingly, intelligence lives on the device itself. The Edge Impulse platform makes this accessible even for students, removing the traditional barrier of needing ML expertise to train and deploy models on hardware.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         NEW SECTION — EDGE IMPULSE PLATFORM
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="sub-heading">
+        <span class="section-number">15</span>
+        <div>
+            <p class="small-heading">EDGE AI PLATFORM — HANDS-ON</p>
+            <h2 id="edgeimpulse">Edge Impulse Platform</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Edge Impulse</span> is an open-source, end-to-end machine learning platform designed specifically for building and deploying ML models on embedded devices and microcontrollers. It enables developers to train image classification, audio recognition, and sensor anomaly detection models — entirely through a browser-based interface — without writing training code.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">End-to-End Pipeline on Edge Impulse</span>
+            <div class="pipeline">
+                <div class="pipeline-step">
+                    <div class="pipeline-num">1</div>
+                    <div>
+                        <h4>Data Collection</h4>
+                        <p>Connect a device (Arduino, Raspberry Pi, phone) and collect labelled sensor data or images directly through the Edge Impulse dashboard. Data is automatically organised into labelled classes.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">2</div>
+                    <div>
+                        <h4>Create Impulse (Feature Extraction)</h4>
+                        <p>Design the signal processing pipeline — choose what features to extract from raw data (e.g. spectral analysis for audio, image normalization for vision tasks).</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">3</div>
+                    <div>
+                        <h4>Model Training — No Code Required</h4>
+                        <p>Select a neural network architecture (or let Edge Impulse's AutoML choose), then click Train. The platform handles dataset splitting, training epochs, and accuracy validation automatically.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">4</div>
+                    <div>
+                        <h4>Model Testing & Validation</h4>
+                        <p>Test the trained model against a held-out test dataset. Live classification from a connected device can be streamed directly to the dashboard to verify accuracy in real conditions.</p>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="pipeline-num">5</div>
+                    <div>
+                        <h4>Deployment on Embedded Device</h4>
+                        <p>Export the trained model as an Arduino library, C++ source, or firmware binary. Flash it onto the target device — it runs locally with no internet connection required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">What Was Explored This Week</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>Labels & Classes</h4>
+                    <p>Understood how labelled data classes are created — each class represents one category the model learns to recognise (e.g. "cat", "dog", or "normal", "anomaly").</p>
+                </div>
+                <div class="three-card">
+                    <h4>No-Code Training</h4>
+                    <p>Explored the Edge Impulse studio UI to understand how model training happens without writing a single line of Python or TensorFlow code.</p>
+                </div>
+                <div class="three-card">
+                    <h4>Open Source Projects</h4>
+                    <p>Explored public Edge Impulse projects — pre-built models for gesture recognition, keyword spotting, and predictive maintenance that can be cloned and deployed directly.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flow-diagram">
+            <div class="flow-box">Collect Data</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Label Classes</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Train Model</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Test & Validate</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Deploy to Device</div>
+        </div>
+
+        <!-- VIDEO PLACEHOLDER — Edge Impulse walkthrough -->
+        <div class="video-placeholder">
+            <div class="video-placeholder-inner">
+                <span class="icon">🎬</span>
+                <span class="label">Video — Edge Impulse Platform Walkthrough</span>
+                <span class="sub">Paste your YouTube link once recorded & uploaded.</span>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            Edge Impulse democratises machine learning for embedded systems. The ability to train a working model and deploy it to a microcontroller in under an hour — without ML expertise — opens up an entirely new class of hardware-AI applications for students and makers.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         NEW SECTION — OPENCV & COMPUTER VISION
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="sub-heading">
+        <span class="section-number">16</span>
+        <div>
+            <p class="small-heading">COMPUTER VISION LIBRARY</p>
+            <h2 id="opencv">OpenCV & Computer Vision Basics</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">OpenCV</span> (Open Source Computer Vision Library) is one of the most widely used libraries for real-time computer vision tasks. It was introduced this week as the vision backbone that powers many Edge AI applications — including image classification, object detection, and the kind of skin image processing needed in the ongoing Skin Cancer Detection project.
+        </p>
+
+        <div class="reference-box">
+            <span class="reference-label">What OpenCV Does</span>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h4>Image Processing</h4>
+                    <p>Reading, resizing, colour space conversion (BGR → RGB → Grayscale), and applying filters to prepare images for ML models.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Object Detection</h4>
+                    <p>Real-time detection of objects in a video stream using pre-trained classifiers and deep learning models like YOLO.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Feature Extraction</h4>
+                    <p>Detecting edges, contours, and keypoints in images — the same pre-processing steps used before feeding images into neural networks.</p>
+                </div>
+                <div class="overview-item">
+                    <h4>Camera Integration</h4>
+                    <p>Direct integration with USB cameras and Raspberry Pi camera modules to capture and process frames in real time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">OpenCV in the Context of This Internship</span>
+            <div class="flow-diagram">
+                <div class="flow-box">Camera / Image</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">OpenCV Preprocessing</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">ML Model (Edge Impulse / TFLite)</div>
+                <span class="flow-arrow">→</span>
+                <div class="flow-box">Classification Result</div>
+            </div>
+            <p style="margin-top: 18px; font-size: 15px; color: #374151;">
+                In the Skin Cancer Detection project, OpenCV handles the camera feed from the Raspberry Pi — capturing skin images, resizing them to the model's input dimensions, and passing them to the deep learning classifier running on the edge.
+            </p>
+        </div>
+
+        <div class="reference-box">
+            <span class="reference-label">Key OpenCV Concepts Covered</span>
+            <div class="three-grid">
+                <div class="three-card">
+                    <h4>imread / imshow</h4>
+                    <p>Loading and displaying images. The starting point of any OpenCV pipeline.</p>
+                </div>
+                <div class="three-card">
+                    <h4>cvtColor</h4>
+                    <p>Converting colour spaces — e.g. BGR to RGB or Grayscale, required before feeding images to most ML models.</p>
+                </div>
+                <div class="three-card">
+                    <h4>resize</h4>
+                    <p>Scaling images to a fixed input size (e.g. 224×224) as required by neural network architectures.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Learning Outcome:</strong><br>
+            OpenCV is the practical bridge between a camera and an AI model. Understanding its preprocessing pipeline is essential before deploying any computer vision model — especially on edge hardware where every processing step needs to be efficient.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         NEW SECTION — EXPERT SESSION 2 PLACEHOLDER
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="sub-heading">
+        <span class="section-number">17</span>
+        <div>
+            <p class="small-heading">EXPERT SESSION — WEEK 3</p>
+            <h2 id="expert2">Expert Session 2</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            A second expert session was held during Week 3, further expanding on industry applications of IoT, embedded AI, and intelligent systems. Details will be updated once session notes are compiled.
+        </p>
+
+        <!-- IMAGE PLACEHOLDER — Expert session 2 photo -->
+        <div class="img-placeholder">
+            <span class="icon">📸</span>
+            <span class="label">Photo — Expert Session 2</span>
+            <span class="sub">Add the speaker's name, photo, and LinkedIn here once confirmed.</span>
+        </div>
+
+        <div class="info-box-warm">
+            <strong>Note:</strong><br>
+            This section will be updated with the speaker profile, session topics, and key takeaways. Add the expert's LinkedIn, photo path, and a summary of what was covered.
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION — FIREBASE IoT ARCHITECTURE (renamed from old 12) -->
+    <div class="sub-heading">
+        <span class="section-number">18</span>
+        <div>
+            <p class="small-heading">CLOUD IoT INTEGRATION</p>
+            <h2 id="firebase-iot">ESP32 & Firebase IoT Architecture</h2>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <p>
+            <span class="highlight-name">Firebase</span> is a cloud-based platform by Google that enables real-time data synchronization between multiple devices. When combined with ESP32, it creates a powerful bi-directional IoT communication channel for remote monitoring and control applications — exactly what was built hands-on this week.
         </p>
 
         <div class="reference-box">
@@ -1092,17 +1645,17 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
                     <h4>ESP32 → Firebase (Write)</h4>
                     <p>ESP32 sends data to the Firebase Realtime Database for cloud storage and multi-device access.</p>
                     <ul class="styled-list">
-                        <li>Sensor Readings</li>
-                        <li>Temperature & Humidity Values</li>
+                        <li>Temperature & Humidity Readings ✅ Done this week</li>
                         <li>Device Status Updates</li>
+                        <li>Sensor Event Logs</li>
                     </ul>
                 </div>
                 <div class="param-card">
                     <h4>Firebase → ESP32 (Read)</h4>
                     <p>ESP32 receives commands and configuration from Firebase, enabling remote device control.</p>
                     <ul class="styled-list">
-                        <li>LED ON/OFF Commands</li>
-                        <li>Motor Control Signals</li>
+                        <li>LED ON/OFF Commands ✅ Done this week</li>
+                        <li>Servo Motor Angle Commands</li>
                         <li>Remote Device Settings</li>
                     </ul>
                 </div>
@@ -1112,9 +1665,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <div class="reference-box">
             <span class="reference-label">System Architecture</span>
             <div class="firebase-arch">
-                <p><span class="fb-device">ESP32 Device</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Database</span> <span class="fb-arrow">→</span> <span class="fb-device">Mobile App / Web Dashboard</span></p>
+                <p><span class="fb-device">DHT Sensor</span> <span class="fb-arrow">→</span> <span class="fb-device">ESP32</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">→</span> <span class="fb-device">Web Dashboard (live temp)</span></p>
+                <p><span class="fb-device">Web Dashboard Button</span> <span class="fb-arrow">→</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">→</span> <span class="fb-device">ESP32</span> <span class="fb-arrow">→</span> <span class="fb-device">LED ON/OFF</span></p>
                 <p><span class="fb-device">ESP32 Device 1</span> <span class="fb-arrow">↔</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">↔</span> <span class="fb-device">ESP32 Device 2</span></p>
-                <p><span class="fb-device">ESP32 Device 3</span> <span class="fb-arrow">↔</span> <span class="fb-service">Firebase Realtime DB</span> <span class="fb-arrow">↔</span> <span class="fb-device">Web Dashboard</span></p>
             </div>
         </div>
 
@@ -1148,9 +1701,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 13 — SKILLS -->
+    <!-- SECTION — SKILLS -->
     <div class="sub-heading">
-        <span class="section-number">13</span>
+        <span class="section-number">19</span>
         <div>
             <p class="small-heading">COMPETENCIES GAINED</p>
             <h2 id="skills">Key Skills Developed</h2>
@@ -1159,19 +1712,21 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Week 3 contributed a broad set of technical, hardware, and systems-thinking skills across electronics, embedded development, and IoT communication.
+            Week 3 was the most practically dense week of the internship so far — combining theoretical electronics knowledge with live circuit builds, cloud integration, expert sessions, and first exposure to Edge AI tooling.
         </p>
 
         <div class="reference-box">
             <span class="reference-label">Technical Skills</span>
             <ul class="styled-list">
-                <li>Embedded Systems fundamentals and architecture</li>
-                <li>ESP32 platform programming and IoT deployment</li>
-                <li>Arduino board selection and development workflow</li>
-                <li>Sensor integration and signal interpretation</li>
-                <li>Motor selection and control circuit design</li>
+                <li>ESP32 pinout, architecture, and I/O configuration</li>
+                <li>Firebase Realtime Database integration with ESP32 (read & write)</li>
+                <li>Building and hosting a live web frontend on Firebase</li>
+                <li>Servo motor control via PWM from ESP32</li>
+                <li>LED actuation via cloud commands (Firebase → ESP32 → LED)</li>
+                <li>Live temperature & humidity data streaming using DHT sensor</li>
+                <li>Edge Impulse platform — data labelling, training, deployment</li>
+                <li>OpenCV basics for image preprocessing in computer vision pipelines</li>
                 <li>MOSFET and Relay switching circuit knowledge</li>
-                <li>Firebase Realtime Database integration with ESP32</li>
             </ul>
         </div>
 
@@ -1180,8 +1735,10 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
             <ul class="styled-list">
                 <li>Physical AI sense-reason-act system design</li>
                 <li>Edge computing architecture and deployment strategy</li>
+                <li>Edge AI vs Cloud AI trade-offs and when to use each</li>
                 <li>Control system design — P, PI, and PID theory</li>
                 <li>IoT communication and cloud integration planning</li>
+                <li>Understanding ML model labels and class-based training</li>
                 <li>Hardware-software interface understanding</li>
             </ul>
         </div>
@@ -1189,9 +1746,9 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="divider"></div>
 
-    <!-- SECTION 14 — REFLECTION -->
+    <!-- SECTION — REFLECTION -->
     <div class="sub-heading">
-        <span class="section-number">14</span>
+        <span class="section-number">20</span>
         <div>
             <p class="small-heading">REFLECTION</p>
             <h2 id="reflection">Personal Reflection</h2>
@@ -1200,21 +1757,24 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
 
     <div class="content-card">
         <p>
-            Week 3 provided a strong foundation in electronics, embedded systems, and Physical AI. Understanding sensors, controllers, actuators, and communication systems helped bridge the gap between software intelligence and real-world hardware interaction.
+            Week 3 was the week where electronics stopped feeling abstract and started feeling real. Watching live temperature data appear on a browser the moment I moved the sensor — streamed from a physical circuit through Firebase — made the entire concept of IoT click in a way that reading alone never could.
         </p>
         <p>
-            Working through the ESP32 platform and Arduino board comparisons clarified the hardware decision-making process for IoT projects. The exploration of Physical AI as a concept — and how the sense-reason-act loop operates in real systems — was particularly valuable for contextualizing the Skin Cancer Detection project.
+            The expert session by <span class="highlight-name">Jaydeep Ashtekar</span> was a genuine highlight. The idea that you can train a working machine learning model and deploy it to a microcontroller in under an hour — without writing training code — is something I hadn't fully understood was possible. Edge Impulse made it tangible. The session also introduced a vocabulary — edge AI, embedded inference, data labels, impulse design — that I now use naturally when thinking about the Skin Cancer Detection project.
         </p>
         <p>
-            The concepts of edge computing and ESP32-Firebase integration are directly applicable for implementing real-time monitoring and control systems in future projects. The knowledge of control systems, motor types, and switching components like MOSFETs and Relays will be essential as the internship progresses toward more complex hardware builds.
+            Working with servo motors gave me an appreciation for how mechanical precision works at the component level. The PWM → angle relationship, the internal feedback loop, the fact that you can control position to within a degree just with a signal width — these details feel important to understand before working on any system where physical movement matters.
+        </p>
+        <p>
+            Overall, Week 3 built the bridge between digital software knowledge and the physical world of hardware. The knowledge of control systems, motor types, Firebase integration, and Edge AI tools will all be directly used as the internship moves toward more complex builds.
         </p>
     </div>
 
     <div class="divider"></div>
 
-    <!-- SECTION 15 — RESOURCES -->
+    <!-- SECTION — RESOURCES -->
     <div class="sub-heading">
-        <span class="section-number">15</span>
+        <span class="section-number">21</span>
         <div>
             <p class="small-heading">REFERENCES</p>
             <h2 id="resources">References & Learning Resources</h2>
@@ -1225,12 +1785,14 @@ h1, h2, .sub-heading h2 { font-family: var(--font-heading, 'Cormorant Garamond',
         <ul class="styled-list">
             <li>ESP32 Official Documentation — <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank">docs.espressif.com</a></li>
             <li>Arduino Official Documentation — <a href="https://docs.arduino.cc" target="_blank">docs.arduino.cc</a></li>
-            <li>Random Nerd Tutorials (ESP32 Projects) — <a href="https://randomnerdtutorials.com/projects-esp32/" target="_blank">randomnerdtutorials.com</a></li>
+            <li>Random Nerd Tutorials (ESP32 + Firebase) — <a href="https://randomnerdtutorials.com/projects-esp32/" target="_blank">randomnerdtutorials.com</a></li>
             <li>Firebase Documentation — <a href="https://firebase.google.com/docs" target="_blank">firebase.google.com/docs</a></li>
+            <li>Edge Impulse Documentation — <a href="https://docs.edgeimpulse.com" target="_blank">docs.edgeimpulse.com</a></li>
+            <li>OpenCV Documentation — <a href="https://docs.opencv.org" target="_blank">docs.opencv.org</a></li>
+            <li>Jaydeep Ashtekar — LinkedIn — <a href="https://www.linkedin.com/in/jaydeep-ashtekar-6a54a1196/" target="_blank">linkedin.com/in/jaydeep-ashtekar</a></li>
             <li>Espressif Systems ESP32 Datasheet — <a href="https://www.espressif.com/en/support/documents/technical-documents" target="_blank">espressif.com</a></li>
-            <li>IoT and Edge Computing Research Papers — IEEE Xplore</li>
-            <li>Industrial Control Systems Reference Material — PID Controller Design Theory</li>
-            <li>Physical AI and Robotics Learning Resources — NVIDIA Isaac Platform</li>
+            <li>IoT and Edge Computing Research Papers — <a href="https://ieeexplore.ieee.org/document/10594573" target="_blank">ieeexplore.ieee.org</a></li>
+            <li>Physical AI and Robotics Learning Resources — NVIDIA — <a href="https://docs.nvidia.com/learning/physical-ai/" target="_blank">docs.nvidia.com/learning/physical-ai</a></li>
         </ul>
     </div>
 
